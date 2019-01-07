@@ -58,3 +58,7 @@ div.menuhorizontal li{
 .noshow{
   display: none;
 }
+
+.padding{
+  padding: 2em;
+}

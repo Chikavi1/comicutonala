@@ -1,6 +1,11 @@
 {
   "name": "ComiCut",
-  "short_name": "ComiCut",
+  "short_name": "ComiCut de la Universidad de Guadalajara",
+  "start_url": "/",
+  "background_color": "#17202f",
+ "display": "standalone",
+  "theme_color": "#17202f",
+  "orientation": "portrait",
   "icons": [
     {
       "src": "https://financialtribune.com/sites/default/files/field/image/17january/12_fda.png",
@@ -22,9 +27,5 @@
       "sizes": "512x512",
       "type": "image/png"
     }
-  ],
-  "start_url": "http://127.0.0.1:8000//",
- "display": "standalone",
-  "background_color": "#17202f",
-  "theme_color": "#17202f"
+  ]
 }
