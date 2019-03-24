@@ -16,13 +16,12 @@ class CreateSchedulesTable extends Migration
         Schema::create('schedules', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->integer('seller_id')->unsigned();
-            $table->foreign('seller_id')->references('id')->on('sellers');
+            $table->integer('sellers_id')->unsigned();
+            $table->foreign('sellers_id')->references('id')->on('sellers');
 
-            $table->string('start-hour');
-            $table->string('finish-hour');
+            $table->string('start_hour');
+            $table->string('finish_hour');
             $table->string('day');
-            $table->timestamps();
         });
     }
 

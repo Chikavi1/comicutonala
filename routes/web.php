@@ -19,7 +19,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/vender','HomeController@vender')->name('vender');
 Route::get('/random','HomeController@random')->name('random');
 Route::get('/profile','HomeController@profile')->name('profile');
-Route::get('/admin','HomeController@admin')->name('admin');
+Route::get('/admin','AdminController@index')->name('admin');
+Route::get('admin/categorias','CategoriesController@admin')->name('categorias');
 
 //Route::get('/{slug}','SellersController@show');
 Route::resource('seller', 'SellersController');
@@ -27,11 +28,14 @@ Route::resource('seller', 'SellersController');
 Route::get('/edit/{id}','SellersController@filter')->name('filter');
 Route::get('/create/','SellersController@filter2')->name('filter2');
 
+
 Route::get('seller/{slug}', ['as' => 'seller', 'uses' => 'SellersController@show']);
 
-Route::get('categorias',function(){
-	return view('categorias');
-})->name('categorias');
+Route::resource('categorias','CategoriesController');
 
 
-Route::resource('items','itemsController');
+Route::middleware(['auth'])->group(function () {	
+	Route::resource('items','itemsController');
+	Route::resource('schedule','SchedulesController');
+   
+});

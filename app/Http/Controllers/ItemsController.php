@@ -34,7 +34,8 @@ class ItemsController extends Controller
             'pricing' => $request->get('pricing')
         ]);
         $item->save();
-        if(!(Auth::user()->seller->slug)){
+        
+        if((Auth::user()->seller->slug)){
          return redirect()->route('seller', ['id' =>  Auth::user()->seller->slug]); 
         }else{
             dd("error");

@@ -15,8 +15,8 @@ class CreateSellerImagesTable extends Migration
     {
         Schema::create('seller_images', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('seller_id');
-            $table->foreign('seller_id')->references('id')->on('sellers');
+            $table->integer('sellers_id')->unsigned();
+            $table->foreign('sellers_id')->references('id')->on('sellers');
             $table->string('image');
             $table->boolean('featured')->default(false);
             $table->timestamps();

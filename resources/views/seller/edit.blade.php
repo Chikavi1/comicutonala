@@ -2,8 +2,16 @@
 
 @section('content')
 
-<script src="{{ asset('/vendors/ckeditor/ckeditor.js') }}"></script>
+<script src="/vendor/ckeditor-2/ckeditor.js"></script>
+  <script src="/vendor/ckeditor-2/adapters/jquery.js"></script>
 
+
+<script>
+  $(document).ready(function(){
+    $('select').formSelect();
+        $('textarea').ckeditor();
+ });
+</script>
 
  <script>
    $(document).ready(function(){
@@ -32,9 +40,9 @@ $("#sw").click(function(){
  </script>
  <div class="row">
    <div class="col m5 offset-m3">
- <div class="card">
+ <div class="">
    
- <form method="POST"" action="{{ route('seller.update',$seller->slug) }}"> 
+ <form method="POST"" action="{{ route('seller.update',$seller->slug) }}" files="true"> 
            @method('PATCH')
            @csrf
           <div class="form-group">
@@ -55,7 +63,7 @@ $("#sw").click(function(){
           </div>
           <div class="input-field col s12">
              <select name="category" id="">
-                <option value="" disabled selected>Selecciona una opcion</option>
+                <option value="" disabled selected>{{$seller->category}}</option>
                <option value="comida salada">Comida salada</option>
                <option value="comida dulce">Comida dulce</option>
                <option value="bebidas">bebidas</option>

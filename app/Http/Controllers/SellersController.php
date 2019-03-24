@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Sellers;
 use Auth;
+use App\Categories;
+use App\Schedules;
+use Image;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str as Str;
  
 class SellersController extends Controller
@@ -14,12 +18,13 @@ class SellersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        $sellers = Sellers::all();
+    public function index(Request $request)
+{
+        $sellers = Sellers::Search($request->get("busqueda"));
+
         return view('seller.index')->with(compact('sellers'));
     }
-
+    
     /**
      * Show the form for creating a new resource.
      *
@@ -27,7 +32,8 @@ class SellersController extends Controller
      */
     public function create()
     {
-        return view('seller.create');
+        $categories = Categories::all();
+        return view('seller.create')->with(compact('categories'));
     }
 
     /**
@@ -50,16 +56,32 @@ class SellersController extends Controller
      */
     public function store(Request $request)
     {
+        
+
+
         $request->validate([
             'title' => 'required',
-            'slug' => 'required',
-            'user_id' => 'unique:sellers,user_id'
+            'user_id' => 'unique:sellers,user_id',
+            'image'=>'required|image'
         ]);
+
+        if($request->hasFile('image')){
+            $path = $request->file('image')->store('public');
+            $fileName = collect(explode('/', $path))->last();
+            $image = Image::make(\Storage::get($path));
+            $image->resize(1024, 768, function ($constraint) {
+              $constraint->aspectRatio();
+              $constraint->upsize();
+            });
+            Storage::put($path, (string) $image->encode('jpg', 60));
+           
+        }
       
         $seller = new Sellers([
             'user_id' => Auth::user()->id,
             'title' => $request->get('title'),
-            'slug' => Str::slug($request->get('slug')),
+            'image' => $path,
+            'slug' => Str::slug($request->get('title')),
             'description' => $request->get('description'),
             'category' => $request->get('category'),
             'cellphone' => $request->get('cellphone'),
@@ -78,7 +100,9 @@ class SellersController extends Controller
      */
       public function show($slug){
         $seller = Sellers::where('slug','=',$slug)->firstOrFail();
-        return view('seller.show')->with(compact('seller'));
+        $schedules = Schedules::where('sellers_id','=',$seller->id)->get();
+        dd($seller);    
+        return view('seller.show')->with(compact('seller','schedules'));
 
     }
 
@@ -103,7 +127,9 @@ class SellersController extends Controller
      */
     public function update(Request $request, $slug)
     {
-
+        if($request->hasFile('image')){
+            $image = $request->file('image')->store('public');
+        }
         Sellers::where('slug','=',$slug)->firstOrFail()->update($request->all());
         return redirect()->route('seller', [$slug]);
      }
@@ -124,6 +150,7 @@ class SellersController extends Controller
         return view('seller.filter')->with(compact('seller'));
     }
     public function filter2(){
-        return view('seller.filter2');
+        $categories = Categories::all();
+        return view('seller.filter2')->with(compact('categories'));
     }
 }

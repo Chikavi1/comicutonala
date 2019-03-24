@@ -38,6 +38,14 @@ div.menuhorizontal li{
     width: 80%;
 
   }
+  .carta-categoria{
+    display: inline-block;
+    width: 40%;
+
+  }
+  .img-categoria{
+    max-width: 95px !important;
+  }
 .color-cut{
 	background-color: #17202f !important
 }
@@ -61,4 +69,9 @@ div.menuhorizontal li{
 
 .padding{
   padding: 2em;
+}
+.bottom{
+    position: absolute !important;
+    bottom: 0 !important;
+    width: 85% !important;
 }

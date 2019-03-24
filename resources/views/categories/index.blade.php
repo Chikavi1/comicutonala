@@ -1,65 +1,42 @@
+
 @extends('layouts.app')
 @section('content')
+
 <style>
 	.image-max{
 		height: 12em !important;
 	}
 </style>
+
 <div class="row">
 	<div class="col m3 animated p2 bounceIn">
 		
       <div class="card-panel teal">
-        <span class="white-text">I am a very simple card. I am good at containing small bits of information.
-        I am convenient because I require little markdown to use effectively. I am similar to what is called a panel in other frameworks.
+        <span class="white-text " style="text-align: justify !important;">¡Ahora tambien puedes encontrar mas categorias,no solo hay comida!Explora y encuentra mas categorias como Ropa,accesorios para celular,renta de cuartos y más.
         </span> 
   </div>
 	</div>	
-	
-	<div class=" col m9">
-		<div class="m3 col  ">
-			<a href="/">
-				
-			<div class="card " >
-		        <div class="card-image">
-		          <img class="image-max" src="{{ asset('img/salado.jpg') }}">
-		        	  <p class=" card-title "  >Comida</p>
-		        </div>
-      		</div>
-			</a>
-		</div>
 
-		<div class="m3 col ">
-			<div class="card">
-		        <div class="card-image ">
-		          <img class="image-max" src="{{ asset('img/postres.jpg') }}" >
-		        	  <p class=" card-title "  >Postres</p>
-		        </div>
-      		</div>
-		</div>
-		<div class="m3 col ">
-			<div class="card">
-		        <div class="card-image">
-		          <img class="image-max" src="{{ asset('img/bebidas.jpg') }}">
-		        	  <p class=" card-title "  >Bebidas</p>
-		        </div>
-      		</div>
-		</div>
-		<div class="m3 col ">
-			<div class="card">
-		        <div class="card-image">
-		          <img class="image-max" src="{{ asset('img/dulces.jpg') }}">
-		        	  <p class=" card-title "  >Dulces </p>
-		        </div>
-      		</div>
-		</div>
-		<div class="m3 col ">
-			<div class="card">
-		        <div class="card-image">
-		          <img class="image-max" src="https://materializecss.com/images/sample-1.jpg">
-		        	  <p class=" card-title "  >Categoria </p>
-		        </div>
-      		</div>
-		</div>
+
+
+		
+
+	<div class=" col m9">
+
+		@foreach($categories as $category)
+			<div class="m3 col  ">
+				<a href="{{ route('categorias.show',$category->id) }}">
+					
+				<div class="card " >
+			        <div class="card-image">
+			          <img class="image-max" src="{{ asset('img/'.$category->name.'.jpg') }}">
+			        	  <p class=" card-title "> {{ $category->name }} </p>
+			        </div>
+	      		</div>
+				</a>
+			</div>
+		@endforeach
+
 	</div>
 	
 

@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Auth;
 use App\Sellers;
+use App\Categories;
+
 class HomeController extends Controller
 {
     /**
@@ -26,13 +29,16 @@ class HomeController extends Controller
     {
         return view('home');
     }
-    public function welcome(){
+    public function welcome(Request $request){
+        if($request->busqueda){$busqueda = true;}else{$busqueda = false;}
 
-        $sellers = Sellers::all();
-        $salados = Sellers::where("category",'=','comida salada')->get();
-        $dulces = Sellers::where('category','=','comida dulce')->get();
+        
+        $sellers = Sellers::Search($request->get("busqueda"));
+        $categories = Categories::paginate(5);
+        $salados = Sellers::where("category",'=','comida')->get();
+        $dulces = Sellers::where('category','=','postres')->get();
         $bebidas = Sellers::where('category','=','bebidas')->get();
-        return view('welcome')->with(compact('sellers','salados','dulces','bebidas'));
+        return view('welcome')->with(compact('sellers','salados','dulces','bebidas','categories','busqueda'));
 
     }
     public function vender(){
@@ -45,7 +51,8 @@ class HomeController extends Controller
     }
 
     public function profile(){
-        return view('profile');
+        $user = User::find(Auth::user()->id);
+        return view('profile')->with(compact('user'));
     }
 
 

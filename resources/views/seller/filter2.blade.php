@@ -1,6 +1,11 @@
 @extends('layouts.app')
  <script src="{{ asset('js/jquery.min.js') }}"></script>
-    <script src="{{ asset('js/materialize.js') }}"></script>
+
+    <script>
+  $(document).ready(function(){
+    $('select').formSelect();
+ });
+</script>
 <style>
 	
 	.center-icons{
@@ -22,33 +27,54 @@
 		background-image: url({{asset('img/comida.jpg')}});
 	}
 </style>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+	$('#jeje').on('click',function(){
+		console.log("caca");
+		$('.uno').addClass('animated fadeOutRight');
+		$('.dos').show();
+	});
+ 
+ });
+</script>
 @section('content')
-	<h2 class="center">¿Que deseas Crear?</h2>
-	<div class="row" >
-		<a href="{{ route('seller.create')}}">
-		<div class="col m3 s12 offset-m3 animated slideInLeft">
-			<div class="card center grey-cut " " >
-		<!--<i class="material-icons  center-icons">account_circle</i>-->
-				<h3 class="center-align white-c mart">Perfil </h3>
+	<form >
+	<div class="row uno ">
+		<div class="col m6 offset-m3 s12">
+			<div class="card">
+				<h2 class="center">¿Que deseas Crear?</h2>
+					<div class="input-field  s5">
+					    <select name="category" id="">
+
+		                    <option value="" disabled selected>Selecciona una opcion</option>
+		                    @foreach($categories as $category)
+		                     <option value="{{$category->name}}">{{$category->name}}</option>
+		                     @endforeach
+	                	 </select>
+					</div>
+					<p class="prueba">prueba</p>
+				<a class="btn color-cut btn-block" id="jeje">Siguiente</a>
 			</div>
 		</div>
-		</a>
-
-		<a href="">
-			<div class="col m3 s12 ">
-				<div class="card center grey-cut animated slideInRight">
-				<!--<i class="material-icons center-icons">work</i>-->
-				<h3 class="center-align white-c marb ">horarios </h3>
-				</div>
-			</div>
-		</a>
-		<a href="">
-			<div class="col m6 s12 offset-m3">
-				<div class="card center grey-cut animated slideInUp">
-				<!--<i class="material-icons center-icons">work</i>-->
-				<h3 class="center-align white-c marb ">Productos</h3>
-				</div>
-			</div>
-		</a>
 	</div>
+	<div class="row dos " style="display: none;">
+		<div class="col m6 offset-m3 s12">
+			<div class="card">
+				<h2 class="center">¿Que deseas Crear?</h2>
+					<div class="input-field  s5">
+					    <select name="category" id="">
+
+		                    <option value="" disabled selected>Selecciona una opcion</option>
+		                    @foreach($categories as $category)
+		                     <option value="{{$category->name}}">{{$category->name}}</option>
+		                     @endforeach
+	                	 </select>
+					</div>
+					<p class="prueba">prueba</p>
+				<a class="btn color-cut btn-block" id="jeje">Siguiente</a>
+			</div>
+		</div>
+	</div>
+</form>
 @endsection
