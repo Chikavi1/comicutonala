@@ -31,6 +31,7 @@
 
     <script>
       $(document).ready(function(){
+         $('.dropdown-trigger').dropdown();
 
         $(".searchbtn").click(function(){
           $("#navsearch").toggle();
@@ -83,6 +84,9 @@
      .withsearch{
       display: inline !important;
      }
+     .dropdown-content{
+    top:100% !important;
+   }
    </style>
   
 </head>
@@ -92,7 +96,10 @@
     <nav>
         <div class="nav-wrapper color-cut">
           <a href="/" class="brand-logo center">ComiCut</a>
-          <a  class="search @yield('withsearch') show-on-small hide-on-large-only brand-logo right searchbtn" ><i class="white-text material-icons ">search</i></a>
+          <div class=" hide-on-large-only">
+          <a  class="search @yield('withsearch')  brand-logo right searchbtn" ><i class="white-text material-icons ">search</i></a>
+            
+          </div>
           <a href="#" data-target="mobile-nav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
           <ul class="left hide-on-med-and-down">
             <li><a href="{{route('categorias.index')}}"><i class="material-icons left">view_module</i>Categorias</a></li>
@@ -120,24 +127,23 @@
                             <li><a href="{{ route('register') }}">Registrar</a></li>
                                 @endif
                         @else
-                        <li><a href="{{ route('seller.create') }} ">Vender</a></li>
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="{{route('profile')}}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
+                        
 
-                                <!--<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                         <li><a class='dropdown-trigger' href='#' data-target='dropdown1'> {{ Auth::user()->name }}</a>
+                              </li>
+
+                             <ul id='dropdown1' class='dropdown-content' >
+                              <li><a href="{{ route('seller.create') }} " style="color:black ;"">Vender</a></li>
+                              <li><a href="{{ route('profile') }}" style="color:black ;">Ver perfil</a></li>
+                              <li class="divider" tabindex="-1"></li>
+                              <li class="divider" tabindex="-1"></li>
+                              <li class="red"><a class="dropdown-item white-c" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
+                                        Salir
+                                    </a></li>
+                            </ul>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>-->
-                            </li>
                         @endguest
 
                         

@@ -32,7 +32,7 @@ Route::get('/create/','SellersController@filter2')->name('filter2');
 Route::get('seller/{slug}', ['as' => 'seller', 'uses' => 'SellersController@show']);
 
 Route::resource('categorias','CategoriesController');
-
+Route::get('creando/{id}','itemsController@creandoConId')->name('items.creando');
 
 Route::middleware(['auth'])->group(function () {	
 	Route::resource('items','itemsController');

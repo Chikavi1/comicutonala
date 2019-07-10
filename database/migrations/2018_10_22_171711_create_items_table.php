@@ -17,6 +17,9 @@ class CreateItemsTable extends Migration
             $table->increments('id');
             $table->integer('sellers_id')->unsigned();
             $table->foreign('sellers_id')->references('id')->on('sellers');
+            $table->string('image');
+            $table->string('category'); 
+            $table->text('description');
             $table->string('title');
             $table->decimal('pricing');
             $table->timestamps();

@@ -21,21 +21,27 @@
             <h4>No encontramos nada con ese nombre</h4>
           </div>
         @endif
+
+      <div class="row">
+        <div class="col s12 m4 offset-m4">
+          
+        
       @foreach($sellers as $seller)
         <a href="{{ route('seller.show', [$seller->slug]) }}">
 
-        <div class=" card">
+        <div class="card">
           <div class="card-image"  style="height: 14em;overflow:hidden;">
              <img src="{{ Storage::url($seller->image) }}" width="213" height="200">
 
-            <span class="card-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{$seller->bussinessName}}</font></font></span>
           </div>
           <div class="card-action">
-            <p>{{ $seller->title }}</p>
+            <h5 class="center-align">{{ $seller->title }}</h5>
           </div>
         </div> 
         </a>
       @endforeach
+      </div>
+      </div>
   </div>
 </div>
     @else

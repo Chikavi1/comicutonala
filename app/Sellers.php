@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Sellers extends Model
 {
 	  protected $fillable = [
-       'user_id', 'title','image', 'slug','description','category','cellphone','salon','available'
+       'user_id', 'title','image', 'slug','description','category','cellphone','salon','available','schedule'
     ];
     protected $hidden = [
         'user_id',

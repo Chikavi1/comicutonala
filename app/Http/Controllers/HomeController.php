@@ -52,7 +52,8 @@ class HomeController extends Controller
 
     public function profile(){
         $user = User::find(Auth::user()->id);
-        return view('profile')->with(compact('user'));
+        $sellers = Sellers::where("user_id",1)->get();
+        return view('profile')->with(compact('user','sellers'));
     }
 
 

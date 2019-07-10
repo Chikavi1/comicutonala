@@ -1,6 +1,6 @@
 
 
-  <footer class="page-footer footer-color">
+  <footer class="page-footer footer-color" style="bottom: 0; position: absolute;">
           <div class="container">
             <div class="row">
               <div class="col m4 s12">

@@ -7,7 +7,9 @@
 <script>
   $(document).ready(function(){
     $('select').formSelect();
-        $('textarea').ckeditor();
+    $('textarea').ckeditor();
+    $('.timepicker').timepicker();
+  
  });
 </script>
 <div class="row">
@@ -65,7 +67,23 @@
                   <label for="salon">salon o lugar de venta</label>
                     <input type="text" class="form-control" name="salon"/>
                 </div>
-
+                <h5>Horario</h5>
+                  <div class="row">
+                    <div class="input-field">
+                        <div class="col s6">
+                          <input type="text" class="timepicker" name="inicia" placeholder="Inicia">
+                        </div>
+                    </div>
+                    
+                     <div class="input-field">
+                        <div class="col s6">
+                          <input type="text" class="timepicker" name="finaliza" placeholder="Finaliza" >
+                        </div>
+                    </div>
+                  </div>
+                  
+                    
+                </div>
                 <p>
                   <label>
                     <input type="checkbox" required />

@@ -11,6 +11,8 @@ use Image;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str as Str;
  
+use App\Items;
+
 class SellersController extends Controller
 {
     /**
@@ -64,19 +66,24 @@ class SellersController extends Controller
             'user_id' => 'unique:sellers,user_id',
             'image'=>'required|image'
         ]);
-
+       
         if($request->hasFile('image')){
             $path = $request->file('image')->store('public');
             $fileName = collect(explode('/', $path))->last();
             $image = Image::make(\Storage::get($path));
-            $image->resize(1024, 768, function ($constraint) {
+            $image->resize(1024, 683, function ($constraint) {
               $constraint->aspectRatio();
               $constraint->upsize();
             });
-            Storage::put($path, (string) $image->encode('jpg', 60));
+            Storage::put($path, (string) $image->encode('jpg', 70));
            
         }
-      
+        
+        $inicia = $request->get('inicia');
+        $finaliza = $request->get('finaliza');
+        $schedule = $inicia." - ".$finaliza;
+
+
         $seller = new Sellers([
             'user_id' => Auth::user()->id,
             'title' => $request->get('title'),
@@ -86,9 +93,11 @@ class SellersController extends Controller
             'category' => $request->get('category'),
             'cellphone' => $request->get('cellphone'),
             'salon' => $request->get('salon'),
-            'available' => "1"
+            'available' => "1",
+            'schedule' => $schedule
         ]);
         $seller->save();
+
         return redirect('/seller')->with('success','se creo correctamente');
     }
 
@@ -100,9 +109,8 @@ class SellersController extends Controller
      */
       public function show($slug){
         $seller = Sellers::where('slug','=',$slug)->firstOrFail();
-        $schedules = Schedules::where('sellers_id','=',$seller->id)->get();
-        dd($seller);    
-        return view('seller.show')->with(compact('seller','schedules'));
+        $items = Items::where("sellers_id",$seller->id)->get();
+        return view('seller.show')->with(compact('seller','items'));
 
     }
 

@@ -13,7 +13,7 @@
 	<div class="col m3 s10 offset-s1">
 		<div class="card">
 		    <div class="card-image waves-effect waves-block waves-light">
-		      <img class="activator img-responsive"  height="300"  src="{{ Storage::url($product->image) }}">
+		      <img class="activator img-responsive"   src="{{ Storage::url($product->image) }}">
 		    </div>
 		    <div class="card-content color-cut ">
 		      <span class="card-title activator white-text center-align truncate">{{
