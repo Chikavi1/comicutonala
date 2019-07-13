@@ -34,7 +34,7 @@ class HomeController extends Controller
 
         
         $sellers = Sellers::Search($request->get("busqueda"));
-        $categories = Categories::paginate(5);
+        $categories = Categories::paginate(6);
         $salados = Sellers::where("category",'=','comida')->get();
         $dulces = Sellers::where('category','=','postres')->get();
         $bebidas = Sellers::where('category','=','bebidas')->get();
@@ -52,7 +52,7 @@ class HomeController extends Controller
 
     public function profile(){
         $user = User::find(Auth::user()->id);
-        $sellers = Sellers::where("user_id",1)->get();
+        $sellers = Sellers::where("user_id",Auth::user()->id)->get();
         return view('profile')->with(compact('user','sellers'));
     }
 

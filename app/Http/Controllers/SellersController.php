@@ -97,8 +97,7 @@ class SellersController extends Controller
             'schedule' => $schedule
         ]);
         $seller->save();
-
-        return redirect('/seller')->with('success','se creo correctamente');
+        return redirect()->route('profile')->with('success','Se creo satisfactoriamente tu pagina de vendedor.');
     }
 
     /**
@@ -122,8 +121,9 @@ class SellersController extends Controller
      */
     public function edit($id)
     {
+        $categories = Categories::all();
         $seller = Sellers::findorFail($id);
-        return view('seller.edit')->with(compact('seller'));
+        return view('seller.edit')->with(compact('seller','categories'));
     }
 
     /**
@@ -135,6 +135,7 @@ class SellersController extends Controller
      */
     public function update(Request $request, $slug)
     {
+
         if($request->hasFile('image')){
             $image = $request->file('image')->store('public');
         }

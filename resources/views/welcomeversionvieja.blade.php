@@ -1,12 +1,6 @@
 @section('withsearch','withsearch')
 @extends('layouts.app')
-<style>
-  
-  hr { 
-    border-top: 1px solid #e0e0e0;
-  }
 
-</style>
 @section('content')
     @if($busqueda)
       
@@ -57,153 +51,126 @@
           <p class="center-align">Aqui podras consultar la comida que venden en el Centro Universitario de Tonala</p>
       </div>
 
-  <div class="padding">
-  
+
       <div class="row valign-wrapper">
         <div class="col s9 m11">
-          <h4>Categorias</h4>
+          <h3>Categorias</h3>
         </div>      
         <div class="col s3 m1">
           <a href="{{ route('categorias.index') }}">ver mas</a>
         </div>      
       </div>
-      <div class="row">
-          @foreach($categories as $category)
-             <a href="{{ route('categorias.show', [$category->id]) }}">
-            <div class="col s6 m2">
-              <div class="card" style="max-height: 13em;min-height: 13em;">
-                <div class="card-image">
-                  <img src="{{ asset('img/'.$category->name.'.jpg') }}" style="max-height: 8em;min-height: 8em;">
-                </div>
-                <div class="card-content">
-                  <p class="center-align">{{$category->name}}</p>
-                </div>
-               
-              </div>
-            </div>
-           </a>
+      <div class="scrolling-wrapper hide-on-med-and-up  ">
+        @foreach($categories as $category)
+        <a href="{{ route('categorias.show', [$category->id]) }}">
 
-          @endforeach
+        <div class="carta-categoria ">
+          <img src="{{ asset('img/'.$category->name.'.jpg') }}" alt=".." style="height: 140px;" class=" responsive-img"> 
+        <p class="center-align">{{$category->name}}</p>
+          
+        </div> 
+        </a>
+        @endforeach
       </div>
       
-      <hr>
-    
+
+
       <div class="row valign-wrapper">
         <div class="col s9 m11">
-          <h4>Te puede interesar</h4>
+          <h3>Te puede interesar</h3>
         </div>      
         <div class="col s3 m1">
           <a href="{{ route('categorias.index') }}">ver mas</a>
         </div>      
-      </div> 
-      <div class="row " >
-        @foreach($sellers as $seller)
-        <div class="col s6 m3">
+      </div>        
+      <div class="row hide-on-large-only" >
+
+        <div class="scrolling-wrapper">
+          @foreach($sellers as $seller)
           <a href="{{ route('seller.show', [$seller->slug]) }}">
-          <div class="card">
-            <div class="card-image">
-              <img src="{{ Storage::url($seller->image) }}">
-            </div>
-            <div class="card-content">
-              <p class="center-align">{{ $seller->title }}</p>
-            </div>
-          
-          </div>
-         </a>
-        </div>
-          @endforeach
-      </div>
 
-      <hr>
+          <div class="carta card">
+            <div class="card-image"  style="height: 14em;overflow:hidden;">
+               <img src="{{ Storage::url($seller->image) }}" width="213" height="200">
+
+              <span class="card-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{$seller->bussinessName}}</font></font></span>
+            </div>
+            <div class="card-action">
+              <p>{{ $seller->title }}</p>
+            </div>
+          </div> 
+          </a>
+          @endforeach
+        </div>
+      </div>
 
       <div class="row valign-wrapper">
         <div class="col s9 m11">
-          <h4>Comida</h4>
+          <h3>Comida</h3>
         </div>      
         <div class="col s3 m1">
           <a href="{{ route('categorias.index') }}">ver mas</a>
         </div>      
-      </div> 
-      <div class="row " >
+      </div>
+      <div class="scrolling-wrapper">
         @foreach($salados as $salado)
-        <div class="col s6 m3">
-          <a href="{{ route('seller.show', [$salado->slug]) }}">
-          <div class="card">
-            <div class="card-image">
-              <img src="{{ Storage::url($salado->image) }}">
-            </div>
-            <div class="card-content">
-              <p class="center-align">{{ $salado->title }}</p>
-            </div>
-          
+            <a href="{{ route('seller.show', [$salado->slug]) }}">
+        <div class="carta card">
+          <div class="card-image">
+            <img src="{{ Storage::url($salado->image) }}" width="213" height="200">
+            <span class="card-title">{{$salado->title}}</span>
           </div>
-         </a>
-        </div>
-          @endforeach
+              
+        </div> 
+            </a>
+        @endforeach
       </div>
-  
-      <hr>
 
       <div class="row valign-wrapper">
         <div class="col s9 m11">
-          <h4>Postres </h4>
+          <h3>Postres </h3>
         </div>      
         <div class="col s3 m1">
           <a href="{{ route('categorias.index') }}">ver mas</a>
         </div>      
-      </div> 
-      <div class="row " >
+      </div>
+      <div class="scrolling-wrapper">
         @foreach($dulces as $dulce)
-        <div class="col s6 m3">
-          <a href="{{ route('seller.show', [$dulce->slug]) }}">
-          <div class="card">
-            <div class="card-image">
-              <img src="{{ Storage::url($dulce->image) }}">
-            </div>
-            <div class="card-content">
-              <p class="center-align">{{ $dulce->title }}</p>
-            </div>
-          
+            <a href="{{ route('seller.show', [$dulce->slug]) }}">
+        <div class="carta card">
+          <div class="card-image">
+            <img src="{{ Storage::url($dulce->image) }}" width="213" height="200">
+            <span class="card-title"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{$dulce->title}}</font></font></span>
           </div>
-         </a>
-        </div>
-          @endforeach
+          
+         
+        </div> 
+            </a>
+        @endforeach
       </div>
-
-      <hr>
 
       <div class="row valign-wrapper">
         <div class="col s9 m11">
-          <h4>Bebidas</h4>
+          <h3>Bebidas</h3>
         </div>      
         <div class="col s3 m1">
           <a href="{{ route('categorias.index') }}">ver mas</a>
         </div>      
-      </div> 
-      <div class="row " >
-        @foreach($bebidas as $bebida)
-        <div class="col s6 m3">
-          <a href="{{ route('seller.show', [$bebida->slug]) }}">
-          <div class="card">
-            <div class="card-image">
-              <img src="{{ Storage::url($bebida->image) }}">
-            </div>
-            <div class="card-content">
-              <p class="center-align">{{ $bebida->title }}</p>
-            </div>
-          
-          </div>
-         </a>
-        </div>
-          @endforeach
       </div>
-
-
-
-
-
-  </div>
-
+      <div class="scrolling-wrapper">
+          @foreach($bebidas as $bebida)
+              <a href="{{ route('seller.show', [$bebida->slug]) }}">
+          <div class="carta card">
+            <div class="card-image">
+              <img src="{{ Storage::url($bebida->image) }}" width="213" height="200">
+              <span class="card-title">{{$bebida->title}}</span>
+            </div>
+            
+           
+          </div> 
+              </a>
+           @endforeach
+      </div>
   @endif
 
 

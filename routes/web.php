@@ -33,9 +33,10 @@ Route::get('seller/{slug}', ['as' => 'seller', 'uses' => 'SellersController@show
 
 Route::resource('categorias','CategoriesController');
 Route::get('creando/{id}','itemsController@creandoConId')->name('items.creando');
+Route::post('scraping','ScrapingController@example')->name('scraping');
+Route::get('siiau','ScrapingController@prueba');
 
 Route::middleware(['auth'])->group(function () {	
 	Route::resource('items','itemsController');
-	Route::resource('schedule','SchedulesController');
    
 });

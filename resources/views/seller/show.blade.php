@@ -13,6 +13,10 @@ $(document).ready(function(){
    
 </script>	
 	<style>
+
+		hr { 
+		    border-top: 1px solid #e0e0e0;
+		  }
 		.tabs .tab a{
             color:#17202f;
         } /*Black color to the text*/
@@ -96,9 +100,17 @@ document.oncontextmenu = function(){return false}
 			</center>
 			<center>	
 			<br>
-			<a href="https://api.whatsapp.com/send?phone=5213327276923&text=hola,{{$seller->title}} aun%20tienes%20comida%20disponible?" class="btn">Mandar Mensaje</a>
-				<a href="tel:+5213327276923" class="btn blue">llamar</a>
+			<a href="https://api.whatsapp.com/send?phone=5213327276923&text=hola,{{$seller->title}} aun%20tienes%20comida%20disponible?" class="btn color-cut">Mandar Mensaje</a>
+				<a href="tel:+5213327276923" class="btn ">llamar</a>
 			</center>
+			<br>
+					<div class="center-align">
+					@if($seller->available == 1)
+						<p class="color-green">Disponible</p>
+					@elseif($seller->available == 0)
+						<p class="red-text">No Disponible</p>
+					@endif
+					</div>
 			<br>
 		</div>
 	</div>
@@ -108,11 +120,13 @@ document.oncontextmenu = function(){return false}
 
 			<ul class="tabs tabs-fixed-width tab-demo z-depth-1">
 			    <li class="tab"><a href="#test1">Info</a></li>
-			    <li class="tab"><a class="active" href="#test2">Comida</a></li>
+			    <li class="tab"><a class="active" href="#test2">Productos</a></li>
 			  </ul>
 		
 
 <div id="test1" class="col s12">
+	<div class="padding">
+		
 	<div class="row">
 	    <div class="col s12 m3 offset-m1">
 	      <div class="card blue-grey darken-1">
@@ -136,6 +150,7 @@ document.oncontextmenu = function(){return false}
 	      </div>
 	    </div>
 	</div>
+	</div>
 
 	
 		</div>
@@ -144,12 +159,14 @@ document.oncontextmenu = function(){return false}
 <div id="test2" class="col s12">
   	<div class="row">
   		@if(empty($items->count()))
+  		<br><br>
   		<center>
   		<img src="{{ asset('img/heart.png') }}" class="center" alt="">
   		</center>
 		<h5 class="center-align">Aun no tiene productos :(</h5>
   		@else
 		@foreach($items as $item)
+		<div class="padding">
 		<div class="col s12 m4">
 		    <div class="card small">
 		    	<a href="#modal{{$item->id}}" class=" modal-trigger">
@@ -158,14 +175,11 @@ document.oncontextmenu = function(){return false}
 			      <img class="activator" src="{{ Storage::url($item->image) }}">
 			    </div>
 			    <div class="card-content">
-			      <span class="card-title activator grey-text text-darken-4">{{$item->title}}<i class="material-icons right">more_vert</i></span>
+			      <span class="card-title activator grey-text text-darken-4">{{$item->title}}</span>
 			    </div>
-			    <div class="card-reveal">
-			      <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
-			      <p>Here is some more information about this product that is only revealed once clicked on.</p>
-			    </div>
-			  </div>
 		    	</a>
+			</div>
+		</div>
 		</div>
 		<div id="modal{{$item->id}}" class="modal">
 		    <div class="modal-content" style="margin:0;">
@@ -190,7 +204,6 @@ document.oncontextmenu = function(){return false}
 					      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cerrar</a>
 			   </div>
 		</div>
-</div>
 		@endforeach
  	</div>
  	@endif

@@ -12,6 +12,20 @@
   
  });
 </script>
+@if($errors->any())
+
+  
+<div class="color-cut">
+  <p class="center white-text" style="margin-top: 0 !important;font-size:1.5em;">
+    <strong>Tenermos errores</strong>
+     @foreach($errors->all() as $error)
+     <p class="center-align white-text">{{ $error }}</p>
+      @endforeach
+  </p>
+  <br>
+</div>
+
+@endif
 <div class="row">
   <div class="col s12 m5 offset-m3">
     <div class="card padding">
@@ -37,6 +51,7 @@
                 </div>
 
                 {!! $errors->first('image','<span class="error"> :message</span>') !!}
+                <p><strong>Describe el perfil de vendedor</strong></p>
                <div class="input-field">
                 <textarea name="description" id="description">
                   
@@ -46,7 +61,7 @@
                 <div class="input-field ">
                  <select name="category" id="">
 
-                    <option value="" disabled selected>Selecciona una opcion</option>
+                    <option value="" disabled selected>Selecciona una categoria</option>
                     @foreach($categories as $category)
                      <option value="{{$category->name}}">{{$category->name}}</option>
                      @endforeach
@@ -83,14 +98,14 @@
                   </div>
                   
                     
-                </div>
                 <p>
                   <label>
                     <input type="checkbox" required />
                     <span>Acepto <a href="">Terminos y condiciones</a></span>
                   </label>
                 </p>
-                <button type="submit" class="btn btn-block">Crear</button>
+                </div> 
+                <button type="submit" class="btn btn-block color-cut">Crear</button>
        </form>
     </div>
   </div>

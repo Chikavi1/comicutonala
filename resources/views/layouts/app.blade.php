@@ -133,8 +133,8 @@
                               </li>
 
                              <ul id='dropdown1' class='dropdown-content' >
-                              <li><a href="{{ route('seller.create') }} " style="color:black ;"">Vender</a></li>
-                              <li><a href="{{ route('profile') }}" style="color:black ;">Ver perfil</a></li>
+                              <li><a href="{{ route('seller.create') }} " style="color:black ;">Vender</a></li>
+                              <li><a href="{{ route('profile') }}" style="color:black ;">perfil</a></li>
                               <li class="divider" tabindex="-1"></li>
                               <li class="divider" tabindex="-1"></li>
                               <li class="red"><a class="dropdown-item white-c" href="{{ route('logout') }}"
@@ -231,7 +231,7 @@
             @yield('content')
         </main>
         
-        <footer class="page-footer footer-color">
+        <footer class="page-footer footer-color"  style="bottom: 0; ">
           <div class="container">
             <div class="row">
               <div class="col m4 s12">

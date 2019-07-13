@@ -1,19 +1,18 @@
- @extends('layouts.app')
-
+@extends('layouts.app')
 @section('content')
-
-<script src="/vendor/ckeditor-2/ckeditor.js"></script>
+ <script src="/vendor/ckeditor-2/ckeditor.js"></script>
   <script src="/vendor/ckeditor-2/adapters/jquery.js"></script>
 
 
 <script>
   $(document).ready(function(){
     $('select').formSelect();
-        $('textarea').ckeditor();
+    $('textarea').ckeditor();
+    $('.timepicker').timepicker();
+  
  });
 </script>
-
- <script>
+<script>
    $(document).ready(function(){
     $('select').formSelect();
  
@@ -38,73 +37,101 @@ $("#sw").click(function(){
   });
         
  </script>
- <div class="row">
-   <div class="col m5 offset-m3">
- <div class="">
-   
- <form method="POST"" action="{{ route('seller.update',$seller->slug) }}" files="true"> 
-           @method('PATCH')
-           @csrf
-          <div class="form-group">
+<div class="row">
+  <div class="col s12 m5 offset-m3">
+    <div class="card padding">
+        <h5>Edita <strong>{{ $seller->title }}</strong></h5>
+       <form method="post" action="{{ route('seller.update',$seller->slug) }}" enctype="multipart/form-data">
+                     @method('PATCH')
+                     @csrf
+                <div class="input-field">
 
-              <label for="title">Nombre del negocio</label>
-              <input type="text" class="form-control" name="title" value="{{$seller->title}}"/>
-          </div>
+                    <input type="text" class="form-control" name="title" value="{{$seller->title}}"/>
+                    <label for="title">Nombre del negocio</label>
 
-          <div class="form-group">
-              <label for="slug">URL Amigable</label>
-              <input type="text" class="form-control" name="slug" value="{{$seller->slug}}"/>
-          </div>
-         <div class="form-group">
-              <label for="description">Descripción</label>
-             <textarea class="ckeditor" name="description" id="editor1" rows="10" cols="30">
-               {{$seller->description}}
-             </textarea>
-          </div>
-          <div class="input-field col s12">
-             <select name="category" id="">
-                <option value="" disabled selected>{{$seller->category}}</option>
-               <option value="comida salada">Comida salada</option>
-               <option value="comida dulce">Comida dulce</option>
-               <option value="bebidas">bebidas</option>
-               <option value="postres">postres</option>
-               <option value="botana">botana</option>
-             </select>
-            <label >categoria</label>
-          </div>
+                </div>
 
+                <div class="file-field input-field">
+                  <div class="btn">
+                    <span>Foto</span>
+                    <input type="file" name="image">
+                  </div>
+                  <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text" name="image">
+                  </div>
 
-          <div class="form-group">
-              <label for="cellphone">Numero de celular</label>
-              <input type="text" class="form-control" name="cellphone" value="{{$seller->cellphone}}"/>
-          </div>
-           <div class="form-group">
-              <label for="salon">salón</label>
-              <input type="text" class="form-control" name="salon" value="{{$seller->salon}}"/>
-          </div>
-         <div class="form-group">
-              <label for="available">Disponible</label>
-              <input type="hidden" class="form-control" name="available" id="caca" value="{{$seller->available}}"/>
-          </div>
-        
-          <div class="col m5">
-            <div class="switch">
-    <label>
-      Desactivar
-      <input type="checkbox" id="sw"  >
-      <span class="lever"></span>
-      Activar
-    </label>
+                </div>
+
+                {!! $errors->first('image','<span class="error"> :message</span>') !!}
+               <div class="input-field">
+                <textarea name="description" id="description">
+                  {{$seller->description}}
+                </textarea>
+                    
+                </div>
+                <div class="input-field ">
+                 <select name="category" id="">
+
+                    <option value="" disabled selected>{{$seller->category}}</option>
+                    @foreach($categories as $category)
+                     <option value="{{$category->name}}">{{$category->name}}</option>
+                     @endforeach
+                 </select>
+                  <label >categoria</label>
+              </div>
+                <div class="input-field">
+                  <i class="material-icons prefix">phone</i>
+                  <input id="cellphone" name="cellphone" type="tel" class="validate" value="{{$seller->cellphone}}">
+                  <label for="cellphone">Numero de celular</label>
+
+                  
+
+                    
+                </div>
+                 <div class="input-field">
+                  <i class="material-icons prefix">place</i>  
+                  <label for="salon">salon o lugar de venta</label>
+                    <input type="text" class="form-control" name="salon" value="{{$seller->salon}}"/>
+                </div>
+                <h5>Horario</h5>
+                  <div class="row">
+                    <div class="input-field">
+                        <div class="col s6">
+                          <input type="text" class="timepicker" name="inicia" placeholder="Inicia">
+                        </div>
+                    </div>
+                    
+                     <div class="input-field">
+                        <div class="col s6">
+                          <input type="text" class="timepicker" name="finaliza" placeholder="Finaliza" >
+                        </div>
+                    </div>
+                  </div>
+                  
+                  <div class="form-group">
+                      <label for="available">Disponible</label>
+                      <input type="hidden" class="form-control" name="available" id="caca" value="{{$seller->available}}"/>
+                  </div>
+                    
+                  <div class="col m5">
+                    <div class="switch">
+                      <label>
+                        Desactivar
+                        <input type="checkbox" id="sw"  >
+                        <span class="lever"></span>
+                        Activar
+                      </label>
+                    </div>
+                  </div>
+                <p>
+                  <label>
+                    <input type="checkbox" required />
+                    <span>Acepto <a href="">Terminos y condiciones</a></span>
+                  </label>
+                </p>
+                <button type="submit" class="btn btn-block">Editar</button>
+       </form>
+    </div>
   </div>
-
-          </div>
-          <div>
-              
-          <button type="submit" class="btn btn-primary">Editar</button>
-      </form>
- </div>
-     
-   </div>
- </div>
-
- @endsection
+</div>
+@endsection
