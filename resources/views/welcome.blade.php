@@ -5,7 +5,17 @@
   hr { 
     border-top: 1px solid #e0e0e0;
   }
-
+  .letras-chicas{
+    font-size: .75em;
+  }
+  .black-color{
+    color: black !important;
+  }
+  .img-sizes{
+    max-height: 12.75em;
+    min-height: 12.75em;
+  }
+ 
 </style>
 @section('content')
     @if($busqueda)
@@ -30,31 +40,35 @@
 
       <div class="row">
         <div class="col s12 m4 offset-m4">
-          
-        
+
+  @if( $sellers->count() > 0)
+      <h5>Resultados</h5>
+      <ul class="collection">
       @foreach($sellers as $seller)
-        <a href="{{ route('seller.show', [$seller->slug]) }}">
-
-        <div class="card">
-          <div class="card-image"  style="height: 14em;overflow:hidden;">
-             <img src="{{ Storage::url($seller->image) }}" width="213" height="200">
-
-          </div>
-          <div class="card-action">
-            <h5 class="center-align">{{ $seller->title }}</h5>
-          </div>
-        </div> 
-        </a>
+        <li class="collection-item avatar" >
+          <a href="{{ route('seller.show', [$seller->slug]) }}">
+                <img src="{{Storage::url($seller->image)}}" alt="" class="circle">
+                <p class="title"><strong>{{$seller->title}}</strong></p>
+                <p class="black-color">{{ $seller->category }}</p>
+                <p class="black-color">{{ $seller->schedule }}</p>
+                <span class="letras-chicas black-color">{{ $seller->school }}</span>
+          </a>
+            </li>
       @endforeach
+      </ul>
+    @endif
       </div>
+     
       </div>
   </div>
 </div>
     @else
 
       <div id="inicio" class="">
-          <h2 class="center-align">Bienvenido</h2>
-          <p class="center-align">Aqui podras consultar la comida que venden en el Centro Universitario de Tonala</p>
+           <h2 class="center-align">Bienvenido</h2> 
+          <h5 class="center-align">{{ isset($centro) ? $centro : ' ' }}</h5>
+          <!--<p class="center-align">Aqui podras consultar la comida que venden en el Centro Universitario de Tonala</p>
+        -->
       </div>
 
   <div class="padding">
@@ -85,6 +99,7 @@
 
           @endforeach
       </div>
+
       
       <hr>
     
@@ -102,7 +117,7 @@
           <a href="{{ route('seller.show', [$seller->slug]) }}">
           <div class="card">
             <div class="card-image">
-              <img src="{{ Storage::url($seller->image) }}">
+              <img src="{{ Storage::url($seller->image) }}" class="img-sizes">
             </div>
             <div class="card-content">
               <p class="center-align">{{ $seller->title }}</p>
@@ -130,7 +145,7 @@
           <a href="{{ route('seller.show', [$salado->slug]) }}">
           <div class="card">
             <div class="card-image">
-              <img src="{{ Storage::url($salado->image) }}">
+              <img src="{{ Storage::url($salado->image) }}" class="img-sizes">
             </div>
             <div class="card-content">
               <p class="center-align">{{ $salado->title }}</p>
@@ -158,7 +173,7 @@
           <a href="{{ route('seller.show', [$dulce->slug]) }}">
           <div class="card">
             <div class="card-image">
-              <img src="{{ Storage::url($dulce->image) }}">
+              <img src="{{ Storage::url($dulce->image) }}" class="img-sizes">
             </div>
             <div class="card-content">
               <p class="center-align">{{ $dulce->title }}</p>
@@ -186,7 +201,7 @@
           <a href="{{ route('seller.show', [$bebida->slug]) }}">
           <div class="card">
             <div class="card-image">
-              <img src="{{ Storage::url($bebida->image) }}">
+              <img src="{{ Storage::url($bebida->image) }}" class="img-sizes">
             </div>
             <div class="card-content">
               <p class="center-align">{{ $bebida->title }}</p>
@@ -207,7 +222,9 @@
   @endif
 
 
-
+<div class="margin-bottom-footer">
+  
+</div>
 
 
 @endsection

@@ -52,7 +52,7 @@ class RegisterController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
-            'code' => 'integer|unique:users'
+            'code' => 'unique:users'
         ]);
     }
 
@@ -65,16 +65,13 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
 
-        $codigo = \Session::get('codigo');
-
-      
-        User::create([
+        return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
-            'code' => $codigo ,
+            'code' => \Session::get('codigo'),
+            'school' => \Session::get('centro'),
             'career'=> \Session::get('carrera')
         ]);
-
     }
 }

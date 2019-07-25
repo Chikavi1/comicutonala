@@ -1,6 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
+<script>
+  $(document).ready(function(){
+    $(".btnsiiau").click(function(){
+      location.reload();
+    });
+  });
+</script>
 <div id="inicio" >
       <h2 class="center-align">RandomEat</h2>
       <p class="center-align">¿No sabes que comer?</p>
@@ -8,6 +15,12 @@
     </div>
      <!-- <p class="center-align">Nuestra aplicacion te ayuda de forma aleatoria mostrandote una opcion para comer.</p>-->
 	<div class="row">
+  <div class="col s6 offset-s3 margin-top-1">
+     <button class="btn-block btnsiiau border-satisfactorio">Intentar de nuevo</button>
+  </div>
+  </div>
+
+  <div class="row">
 		<div class="col s12 m6 offset-m3">
 			
 		<div class="card">

@@ -6,9 +6,12 @@
 	.image-max{
 		height: 12em !important;
 	}
+	.margin-bottom{
+		margin-bottom: 6em;
+	}
 </style>
 
-<div class="row">
+<div class="row" >
 	<div class="col m3 animated p2 bounceIn">
 		
       <div class="card-panel teal">
@@ -21,7 +24,7 @@
 
 		
 
-	<div class=" col m9">
+	<div class=" col m9 margin-bottom">
 
 		@foreach($categories as $category)
 			<div class="m3 col  ">
@@ -38,8 +41,9 @@
 		@endforeach
 
 	</div>
-	
 
+	
+	
 
   </div>
 

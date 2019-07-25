@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Sellers extends Model
 {
 	  protected $fillable = [
-       'user_id', 'title','image', 'slug','description','category','cellphone','salon','available','schedule'
+       'user_id', 'title','image', 'slug','description','category','cellphone','salon','available','schedule','school'
     ];
     protected $hidden = [
         'user_id',
@@ -25,7 +25,7 @@ class Sellers extends Model
         
           return $query->where('title','LIKE',"%$title%")
           ->orWhere('description','LIKE',"%$title%")
-          ->orWhere('category','LIKE',"%$title%")->get();
+          ->orWhere('category','LIKE',"%$title%")->limit(4)->get();
        
     }
 }

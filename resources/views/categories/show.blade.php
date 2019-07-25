@@ -3,7 +3,18 @@
 @extends('layouts.app')
 
 @section('content')
+<style>
+	
+.img-sizes{
+    max-height: 15.75em;
+    min-height: 15.75em;
+  }
+  .render{
 
+  	display: block !important;
+	margin-bottom: 3em;
+}
+</style>
 <div class="row">
 	<div id="inicio" class="">
       <h2 class="center-align">{{$category->name}}</h2>
@@ -17,11 +28,13 @@
     </div>
 @else
 
+<div class="row">
 @foreach($products as $product)
+	
 	<div class="col m3 s12">
 		<div class="card">
 		    <div class="card-image waves-effect waves-block waves-light">
-		      <img class="activator img-responsive"   src="{{ Storage::url($product->image) }}">
+		      <img class="activator img-responsive img-sizes"   src="{{ Storage::url($product->image) }}" >
 		    </div>
 		    <div class="card-content color-cut ">
 		      <span class="card-title activator white-text center-align truncate">{{
@@ -45,8 +58,17 @@
 	  </div>
 	</div>
 @endforeach
-@endif
 </div>
+</div>
+<div class="row">
+	<div class="col s8 offset-s3 sm2 offset-m5">
+
+		<div class="render">
+			 {{$products->links('vendor.pagination.materializecss')}}
+		</div>
+	</div>
+</div>
+@endif
 </div>
 
 @endsection

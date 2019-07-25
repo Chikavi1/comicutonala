@@ -108,9 +108,9 @@
                    
                       
                
-          <div class="input-field col s6 s12 white-text">
+          <div class="input-field col s6 s12 white-text" >
             <form action="" method="GET">
-                   <input id="search" type="text"  placeholder="Tengo antojo de..."name="busqueda" class="autocomplete search grey-text @yield('withsearch')">
+                   <input id="search" style="margin-top: .4em;" type="text"  placeholder="Tengo antojo de..."name="busqueda" class="autocomplete search grey-text @yield('withsearch')">
              </form>
           </div>
                       
@@ -186,8 +186,10 @@
       Al azar
       </a>
     </li>
-    <li class="searchbtn">
-      <a><i class="material-icons">search</i>Buscar</a>
+    <li>
+     <!--  class="searchbtn"  -->
+    
+      <a href="{{ route('busqueda') }}"><i class="material-icons">search</i>Buscar</a>
     </li>
 
   @guest
@@ -203,7 +205,7 @@
   @endif
   @else
   <hr>
-  <p class="center-align ">Vendedores</p>
+  <p class="center-align ">Ventas</p>
 
   <li>
       <a href="{{ route('seller.create') }} "><i class="material-icons"> attach_money</i>Vender</a>
@@ -231,7 +233,7 @@
             @yield('content')
         </main>
         
-        <footer class="page-footer footer-color"  style="bottom: 0; ">
+        <footer class="page-footer footer-color"  style="bottom: 0 ;">
           <div class="container">
             <div class="row">
               <div class="col m4 s12">

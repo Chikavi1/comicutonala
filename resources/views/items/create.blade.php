@@ -51,6 +51,6 @@
 				</form>
 			</div>
 		</div>
-		<a href="{{ url()->previous() }}" class="waves-effect waves-light btn valign-wrapper"><i class="material-icons">arrow_back_ios</i>Regresar</a>
+		
 	</div>
 @endsection

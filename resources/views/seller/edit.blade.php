@@ -97,13 +97,13 @@ $("#sw").click(function(){
                   <div class="row">
                     <div class="input-field">
                         <div class="col s6">
-                          <input type="text" class="timepicker" name="inicia" placeholder="Inicia">
+                          <input type="text" class="timepicker" name="inicia" placeholder="Inicia" value="{{$hora1}}">
                         </div>
                     </div>
                     
                      <div class="input-field">
                         <div class="col s6">
-                          <input type="text" class="timepicker" name="finaliza" placeholder="Finaliza" >
+                          <input type="text" class="timepicker" name="finaliza" placeholder="Finaliza" value="{{$hora2}}" >
                         </div>
                     </div>
                   </div>
@@ -112,8 +112,8 @@ $("#sw").click(function(){
                       <label for="available">Disponible</label>
                       <input type="hidden" class="form-control" name="available" id="caca" value="{{$seller->available}}"/>
                   </div>
-                    
-                  <div class="col m5">
+                  <br>
+                  <div class="col m5 margin-bottom">
                     <div class="switch">
                       <label>
                         Desactivar
@@ -123,12 +123,7 @@ $("#sw").click(function(){
                       </label>
                     </div>
                   </div>
-                <p>
-                  <label>
-                    <input type="checkbox" required />
-                    <span>Acepto <a href="">Terminos y condiciones</a></span>
-                  </label>
-                </p>
+
                 <button type="submit" class="btn btn-block">Editar</button>
        </form>
     </div>

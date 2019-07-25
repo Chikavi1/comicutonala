@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 use Goutte\Client;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class ScrapingController extends Controller
 {
@@ -11,13 +13,24 @@ class ScrapingController extends Controller
     {
     	 \Session::put('codigo','');
     	 \Session::put('carrera','');
+    	 \Session::put('centro','');
     }
 
  	public function example(Request $request){
  		try { 
  	 	$codigo = $request->codigo;
  	 	$nip = $request->nip;
- 		
+
+		 $codigoexiste = DB::table('users')
+        ->select('code')
+        ->where('code', '=', $codigo)
+        ->get()->count();
+
+        if($codigoexiste){
+        	return response()->json(['message'=> 'error','descripcion'=>'Codigo ya Utilizado']);
+        }
+
+
 
  		$client = new Client();
  		$crawler = $client->request('GET', 'http://siiauescolar.siiau.udg.mx/wus/gupprincipal.forma_inicio');
@@ -36,51 +49,109 @@ class ScrapingController extends Controller
 
 		//$crawler = $client->submit($form, array('p_pidm_n' => '1087215'));
 		$crawler = $client->request('GET', 'gupmenug.menu_sistema?p_pidm_n='.$pPidm); //nueva linea
-		$link = $crawler->selectLink('ALUMNOS')->link();
-		$crawler = $client->click($link);
-		$link = $crawler->selectLink('ACADÉMICA')->link();
-		$crawler = $client->click($link);
-		$link = $crawler->selectLink('Constancia')->link();
-		$crawler = $client->click($link);
-		//dd($crawler);
-		 $majrp = $crawler->filter('form[action="sglhist.constancia_dc"] input[name="majrp"]')->last()->attr('value');
-         $cicloap = $crawler->filter('form[action="sglhist.constancia_dc"] input[name="cicloap"]')->last()->attr('value');
-		 $form = $crawler->selectButton('Consultar')->form();
+		$nombre = $crawler->filter("tr td ");
 
-		 $crawler = $client->submit($form, array('pidmp' => $pPidm, 'majrp' => $majrp,'cicloap'=> $cicloap));
+		$i=0;
+		foreach ($nombre as $nombre ) {
+			 $i++;
+		}
+		$CONPREPA = 8;
+		if($i == $CONPREPA){
 
-		 $nombre = $crawler->filter("table[width='100%'] td[colspan='5'] font ")->text();
+			$link = $crawler->selectLink('ALUMNOS')->link();
+			$crawler = $client->click($link);
+			$link = $crawler->selectLink('ACADÉMICA')->link();
+			$crawler = $client->click($link);
+			$link = $crawler->selectLink('Constancia')->link();
+			$crawler = $client->click($link);
+
+			$majrp = $crawler->filter('form[action="sglhist.constancia_dc"] input[name="majrp"]')->last()->attr('value');
+			$cicloap = $crawler->filter('form[action="sglhist.constancia_dc"] input[name="cicloap"]')->last()->attr('value');
+			$form = $crawler->selectButton('Consultar')->form();
+
+			$crawler = $client->submit($form, array('pidmp' => $pPidm, 'majrp' => $majrp,'cicloap'=> $cicloap));
+			$nombre = $crawler->filter("table[width='100%'] td[colspan='5'] font ")->text();
+
+			$minusculas = strtolower($nombre);
+			$CamelCase = ucwords($minusculas);
+			$cantidad = str_word_count($CamelCase);
+
+			$palabrasSeparadas = explode(" ", $nombre);
+
+			$nombre = $palabrasSeparadas[0]." ".$palabrasSeparadas[$cantidad-2];
+			$codigo = $crawler->filter("table[width='100%'] td[bgcolor='white'] font ")->text();
+			$carrera = $crawler->filter("table[width='100%'] td[colspan='7'] font ")->text();
+			$sede = $crawler->filter("table[width='100%'] td[colspan='7'] font ")->eq(1)->text();
+
+			return response()->json(['message' => 'satisfactorio','data' => 'con prepa','nombre' => $nombre,
+ 	 			'codigo' => $codigo,
+ 	 			'carrera' => $carrera,
+ 	 			'centro' => $sede]);
+		}else{
+			$link = $crawler->selectLink('ALUMNOS')->link();
+			$crawler = $client->click($link);
+			$link = $crawler->selectLink('ACADÉMICA')->link();
+			$crawler = $client->click($link);
+			$link = $crawler->selectLink('Constancia')->link();
+			$crawler = $client->click($link);
+
+			$nombre = $crawler->filter("table[width='100%'] td[colspan='5'] font ")->text();
+			$minusculas = strtolower($nombre);
+			$CamelCase = ucwords($minusculas);
+			$cantidad = str_word_count($CamelCase);
+			$palabrasSeparadas = explode(" ", $nombre);
+			$nombre = $palabrasSeparadas[0]." ".$palabrasSeparadas[$cantidad-2];
+
+			$codigo = $crawler->filter("table[width='100%'] td[bgcolor='white'] font ")->text();
+			$carrera = $crawler->filter("table[width='100%'] td[colspan='7'] font ")->text();
+			$sede = $crawler->filter("table[width='100%'] td[colspan='7'] font ")->eq(1)->text();
+
+			return response()->json(['message' => 'satisfactorio','data' => 'sin prepa','nombre' => $nombre,
+ 	 			'codigo' => $codigo,
+ 	 			'carrera' => $carrera,
+ 	 			'centro' => $sede]);
+		}
+
+		// $link = $crawler->selectLink('ALUMNOS')->link();
+		// $crawler = $client->click($link);
+		// $link = $crawler->selectLink('ACADÉMICA')->link();
+		// $crawler = $client->click($link);
+		// $link = $crawler->selectLink('Constancia')->link();
+		// $crawler = $client->click($link);
+		// //dd($crawler);
+		//  $majrp = $crawler->filter('form[action="sglhist.constancia_dc"] input[name="majrp"]')->last()->attr('value');
+  //        $cicloap = $crawler->filter('form[action="sglhist.constancia_dc"] input[name="cicloap"]')->last()->attr('value');
+		//  $form = $crawler->selectButton('Consultar')->form();
+
+		//  $crawler = $client->submit($form, array('pidmp' => $pPidm, 'majrp' => $majrp,'cicloap'=> $cicloap));
+
+		//  $nombre = $crawler->filter("table[width='100%'] td[colspan='5'] font ")->text();
 
 
-		 $minusculas = strtolower($nombre);
-		 $CamelCase = ucwords($minusculas);
-		 $cantidad = str_word_count($CamelCase);
+		//  $minusculas = strtolower($nombre);
+		//  $CamelCase = ucwords($minusculas);
+		//  $cantidad = str_word_count($CamelCase);
 
-		 $palabrasSeparadas = explode(" ", $nombre);
-		 $nombre = $palabrasSeparadas[0]." ".$palabrasSeparadas[$cantidad-2];
+		//  $palabrasSeparadas = explode(" ", $nombre);
+		//  $nombre = $palabrasSeparadas[0]." ".$palabrasSeparadas[$cantidad-2];
 
-		 $codigo = $crawler->filter("table[width='100%'] td[bgcolor='white'] font ")->text();
-		 $carrera = $crawler->filter("table[width='100%'] td[colspan='7'] font ")->text();
-		 $sede = $crawler->filter("table[width='100%'] td[colspan='7'] font ")->eq(1)->text();
+		//  $codigo = $crawler->filter("table[width='100%'] td[bgcolor='white'] font ")->text();
+		//  $carrera = $crawler->filter("table[width='100%'] td[colspan='7'] font ")->text();
+		//  $sede = $crawler->filter("table[width='100%'] td[colspan='7'] font ")->eq(1)->text();
 		 
+ 	// 		\Session::put('codigo',$codigo);
+  //   	    \Session::put('carrera',$carrera);
+  //   	    \Session::put('centro',$sede);
 
-		if($sede === "CENTRO UNIVERSITARIO DE TONALA"){
- 			
- 			\Session::put('codigo',$codigo);
-    	    \Session::put('carrera',$carrera);
-
-
- 			return response()->json(
- 				[
- 				'message'=> 'satisfactorio',
- 				'nombre' => $nombre,
- 				'codigo' => $codigo,
- 				'carrera' => $carrera,
- 				'sede' => $sede
- 			]); 
- 		}else{
- 			return response()->json(['message'=> 'error','descripcion'=>'Centro universitario diferente']);  
- 		}
+ 	// 		return response()->json(
+ 	// 			[
+ 	// 			'message'=> 'satisfactorio',
+ 	// 			'nombre' => $nombre,
+ 	// 			'codigo' => $codigo,
+ 	// 			'carrera' => $carrera,
+ 	// 			'centro' => $sede,
+ 	// 		]); 
+		
 
  	}catch(\InvalidArgumentException $e) { 
  		return response()->json(['message'=> 'error','descripcion' => 'codigo o nip incorrectos']);  
@@ -110,7 +181,8 @@ class ScrapingController extends Controller
 
 
  	public function prueba(){
-	try { //code that will raise exceptions 
+	
+
 
  		$client = new Client();
  		$crawler = $client->request('GET', 'http://siiauescolar.siiau.udg.mx/wus/gupprincipal.forma_inicio');
@@ -132,48 +204,67 @@ class ScrapingController extends Controller
 
 		//$crawler = $client->submit($form, array('p_pidm_n' => '1087215'));
 		$crawler = $client->request('GET', 'gupmenug.menu_sistema?p_pidm_n='.$pPidm); //nueva linea
-		$link = $crawler->selectLink('ALUMNOS')->link();
-		$crawler = $client->click($link);
-		$link = $crawler->selectLink('ACADÉMICA')->link();
-		$crawler = $client->click($link);
-		$link = $crawler->selectLink('Constancia')->link();
-		$crawler = $client->click($link);
-		//dd($crawler);
-		 $majrp = $crawler->filter('form[action="sglhist.constancia_dc"] input[name="majrp"]')->last()->attr('value');
-      $cicloap = $crawler->filter('form[action="sglhist.constancia_dc"] input[name="cicloap"]')->last()->attr('value');
-		 $form = $crawler->selectButton('Consultar')->form();
+		$nombre = $crawler->filter("tr td ");
 
-		 $crawler = $client->submit($form, array('pidmp' => $pPidm, 'majrp' => $majrp,'cicloap'=> $cicloap));
+		$i=0;
+		foreach ($nombre as $nombre ) {
+			 $i++;
+		}
+		$CONPREPA = 8;
+		if($i == $CONPREPA){
 
-		 $nombre = $crawler->filter("table[width='100%'] td[colspan='5'] font ")->text();
+//			print "eres estudiante de prepa e uni"."<br>";
+
+			$link = $crawler->selectLink('ALUMNOS')->link();
+			$crawler = $client->click($link);
+			$link = $crawler->selectLink('ACADÉMICA')->link();
+			$crawler = $client->click($link);
+			$link = $crawler->selectLink('Constancia')->link();
+			$crawler = $client->click($link);
+
+			$majrp = $crawler->filter('form[action="sglhist.constancia_dc"] input[name="majrp"]')->last()->attr('value');
+			$cicloap = $crawler->filter('form[action="sglhist.constancia_dc"] input[name="cicloap"]')->last()->attr('value');
+			$form = $crawler->selectButton('Consultar')->form();
+
+			$crawler = $client->submit($form, array('pidmp' => $pPidm, 'majrp' => $majrp,'cicloap'=> $cicloap));
+			$nombre = $crawler->filter("table[width='100%'] td[colspan='5'] font ")->text();
+
+			$minusculas = strtolower($nombre);
+			$CamelCase = ucwords($minusculas);
+			$cantidad = str_word_count($CamelCase);
+
+			$palabrasSeparadas = explode(" ", $nombre);
+
+			$nombre = $palabrasSeparadas[0]." ".$palabrasSeparadas[$cantidad-2];
+			print($nombre."<br>");
+			$codigo = $crawler->filter("table[width='100%'] td[bgcolor='white'] font ")->text();
+			print($codigo."<br>");
+			$carrera = $crawler->filter("table[width='100%'] td[colspan='7'] font ")->text();
+			print($carrera."<br>");
+			$sede = $crawler->filter("table[width='100%'] td[colspan='7'] font ")->eq(1)->text();
+			print($sede."<br>");
 
 
-		 $minusculas = strtolower($nombre);
-		 $CamelCase = ucwords($minusculas);
-		 $cantidad = str_word_count($CamelCase);
+		}else{
+//			print "solo eres estudiante de uni"."<br>";
 
-		 $palabrasSeparadas = explode(" ", $nombre);
+			$link = $crawler->selectLink('ALUMNOS')->link();
+			$crawler = $client->click($link);
+			$link = $crawler->selectLink('ACADÉMICA')->link();
+			$crawler = $client->click($link);
+			$link = $crawler->selectLink('Constancia')->link();
+			$crawler = $client->click($link);
 
-		 $nombre = $palabrasSeparadas[0]." ".$palabrasSeparadas[$cantidad-2];
-		 print($nombre."<br>");
-		 $codigo = $crawler->filter("table[width='100%'] td[bgcolor='white'] font ")->text();
-		 print($codigo."<br>");
-		 $carrera = $crawler->filter("table[width='100%'] td[colspan='7'] font ")->text();
-		 print($carrera."<br>");
-		 $sede = $crawler->filter("table[width='100%'] td[colspan='7'] font ")->eq(1)->text();
-		 print($sede."<br>");
+			$nombre = $crawler->filter("table[width='100%'] td[colspan='5'] font ")->text();
+			print($nombre."<br>");
+			$codigo = $crawler->filter("table[width='100%'] td[bgcolor='white'] font ")->text();
+			print($codigo."<br>");
+			$carrera = $crawler->filter("table[width='100%'] td[colspan='7'] font ")->text();
+			print($carrera."<br>");
+			$sede = $crawler->filter("table[width='100%'] td[colspan='7'] font ")->eq(1)->text();
+			print($sede."<br>");
 
-		 if($sede == "CENTRO UNIVERSITARIO DE TONALA" ){
-		 	return 'pronto tendremos la pagina para el '.$sede;
-		 }else{
-		 	return 'pronto tendremos la pagina para el '.$sede;
-		 }
-
+		}
 	} 
-	catch(\InvalidArgumentException $e) { 
-		return 'codigo o nip incorrectos';
-	//...and do whatever you want return response()->view('my.error.view', [], 500);
-	 }
-
- 	}
+ 	
 }

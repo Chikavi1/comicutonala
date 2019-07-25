@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str as Str;
  
 use App\Items;
+use App\User;
 
 class SellersController extends Controller
 {
@@ -59,6 +60,8 @@ class SellersController extends Controller
     public function store(Request $request)
     {
         
+        $user = User::where('id',Auth::user()->id)->get();
+        $escuela = $user[0]->school;
 
 
         $request->validate([
@@ -71,11 +74,11 @@ class SellersController extends Controller
             $path = $request->file('image')->store('public');
             $fileName = collect(explode('/', $path))->last();
             $image = Image::make(\Storage::get($path));
-            $image->resize(1024, 683, function ($constraint) {
-              $constraint->aspectRatio();
+            $image->resize(1280,null, function ($constraint) {
+//              $constraint->aspectRatio();
               $constraint->upsize();
             });
-            Storage::put($path, (string) $image->encode('jpg', 70));
+            Storage::put($path, (string) $image->encode('jpg', 60));
            
         }
         
@@ -94,6 +97,7 @@ class SellersController extends Controller
             'cellphone' => $request->get('cellphone'),
             'salon' => $request->get('salon'),
             'available' => "1",
+            'school' => $escuela,
             'schedule' => $schedule
         ]);
         $seller->save();
@@ -123,7 +127,13 @@ class SellersController extends Controller
     {
         $categories = Categories::all();
         $seller = Sellers::findorFail($id);
-        return view('seller.edit')->with(compact('seller','categories'));
+        $hora1 = null;
+        $hora2 = null;
+        if($seller->schedule){
+        list($hora1, $hora2) = explode(' - ', $seller->schedule);
+    }
+
+        return view('seller.edit')->with(compact('seller','categories','hora1','hora2'));
     }
 
     /**
@@ -136,10 +146,40 @@ class SellersController extends Controller
     public function update(Request $request, $slug)
     {
 
+        $seller = Sellers::where('slug','=',$slug)->firstOrFail();
         if($request->hasFile('image')){
-            $image = $request->file('image')->store('public');
+            $antiguaFoto = $seller->image;
+            $antiguaFoto = collect(explode('/', $antiguaFoto))->last();
+            $mi_imagen = 'storage/'.$antiguaFoto;
+            if (@getimagesize($mi_imagen)) {
+            unlink($mi_imagen);
+            }     
+
+            $path = $request->file('image')->store('public');
+            $fileName = collect(explode('/', $path))->last();
+            $image = Image::make(\Storage::get($path));
+            $image->resize(1280,null, function ($constraint) {
+//              $constraint->aspectRatio();
+              $constraint->upsize();
+            });
+            Storage::put($path, (string) $image->encode('jpg', 60));
+            $seller->image = $path;
         }
-        Sellers::where('slug','=',$slug)->firstOrFail()->update($request->all());
+
+     
+        $schedule = $request->get('inicia')." - ".$request->get('finaliza');
+
+        
+        $seller->title = $request->get('title');
+        $seller->description = $request->get('description');
+        $seller->category = $request->get('category');
+        $seller->cellphone = $request->get('cellphone');
+        $seller->salon = $request->get('salon');
+        $seller->available = $request->get('available');
+        $seller->schedule = $schedule; 
+
+        $seller->save();
+
         return redirect()->route('seller', [$slug]);
      }
 

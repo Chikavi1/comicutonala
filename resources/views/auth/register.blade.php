@@ -7,11 +7,7 @@
         min-height: 15em;
         height: 20em;
        }
-       .btnsiiau{
-        border-radius: 5px;
-        background: white !important;
-        height: 2em;
-       }
+       
        .border-blue{
         border: 1px solid #0050ef;
        }
@@ -116,6 +112,7 @@
                        <div class="resultado-satisfactorio oculto">
                             <img src="{{ asset('img/success.png') }}" alt="" width="70">
                             <h5 class="color-satisfactorio"><span class="message-response"></span></h5>
+                            <p class="centro"></p>
                             <button class="btn-block btnsiiau margin1-top color-satisfactorio border-satisfactorio" id="siguiente">Siguiente</button>
                        </div>
                         <div class="resultado-error oculto">
@@ -141,7 +138,7 @@
                 e.preventDefault();
                 $.ajax({
                       headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
-                        type: 'post',
+                        type: 'get',
                         dataType: 'json',
                         url: '{{ url("/scraping") }}',
                         data: {
@@ -151,10 +148,15 @@
                         },
                         success: function(response) {
                          console.log(response);
+
                          $("#name").val(response.nombre);
-                         $("#code").val(response.codigo);
+                         $("#codigo ").val(response.codigo);
+                         $("#code ").val(response.codigo);
                          $("#carrera").val(response.carrera);
+                         $('#centro').val(response.centro);
+
                          $(".message-response").text(response.nombre);
+                         $(".centro").text(response.centro);
                          $("#mensaje-error").text(response.descripcion);
                           console.log(response.message);
                           $(".siiaubox").fadeOut(2000);
@@ -201,10 +203,50 @@
                     <div class="center">
                         <h2>Registrarse</h2>
 
-                        <div class="card-body">
+                        <div class="card-body padding">
                             <form method="POST" action="{{ route('register') }}">
                                {{ @csrf_field() }}
-                                
+                                <input id="code" type="hidden" class="form-control{{ $errors->has('code') ? ' is-invalid' : '' }}" name="code" value="" required autofocus>
+
+                                  <div class="form-group row">
+                                    <label for="codigo" class="col-sm-4 col-form-label text-md-right">Codigo UDG</label>
+                                    <div class="col-md-6">
+                                        <input disabled id="codigo" type="number" class="form-control{{ $errors->has('codigo') ? ' is-invalid' : '' }}" name="codigo" value="" required autofocus>
+
+
+                                        @if ($errors->has('codigo'))
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $errors->first('codigo') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                </div>
+                                  <div class="form-group row">
+                                    <label for="carrera" class="col-sm-4 col-form-label text-md-right">Carrera</label>
+
+                                    <div class="col-md-6">
+                                        <input disabled id="carrera" type="text" class="form-control{{ $errors->has('carrera') ? ' is-invalid' : '' }}" name="carrera" value=""  autofocus>
+
+                                        @if ($errors->has('carrera'))
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $errors->first('carrera') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="centro" class="col-sm-4 col-form-label text-md-right">centro</label>
+
+                                    <div class="col-md-6">
+                                        <input disabled id="centro" type="text" class="form-control{{ $errors->has('centro') ? ' is-invalid' : '' }}" name="centro" value=""  autofocus>
+
+                                        @if ($errors->has('centro'))
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $errors->first('centro') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                </div>
                                 <div class="form-group row">
                                     <label for="name" class="col-md-4 col-form-label text-md-right">Nombre</label>
 
@@ -218,32 +260,7 @@
                                         @endif
                                     </div>
                                 </div>
-                                  <div class="form-group row">
-                                    <label for="code" class="col-sm-4 col-form-label text-md-right">Codigo UDG</label>
 
-                                    <div class="col-md-6">
-                                        <input disabled id="code" type="number" class="form-control{{ $errors->has('code') ? ' is-invalid' : '' }}" name="code" value="" required autofocus>
-
-                                        @if ($errors->has('code'))
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('code') }}</strong>
-                                            </span>
-                                        @endif
-                                    </div>
-                                </div>
-                                  <div class="form-group row">
-                                    <label for="carrera" class="col-sm-4 col-form-label text-md-right">Carrera</label>
-
-                                    <div class="col-md-6">
-                                        <input disabled id="carrera" type="text" class="form-control{{ $errors->has('carrera') ? ' is-invalid' : '' }}" name="carrera" value="" required autofocus>
-
-                                        @if ($errors->has('carrera'))
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('carrera') }}</strong>
-                                            </span>
-                                        @endif
-                                    </div>
-                                </div>
                                 <div class="form-group row">
                                     <label for="email" class="col-md-4 col-form-label text-md-right">Correo electronico</label>
 
@@ -284,7 +301,7 @@
 
                                 <div class="form-group row mb-0">
                                     <div class="col-md-6 offset-md-4">
-                                        <button type="submit" class="btn btn-primary">
+                                        <button type="submit" class="btn btn-block color-cut">
                                             Registrar
                                         </button>
                                     </div>

@@ -25,14 +25,23 @@
 			    <thead>
 			        <tr>
 			            <th>Nombre del Usuario</th>
-			            <th>{{$user->name}}</th>
+			            <th class="right-align">{{$user->name}}</th>
+
 			        </tr>
 			    </thead>
 
-			    <tbody>  
-			        <tr>
-			          <td>telefono</td>
-			          <td>{{$user->phone}}</td>
+			    <tbody >  
+			        <tr >
+			          <td>codigo</td>
+			          <td class="right-align">{{$user->code}}</td>
+			        </tr>
+			        <tr >
+			          <td>Carrera</td>
+			          <td class="right-align">{{$user->career}}</td>
+			        </tr>
+			        <tr >
+			          <td>Centro</td>
+			          <td class="right-align">{{$user->school}}</td>
 			        </tr>
 			    </tbody>
 			</table>
