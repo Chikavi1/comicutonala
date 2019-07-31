@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Items;
+use App\items;
 use Auth;
 
 use Image;

@@ -11,7 +11,7 @@ use Image;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str as Str;
  
-use App\Items;
+use App\items;
 use App\User;
 
 class SellersController extends Controller

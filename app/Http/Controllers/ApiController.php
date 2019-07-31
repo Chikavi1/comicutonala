@@ -4,11 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Sellers;
-use App\Items;
+use App\items;
 
 class Apicontroller extends Controller
 {
-    public function getSellers()
+    public function getsellers()
     {
     	return  Sellers::inRandomOrder()->limit(10)->get();
     }
