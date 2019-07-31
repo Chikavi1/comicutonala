@@ -10,13 +10,27 @@ class Apicontroller extends Controller
 {
     public function getsellers()
     {
-    	return  Sellers::inRandomOrder()->limit(10)->get();
+    	$vendedores = Sellers::inRandomOrder()->limit(10)->get();
+    	foreach ($vendedores as $vendedor) {
+				$vendedor->description = strip_tags($vendedor->description);
+				$vendedor->image = collect(explode('/', $vendedor->image))->last();
+				$vendedor->image = 'storage/'.$vendedor->image;
+			}
+
+			return $vendedores;
     }
 
     public function getseller()
     {
-    	return Sellers::inRandomOrder()->limit(1)->get();
-    }
+    	$vendedores = Sellers::inRandomOrder()->limit(1)->get();
+    	foreach ($vendedores as $vendedor) {
+			$vendedor->description = strip_tags($vendedor->description);
+			$vendedor->image = collect(explode('/', $vendedor->image))->last();
+			$vendedor->image = 'storage/'.$vendedor->image;
+		}
+
+		return $vendedores;
+	    }
 
     public function getbyCategory($category){
     	return Sellers::where("category",'=',$category)->limit(8)->get();
