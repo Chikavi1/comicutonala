@@ -9,8 +9,8 @@ use Auth;
 use Image;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str as Str;
- 
-
+use App\Categories;
+use App\Sellers;
 class ItemsController extends Controller
 {
 
@@ -21,22 +21,24 @@ class ItemsController extends Controller
     }
 
     public function creandoConId($id)
-    {
-        return view('items.create')->with(compact('id'));
+    {  
+        $categories = Categories::all();
+        return view('items.create')->with(compact('id','categories'));
     }
     public function create()
     {
+
         return view('items.create');
     }
 
     public function store(Request $request)
     {
-        // $request->validate([
-        //     'title' => 'required',
-        //     'pricing' => 'required|integer',
-        //     'sellers_id' => 'unique:items'
-        // ]);
-
+         $request->validate([
+             'title' => 'required',
+             'pricing' => 'required|integer',
+             'image' => 'mimes:jpeg,png'
+         ]);
+            $path = null ;
            
            if($request->hasFile('image')){
             $path = $request->file('image')->store('public');
@@ -46,10 +48,11 @@ class ItemsController extends Controller
               //$constraint->aspectRatio();
               $constraint->upsize();
             });
-            Storage::put($path, (string) $image->encode('jpg', 70));
+            Storage::put($path, (string) $image->encode('jpg', 80));
            
         }
 
+        $seller = Sellers::where("id", $request->get('sellers_id'))->first();
         $item = new Items([
             'sellers_id' => $request->get('sellers_id'),
             'title' => $request->get('title'),
@@ -61,7 +64,7 @@ class ItemsController extends Controller
         $item->save();
         
         if((Auth::user()->seller->slug)){
-         return redirect()->route('seller.index'); 
+         return redirect()->route('seller.show',$seller->slug)->with('success','Se agrego el ítem.');; 
         }else{
             dd("error");
         }
@@ -75,8 +78,9 @@ class ItemsController extends Controller
 
     public function edit($id)
     {
+        $categories = Categories::all();
         $item = Items::findOrFail($id);
-        return view('items.edit')->with(compact('item'));
+        return view('items.edit')->with(compact('item','categories'));
     }
 
     public function update(Request $request, $id)

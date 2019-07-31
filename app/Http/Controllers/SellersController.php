@@ -16,47 +16,19 @@ use App\User;
 
 class SellersController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+  
     public function index(Request $request)
-{
+    {
         $sellers = Sellers::Search($request->get("busqueda"));
 
         return view('seller.index')->with(compact('sellers'));
     }
-    
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
         $categories = Categories::all();
         return view('seller.create')->with(compact('categories'));
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-      $request->validate([
-        'share_name'=>'required',
-        'share_price'=> 'required|integer',
-        'share_qty' => 'required|integer'
-      ]);
-      $share = new Share([
-        'share_name' => $request->get('share_name'),
-        'share_price'=> $request->get('share_price'),
-        'share_qty'=> $request->get('share_qty')
-      ]);
-      $share->save();
-      return redirect('/shares')->with('success', 'Stock has been added');
-     */
     public function store(Request $request)
     {
         
@@ -101,28 +73,18 @@ class SellersController extends Controller
             'schedule' => $schedule
         ]);
         $seller->save();
-        return redirect()->route('profile')->with('success','Se creo satisfactoriamente tu pagina de vendedor.');
+        return redirect()->route('profile')->with('success','Se envio tu solicitud.');
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
       public function show($slug){
         $seller = Sellers::where('slug','=',$slug)->firstOrFail();
-        $items = Items::where("sellers_id",$seller->id)->get();
+        $items = Items::where("sellers_id",$seller->id)->paginate(6);
+        if (\Request::ajax()) {
+            return \Response::json(View('items.items', array('items' => $items,'seller' => $seller))->render());
+        }
+
         return view('seller.show')->with(compact('seller','items'));
 
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         $categories = Categories::all();
@@ -136,13 +98,6 @@ class SellersController extends Controller
         return view('seller.edit')->with(compact('seller','categories','hora1','hora2'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $slug)
     {
 
@@ -183,12 +138,7 @@ class SellersController extends Controller
         return redirect()->route('seller', [$slug]);
      }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+ 
     public function destroy($id)
     {
         //

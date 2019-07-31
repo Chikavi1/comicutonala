@@ -2,7 +2,7 @@
 
 @section('content')
 
-<style ">
+<style>
 	.box{
 		border: .5em red solid;
 	}
@@ -11,12 +11,20 @@
 
 	<div class="row">
 		<div class="col m2 s12">
-			<ul class="collection">
-		      <li class="collection-item" >	<a href="{{ route('profile') }}"> Categorias</a></li>
-		      <li class="collection-item">Productos</li>
-		      <li class="collection-item">Alvin</li>
-		      <li class="collection-item">Alvin</li>
-   			 </ul>
+			 <ul class="collapsible">
+			    <li>
+			      <div class="collapsible-header"><i class="material-icons">filter_drama</i>Productos</div>
+			      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+			    </li>
+			    <li>
+			      <div class="collapsible-header"><i class="material-icons">place</i>Usuarios</div>
+			      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+			    </li>
+			    <li>
+			      <div class="collapsible-header"><i class="material-icons">whatshot</i>Estadisticas</div>
+			      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+			    </li>
+			  </ul>
 		</div>
 		
 		<div class="col m10 s12">

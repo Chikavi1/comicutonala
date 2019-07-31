@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Sellers;
+use App\Categories;
+use App\User;
 
 class AdminController extends Controller
 {
@@ -11,11 +14,34 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+       
         return view('admin.index');
     }
-
+    public function login(Request $request){
+        $correo = $request->codigo;
+        $password = $request->nip;
+        if($correo == "chikavi@hotmail.com" && $password == "zeissps310"){
+            return view('admin.index');
+        }
+    }
+    public function vendedores()
+    {
+        $sellers = Sellers::paginate(15);
+        return view('admin.vendedores')->with(compact('sellers'));
+    }
+    public function categorias(){
+        $categories = Categories::all();
+        return view('admin.categorias')->with(compact("categories")); 
+    }
+    public function usuarios(){
+        $users = User::paginate(15);
+        return view('admin.usuarios')->with(compact('users'));
+    }
+    public function estadisticas(){
+        return view('admin.estadisticas');
+    }
     /**
      * Show the form for creating a new resource.
      *

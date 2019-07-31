@@ -23,21 +23,30 @@
   <div class="row">
 		<div class="col s12 m6 offset-m3">
 			
-		<div class="card">
-    <div class="card-image waves-effect waves-block waves-light">
-      <img class="activator" src="{{ Storage::url($seller->image) }}">
+<div class="card">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator img-responsive img-sizes"   src="{{ Storage::url($seller->image) }}" >
+        </div>
+        <div class="card-content color-cut ">
+          <span class="card-title activator white-text center-align truncate">{{
+          str_limit($seller->title, 20)  }}</span>
+          </div>
+        <div class="card-reveal  ">
+          <span class="card-title grey-text center-align truncate">
+            {{ str_limit($seller->title, 15)  }}<i class="material-icons right">close</i></span>
+        <p class="valign-wrapper"><i class="material-icons red-text">call</i>&nbsp;{{ $seller->cellphone }}</p>
+        <p class="valign-wrapper"><i class="material-icons green-text">place</i>&nbsp;{{$seller->salon}}</p>
+        <p class="valign-wrapper"><i class="material-icons blue-text">schedule</i>&nbsp;{{$seller->schedule}}</p>
+          @if($seller->available == 1)
+          <p class="valign-wrapper"><i class="material-icons " style="color:green">check</i>Disponible</p>
+          @elseif($seller->available == 0)
+          <p class="valign-wrapper"><i class="material-icons" style="color:red">block</i>No Disponible</p>
+          @endif
+
+        
+        <a href="{{route('seller.show',$seller->slug)}}" class="bottom btn color-cut ">Ver más</a>
+        </div>
     </div>
-    <div class="card-content">
-      <span class="card-title activator grey-text text-darken-4">{{ $seller->title }}<i class="material-icons right">more_vert</i></span>
-      <p><a href="{{route('seller.show',$seller->slug)}}">ver mas</a></p>
-    </div>
-    <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4">{{$seller->title}}<i class="material-icons right">close</i></span>
-      <p>{{$seller->description}}</p>
-      <p>{{ $seller->user->name }}</p>
-      <p class="color-blue">{{$seller->cellphone}}</p>
-    </div>
-  </div>
 		</div>
 	</div>
 

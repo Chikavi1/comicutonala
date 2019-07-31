@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+ <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 <script>
 	
 $(document).ready(function(){
@@ -13,6 +14,10 @@ $(document).ready(function(){
    
 </script>	
 	<style>
+		p  {
+font-family: 'Montserrat', sans-serifl
+	
+}
 
 		hr { 
 		    border-top: 1px solid #e0e0e0;
@@ -41,7 +46,7 @@ $(document).ready(function(){
 		.margin-lados{
 			margin-left: 2em !important;
 		}
-		.modal { width: 95% !important ; height: 95% !important ; }
+		.modal-show { width: 95% !important ; height: 95% !important ; }
 		.img-index{
 			width: 150% !important;
 		}
@@ -52,12 +57,39 @@ $(document).ready(function(){
 			color:green;
 		}
 		.pricing-size{
-			font-size: 2em;
+			font-size: 1.5em;
 		}
+		.available-size{
+			font-size: 1.3em;
+		}
+		input#busqueda{
+		}
+
 	</style>
-	<script language="Javascript">
+	<style>
+.search-redondo{
+  border-radius: 15px !important;
+  background: white !important;
+  height: 2.5em;
+  border-color: #17202F;
+  padding-left: 1em;
+}
+.dentro{
+	position: relative;
+	right: 2em;
+}
+.search-cut{
+	color: #17202F;
+}
+</style>
+	<!--<script language="Javascript">
 document.oncontextmenu = function(){return false}
-</script>
+</script>-->
+@if ($message = Session::get('success'))
+<div class="color-cut">
+  <h5 class="center white-text" style="margin-top: 0 !important;padding: 1em;"><strong>{{ $message }}</strong></h5>
+</div>
+@endif
 			<img class="responsive-img materialboxed hide-on-med-and-up " src="{{Storage::url($seller->image)}}"  alt="" >
 
 	<div class="row" style="padding: 2em;" >
@@ -66,7 +98,7 @@ document.oncontextmenu = function(){return false}
 			<img class="responsive-img materialboxed hide-on-small-only" src="{{Storage::url($seller->image)}}"  alt="" >
 
 		</div>
-		<div class="col m5 s12 card">
+		<div class="col m5 s12 card ">
 			@if(Auth::id() ==  $seller->user_id)
 			<div class="row">
 				<div class="col s6">
@@ -79,21 +111,21 @@ document.oncontextmenu = function(){return false}
 			@endif
 
 
-			<h2 class="center-align">{{ $seller->title }}</h2>
+			<h2 class="center-align">{{ ucfirst($seller->title) }}</h2>
 			<center>
 				
-			<div class="chip  tooltipped" data-position="top" data-tooltip="¡Marcale!">
-				<span class="valign-wrapper">
+			<div class="chip  tooltipped" style="background: #095387" data-position="top" data-tooltip="¡Marcale!">
+				<span class="valign-wrapper white-text" >
 					<i class="material-icons">call</i>{{$seller->cellphone}}
 				</span>	
 			</div>
-			<div class="chip valign-wrapper">
-				<span class="valign-wrapper">
+			<div class="chip valign-wrapper yellow-color-bg">
+				<span class="valign-wrapper ">
 					<i class="material-icons">fastfood</i>{{$seller->category}}
 				</span>
 			</div>
-			<div class="chip valign-wrapper tooltipped" data-position="top" data-tooltip="¡Aqui puedes encontrarlo!">
-				<span class="valign-wrapper">
+			<div class="chip valign-wrapper tooltipped" style="background: #21897E" data-position="top" data-tooltip="¡Aqui puedes encontrarlo!">
+				<span class="valign-wrapper white-text">
 					<i class="material-icons">place</i>{{$seller->salon}}
 				</span>
 			</div>
@@ -101,38 +133,99 @@ document.oncontextmenu = function(){return false}
 			<center>	
 			<br>
 			<a href="https://api.whatsapp.com/send?phone=5213327276923&text=hola,{{$seller->title}} aun%20tienes%20comida%20disponible?" class="btn color-cut">Mandar Mensaje</a>
-				<a href="tel:+5213327276923" class="btn ">llamar</a>
+				<a href="tel:+5213327276923" class="btn " style="background: #1A8FE3">llamar</a>
 			</center>
 			<br>
-					<div class="center-align">
+				<div class="center-align">
 					@if($seller->available == 1)
-						<p class="color-green">Disponible</p>
+						<p class="color-green bold available-size">
+							@if(Auth::id() ==  $seller->user_id)
+								<a href="#modalDisponible" class="btn green modal-trigger">Disponible</a>
+							@else
+								Disponible
+							@endif	
+						</p>
+
 					@elseif($seller->available == 0)
-						<p class="red-text">No Disponible</p>
+						<p class="red-text bold available-size">
+							@if(Auth::id() ==  $seller->user_id)
+								<a href="#modalDisponible" class="btn red modal-trigger">No disponible</a>
+							@else
+								No Disponible
+							@endif	
+						</p>
 					@endif
-					</div>
+
+					
+				</div>
 			<br>
 		</div>
 	</div>
 
-<div class="padding">
+<div>
+
+<div id="modalDisponible" class="modal modal-fixed-footer">
+	<div class="modal-content" style="margin:0;">
+				<h4>Vendedor</h4>
+				<div class="row">
+					<div class="col s6 m9">
+						Disponible
+					</div>
+					<div class="col s6 m3">
+						<div class="switch">
+					    <label>
+					      No
+					      <input type="checkbox">
+					      <span class="lever"></span>
+					      Si
+					    </label>
+					  </div>
+					</div>
+				</div>
+				<h4>Productos</h4>
+				@foreach($items as $item)
+				<div class="row">
+					<div class="col s6 m9">
+						{{$item->title}}
+					</div>
+					<div class="col s6 m3">
+						<div class="switch">
+					    <label>
+					      No
+					      <input type="checkbox">
+					      <span class="lever"></span>
+					      Si
+					    </label>
+					  </div>
+					</div>
+				</div>
+				@endforeach
+	</div>
+
+	<div class="modal-footer"  >
+	    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cerrar</a>
+	</div>
+</div>
+
+	
+
+<div class="padding" style="background:#f0f4f8 ">
 	
 
 			<ul class="tabs tabs-fixed-width tab-demo z-depth-1">
 			    <li class="tab"><a href="#test1">Info</a></li>
 			    <li class="tab"><a class="active" href="#test2">Productos</a></li>
 			  </ul>
-		
-
-<div id="test1" class="col s12">
+<div id="test1" class="col s12" style="background: #f0f4f8">
 	<div class="padding">
 		
 	<div class="row">
-	    <div class="col s12 m3 offset-m1">
-	      <div class="card blue-grey darken-1">
+	    <div class="col s12 m3 offset-m1 ">
+	      <div class="card  z-depth-4 " style="background: #095387 !important;">
 	        <div class="card-content white-text">
-		  		<h3 class="header center-align">Horario</h3>
+		  		<h4 class="header  center-align">Horario</h4>
 	          <span class="card-title center-align">
+	          	<i class="far fa-clock"></i>
 	          {{ $seller->schedule }}
 	          </span>
 	        </div>
@@ -140,11 +233,11 @@ document.oncontextmenu = function(){return false}
 	    </div>
 
 	     <div class="col s12 m6">
-	      <div class="card color-cut">
+	      <div class="card" style="background: #4C81A7;">
 	        <div class="card-content white-text">
 		 	<h3 class="center-align" >Descripción</h3>
-		 	<p class="">
-	          {!! $seller->description !!}
+		 	<p class="monsea">
+	          {!! ucfirst($seller->description) !!}
 		 	</p>
 	        </div>
 	      </div>
@@ -155,65 +248,67 @@ document.oncontextmenu = function(){return false}
 	
 		</div>
 
+<style>
 
-<div id="test2" class="col s12">
-  	<div class="row">
+</style>
+<div id="test2" class="col s12" style="background: #f0f4f8">
+  	<div class="row padding">
   		@if(empty($items->count()))
   		<br><br>
   		<center>
-  		<img src="{{ asset('img/heart.png') }}" class="center" alt="">
+  			<i class="fas fa-info-circle fa-6x blue-text"></i>
+  		<!--<img src="{{ asset('img/heart.png') }}" class="center" alt="">-->
   		</center>
-		<h5 class="center-align">Aun no tiene productos :(</h5>
+		<h5 class="center-align">Aun no tiene productos 😢</h5>
   		@else
-		@foreach($items as $item)
-		<div class="padding">
-		<div class="col s12 m4">
-		    <div class="card small">
-		    	<a href="#modal{{$item->id}}" class=" modal-trigger">
-		    		
-			    <div class="card-image waves-effect waves-block waves-light">
-			      <img class="activator" src="{{ Storage::url($item->image) }}">
-			    </div>
-			    <div class="card-content">
-			      <span class="card-title activator grey-text text-darken-4">{{$item->title}}</span>
-			    </div>
-		    	</a>
-			</div>
-		</div>
-		</div>
-		<div id="modal{{$item->id}}" class="modal">
-		    <div class="modal-content" style="margin:0;">
-				<img class="responsive-img hide-on-med-and-up" src="{{ Storage::url($item->image) }}">
+  		 
+
+  <script>
+    $(window).on('hashchange', function() {
+        if (window.location.hash) {
+            var page = window.location.hash.replace('#', '');
+            if (page == Number.NaN || page <= 0) {
+                return false;
+            } else {
+                getPosts(page);
+            }
+        }
+    });
+    $(document).ready(function() {
+        $(document).on('click', '.pagination a', function (e) {
+            getPosts($(this).attr('href').split('page=')[1]);
+            console.log("------------------");
+            console.log($(this).attr('href').split('page=')[1]);  
+            console.log("------------------");
+            e.preventDefault();
+        });
+    });
+    function getPosts(page) {
+        $.ajax({
+            url : '?page=' + page,
+            dataType: 'json',
+        }).done(function (data) {
+            $('.items').html(data);
+            console.log(data);
+            location.hash = page;
+        }).fail(function () {
+            alert('items could not be loaded.');
+        });
+    }
+    </script>
 
 
-		    	<div class="row">	
-		    		<div class="col m6 s12">
-		      			<img class="responsive-img hide-on-small-only" src="{{Storage::url($item->image)}}">
-		    		</div>
-		    		<div class="col m6 s12">
-		    			<h4 class="center-align">{{$item->title}}</h4>
-		    			<hr>
-							<h5>Categoria: {{$item->category}} </h5>
-							<p>{!! $item->description !!}</p>
-							<p class="color-green pricing-size">$ {{$item->pricing}} MXN</p>
-					    </div>
-		    		</div>
-		    	</div>
 
-		      <div class="modal-footer"  >
-					      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cerrar</a>
-			   </div>
-		</div>
-		@endforeach
- 	</div>
+
+  	 <div class="items">
+        @include('items.items')
+    </div>
+
+
  	@endif
 </div>
-
-
-    
  </div>
-
-
+</div>
 
 @endsection
 

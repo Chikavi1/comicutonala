@@ -27,19 +27,23 @@
 .search-cut{
 	color: #17202F;
 }
+input#busqueda:focus{
+	outline:0px;
+}
 </style>
 
 <div class="margin-bottom-footer">
 	<h3 class="center-align">Busqueda Avanzada</h3>
+
 	<div class="row">
-		
 		<div class="col s11 offset-s1 m6 offset-m3 ">
 			<div class="valign-wrapper">
 			<input type="text" class="browser-default btn-block search-redondo " name="busqueda" id="busqueda">
-			<i class="material-icons prefix right dentro search-cut">search</i>
+			<i class=" material-icons fab fa-searchengin prefix right dentro search-cut"></i>
 			</div>
-		</div>
-		<div class="col s10 offset-s1 m4 offset-m4 margin-top-1">
+  		</div>
+
+  		<div class="col s10 offset-s1 m4 offset-m4 margin-top-1">
 			<div class="input-field col s12">
 		    <select class="centro">
 		      <option value="" disabled selected>Selecciona centro universitario</option>

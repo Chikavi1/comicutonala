@@ -94,7 +94,7 @@
                             {{ @csrf_field() }}
                             <div class="row">
                                 <div class="input-field  col offset-s2 s8">
-                                  <input class="input-siiau" placeholder="Código" id="codigo" name="codigo"  type="text" class="validate" required>
+                                  <input class="input-siiau" placeholder="Código" pattern="[0-9]+" id="codigo" name="codigo"  type="number" class="validate" required>
                                 </div>
                                 <div class="input-field col offset-s2 s8">
                                   <input class="input-siiau" placeholder="NIP" id="nip" name="nip" type="password" class="validate" required> 

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
@@ -8,6 +8,16 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>ComiCut @yield('title')</title>
+    <meta NAME="DC.Language" SCHEME="RFC1766" CONTENT="Spanish">
+    <meta NAME="AUTHOR" CONTENT="Luis Rojas">
+    <meta NAME="REPLY-TO" CONTENT="chikavi@hotmail.com">
+    <LINK REV="made" href="mailto:chikavi@hotmail.com">
+    <meta NAME="KEYWORDS" CONTENT="comida,udg,ventas,vendedores,udventas">
+    <meta NAME="Resource-type" CONTENT="Catalog">
+    <meta NAME="robots" content="ALL">
+    <meta name="description" content="Consulta información sobre los vendedores que venden en los diferentes centros, horarios, lugares de venta, productos, números, y muchas cosas mas.">   
+      
+
     <link rel="icon" href="{{asset('ico.png')}}" sizes="16x16">
     <link rel="manifest" href="{{asset('manifest.json')}}">
     <!-- Scripts -->
@@ -18,13 +28,14 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
 
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <!-- Styles -->
     <link href="{{ asset('css/materialize.min.css') }}" rel="stylesheet"></link>
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
     
     <meta name="theme-color" content="#17202f" >
@@ -87,11 +98,15 @@
      .dropdown-content{
     top:100% !important;
    }
+   .menu-navbar-color{
+    color: #f8f8f8 !important;
+   }
+
    </style>
   
 </head>
 <body>
-  
+  <!-- Load Facebook SDK for JavaScript -->
 
     <nav>
         <div class="nav-wrapper color-cut">
@@ -108,11 +123,7 @@
                    
                       
                
-          <div class="input-field col s6 s12 white-text" >
-            <form action="" method="GET">
-                   <input id="search" style="margin-top: .4em;" type="text"  placeholder="Tengo antojo de..."name="busqueda" class="autocomplete search grey-text @yield('withsearch')">
-             </form>
-          </div>
+          
                       
                             
                   </li>   
@@ -129,18 +140,19 @@
                         @else
                         
 
-                         <li><a class='dropdown-trigger' href='#' data-target='dropdown1'> {{ Auth::user()->name }}</a>
+                         <li><a class='dropdown-trigger right-align' href='#' data-target='dropdown1'style="width: 150px !important; "> {{ Auth::user()->name }}</a>
                               </li>
 
                              <ul id='dropdown1' class='dropdown-content' >
-                              <li><a href="{{ route('seller.create') }} " style="color:black ;">Vender</a></li>
-                              <li><a href="{{ route('profile') }}" style="color:black ;">perfil</a></li>
+
+                              <li><a href="{{ route('seller.create') }} " ><i class="fas fa-funnel-dollar valign-wrapper green-text"></i>Vender</a></li>
+                              <li><a href="{{ route('profile') }}"><i class="fas fa-user blue-text"></i>perfil</a></li>
                               <li class="divider" tabindex="-1"></li>
                               <li class="divider" tabindex="-1"></li>
                               <li class="red"><a class="dropdown-item white-c" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        Salir
+                                        <i class="fas fa-sign-out-alt"></i>Salir
                                     </a></li>
                             </ul>
 
@@ -170,55 +182,57 @@
         </div>
     </nav>
 
-<ul class="sidenav "  id="mobile-nav" >
-  <p class="center-align ">Inicio</p>
+<ul class="sidenav white-text"  id="mobile-nav" style="background: #17202f;" >
+  <p class="center-align bold">Inicio</p>
     <li>
-      <a href="{{ route('home') }}"><i class="material-icons">home</i>Inicio</a>
+      <a class="grey-color menu-navbar-color"  href="{{ route('home') }}"><i class="material-icons" style="color:#F18F01 !important;">home</i>Inicio</a>
     </li>
     <li>
-      <a href="{{route('categorias.index')}}"><i class="material-icons left">view_module</i>Categorias</a>
+      <a class="menu-navbar-color" href="{{route('categorias.index')}}"><i class="material-icons left" style="color:#F56476 !important">view_module</i>Categorias</a>
     </li>
 
 
     <li>
-      <a href="{{ route('random') }}">
-        <i class="material-icons">shuffle </i>
+      <a class="menu-navbar-color" href="{{ route('random') }}">
+        <i class="material-icons" style="color:#FFBF00 !important;">shuffle </i>
       Al azar
       </a>
     </li>
     <li>
      <!--  class="searchbtn"  -->
     
-      <a href="{{ route('busqueda') }}"><i class="material-icons">search</i>Buscar</a>
+      <a class="menu-navbar-color" href="{{ route('busqueda') }}"><i class="material-icons" style="color:#A43982 !important;" >search</i>Buscar</a>
+    </li>
+
+    <li>
+      <a class="menu-navbar-color" href="{{ route('bot') }}"><i class="fab fa-facebook-messenger fa-2x" style="color:#049be5 !important ;"></i>Bot</a>
     </li>
 
   @guest
-    <hr>
-    <p class="center-align ">Entrar</p>
+    <p class="center-align bold">Entrar</p>
     <li>
-      <a href="{{ route('login') }}"><i class="material-icons">how_to_reg</i>Entrar</a>
+      <a class="menu-navbar-color" href="{{ route('login') }}"><i class="material-icons" style="color:#5D737E">how_to_reg</i>Entrar</a>
     </li>
   @if (Route::has('register'))
     <li>
-      <a href="{{ route('register') }}"><i class="material-icons">library_add</i>Registrarse</a>
+      <a class="menu-navbar-color" href="{{ route('register') }}"><i class="material-icons" style="color:#40C9A2">library_add</i>Registrarse</a>
     </li>
   @endif
   @else
-  <hr>
-  <p class="center-align ">Ventas</p>
+  <p class="center-align bold">Ventas</p>
 
   <li>
-      <a href="{{ route('seller.create') }} "><i class="material-icons"> attach_money</i>Vender</a>
+      <a class="menu-navbar-color" href="{{ route('seller.create') }} "><i class="material-icons " style="color:#136F63 !important;" > attach_money</i>Vender</a>
   </li>
   <li class="nav-item dropdown">
-    <a href="{{route('profile')}}">
-      <i class="material-icons">supervised_user_circle</i>
+    <a class="menu-navbar-color" href="{{route('profile')}}">
+      <i class="material-icons" style="color: #006E90 !important;">supervised_user_circle</i>
       {{ Auth::user()->name }} <span class="caret"></span>
     </a>
   </li>
 
   <li>
-    <a class="btn red  " href="{{ route('logout') }}"  onclick="event.preventDefault();  document.getElementById('logout-form').submit();">
+    <a class="btn  " style="background: #D72638 !important;" href="{{ route('logout') }}"  onclick="event.preventDefault();  document.getElementById('logout-form').submit();">
       salir
     </a>
     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -236,38 +250,19 @@
         <footer class="page-footer footer-color"  style="bottom: 0 ;">
           <div class="container">
             <div class="row">
-              <div class="col m4 s12">
+              <div class="col m6 s12">
                 <h5 class="footer-text-color">ComiCUT</h5>
-                <p class="  udg-text">Esta pagina fue creada para los estudiantes que dia a dia se ganan su propio dinero vendiendo comida en el centro universitario de Tonala.</p>
+                <p class="  udg-text">Esta pagina fue creada para los estudiantes que dia a dia se ganan su propio dinero vendiendo comida u otras cosas.</p>
               </div>
-              <div class="col m4 s6 ">
+              <div class="col m6 s12 ">
                 <h5 class="footer-text-color ">Contenido</h5>
                 <ul>
                   <li><a class="grey-text text-lighten-3" href="#!">Preguntas y Respuestas</a></li>
                   <li><a class="grey-text text-lighten-3" href="#!">Acerca de Comicut</a></li>
                   <li><a class="grey-text text-lighten-3" href="#!">Contactar al creador</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Tutorial</a></li>
                 </ul>
               </div>
-              <div class="col m4 s6 ">
-                <h5 class="footer-text-color ">Siguenos</h5>
-                <ul>
-                  <li>
-                    <a class="valign-wrapper" href="https://twitter.com/Cutonala_udg"><i class="fab fa-twitter fa-2x"></i>&nbsp;&nbsp; &nbsp;&nbsp;Twitter</a>
-                  </li>
-                  <li>
-                    <a class="valign-wrapper" href="https://www.facebook.com/centrouniversitariodetonala/">
-                      <i class="fab fa-facebook fa-2x fb"></i>&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;Facebook</a>
-                    
-                  </li>
-                  <li>
-                    <a class="yt valign-wrapper" href="https://www.youtube.com/channel/UCdAVkoHuKAMWM3yaOW_uZPQ"><i class="fab fa-youtube fa-2x yt"></i>   &nbsp;&nbsp;&nbsp; Youtube</a>
-                  </li>
-                  <li>
-                  <a class="im valign-wrapper " href="https://www.instagram.com/cutonala.udg/"><i class="fab fa-instagram fa-2x im"></i> &nbsp;&nbsp; &nbsp;&nbsp;Instagram</a>
-                  </li>
-                </ul>
-              </div>
+             
             </div>
           </div>
           <div class="footer-copyright">

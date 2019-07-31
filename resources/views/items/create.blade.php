@@ -11,15 +11,30 @@
   
  });
 </script>
+ @if($errors->any())
+
+  
+<div class="color-cut">
+  <p class="center white-text" style="margin-top: 0 !important;font-size:1.5em;">
+    <strong>Tenermos errores</strong>
+     @foreach($errors->all() as $error)
+     <p class="center-align white-text">{{ $error }}</p>
+      @endforeach
+  </p>
+  <br>
+</div>
+
+@endif
+
 	<div class="row">
 		<div class="col m5 offset-m4 s12">
 			<div class="card padding">
-				<h2 class="center-align">Crear Producto</h2>
+				<h4 class="center-align">Crear Producto</h4>
 				<form method="POST" action="{{ route('items.store') }}" enctype="multipart/form-data">
                     @csrf
 					<div class="form-group">
                     	<label for="title">Producto</label>
-                    	<input type="text" class="form-control" name="title"/>
+                    	<input type="text" class="form-control" name="title" minlength="3" maxlength="30"/>
 					</div>
 					 <div class="file-field input-field">
                  		<div class="btn">
@@ -35,18 +50,25 @@
                 		</textarea>
                		 </div>
 
-					<div class="form-group">
-                    	<label for="category">Categoria</label>
-                    	<input type="text" class="form-control" name="category"/>
-					</div>
+					<div class="input-field ">
+	                 <select name="category" id="">
+
+	                    <option value="" disabled selected>Selecciona una categoria</option>
+	                    @foreach($categories as $category)
+	                     <option value="{{$category->name}}">{{$category->name}}</option>
+	                     @endforeach
+	                 </select>
+	                  <label >categoria</label>
+	                </div>
 
 					 <div class="form-group">
 	                    <input type="hidden" class="form-control" name="sellers_id" value="{{$id}}"/>
 					</div>
-                    <div class="form-group">
-                    <label for="pricing">Precio</label>
-                    <input type="text" class="form-control" name="pricing"/>
-                	</div>
+					<div class="input-field col s12">
+			          <i class="material-icons prefix green-text">attach_money</i>
+                    	<input type="number" class="form-control" name="pricing" placeholder="Precio" />
+			        </div>
+                   
                  <button type="submit" class="btn btn-block color-cut">Crear</button>
 				</form>
 			</div>

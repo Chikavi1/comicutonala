@@ -1,12 +1,35 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+
+.monse{
+font-family: 'Montserrat', sans-serifl
+}
+.open{
+font-family: 'Open Sans', sans-serif;
+}
 html,body{
 	height: 100%;
 }
-
+.secundary-color-bg{
+  background: #383E47;
+}
+.third-color-bg{
+  background: #616B7A;
+}
+.four-color-bg{
+  background:  #161F2E;
+}
+.blue-1-color-bg{
+  background: #095387; 
+}
+.yellow-color-bg{
+  background: #f7ca19;
+}
 #inicio{
 	bottom: 0px;
 display: inline-block;
 	width: 100%;
-	height: 30%;
+	height: 35%;
 	background: -moz-linear-gradient(-45deg, #1b577b 0%, #341a4a 100%);
   /* FF3.6-15 */
   background: -webkit-linear-gradient(-45deg, #1b577b 0%, #341a4a 100%);
@@ -91,4 +114,39 @@ div.menuhorizontal li{
   }
 .margin-bottom{
   margin-bottom: 2em;
+}
+
+.font-bold{
+  font-weight: bold;
+}
+
+.render{
+  display: block !important;
+  margin-bottom: 3em;
+}
+
+.line-bottom{
+  border-bottom: 6px solid #C8CACC ;
+}
+.line-bottom-2{
+  border-bottom: 6px solid #A4243B;
+}
+.line-bottom-3{
+  border-bottom: 6px solid #136F63;
+}
+.line-bottom-4{
+  border-bottom: 6px solid #D8973C;
+}
+
+.margin-bottom-1{
+  margin-bottom: 3em !important;
+}
+.bold{
+      font-weight: bold;
+}
+.justify{
+      text-align: justify !important;
+}
+.margin-bottom-inicio{
+  margin-bottom: 1em;
 }

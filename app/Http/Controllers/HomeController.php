@@ -25,12 +25,15 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function bot()
+    {
+        return view('bot');
+    }
     public function index()
     {
         return view('home');
     }
-
-
 
     public function centro($centro,Request $request){
 

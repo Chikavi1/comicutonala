@@ -21,11 +21,6 @@ class CategoriesController extends Controller
         return view('categories.index')->with(compact("categories"));
 
     }
-
-    public function admin(){
-        $categories = Categories::all();
-        return view('categories.index2')->with(compact("categories")); 
-    }
     /**
      * Show the form for creating a new resource.
      *

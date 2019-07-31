@@ -15,6 +15,16 @@
     #password{
         color:white;
     }
+    .padding-1{
+        padding: 1em;
+    }
+    input{
+        text-align: center;
+    }
+    .btn-login{
+        width: 12em;
+        background: #2660A4;
+    }
 </style>
 
 <div class="container">
@@ -29,7 +39,7 @@
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
-                        <div class="form-group row">
+                        <div class="form-group row padding-1">
                             <label for="email" class="col-sm-4 col-form-label text-md-right">Correo</label>
 
                             <div class="col s12">
@@ -45,7 +55,7 @@
 
                          
 
-                        <div class="form-group row">
+                        <div class="form-group row padding-1">
                             <label for="password" class="col-md-4 col-form-label text-md-right">Contraseña</label>
 
                             <div class="col s12 ">
@@ -73,17 +83,19 @@
                             <a class=" btn-link" href="{{ route('password.request') }}">
                                    ¿Olvidaste tu contraseña?
                                 </a>
+                        <br>
+                        <br>
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-login">
                                    Ingresar
                                 </button>
 
                             </div>
-                                
+                                <br>        
                                 <div class="row">
                                   
-                                <a href="{{ route('register') }}" class="white-text" > Registrarme</a>
+                                <a href="{{ route('register') }}" class="btn-link" > Registrarme</a>
                                 </div>
                         </div>
                     </form>

@@ -9,15 +9,11 @@
     max-height: 15.75em;
     min-height: 15.75em;
   }
-  .render{
 
-  	display: block !important;
-	margin-bottom: 3em;
-}
 </style>
-<div class="row">
+<div class="row ">
 	<div id="inicio" class="">
-      <h2 class="center-align">{{$category->name}}</h2>
+      <h2 class="center-align margin-bottom-inicio">{{$category->name}}</h2>
       
     </div>
 <div class="padding">

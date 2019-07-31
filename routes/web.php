@@ -19,8 +19,21 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/vender','HomeController@vender')->name('vender');
 Route::get('/random','HomeController@random')->name('random');
 Route::get('/profile','HomeController@profile')->name('profile');
-Route::get('/admin','AdminController@index')->name('admin');
-Route::get('admin/categorias','CategoriesController@admin')->name('categorias');
+
+//--------------------------Admin sources--------------------------------------
+Route::get('/control','AdminController@index')->name('control');
+Route::get('/admin','AdminController@admin')->name('admin');
+Route::post('/admin/login','AdminController@login')->name('admin.login');
+
+Route::get('/admin/vendedores','AdminController@vendedores')->name('admin.vendedores');
+Route::get('/admin/categorias','AdminController@categorias')->name('categorias');
+
+Route::get('/admin/usuarios','AdminController@usuarios')->name('admin.usuarios');
+Route::get('/admin/estadisticas','AdminController@estadisticas')->name('admin.estadisticas');
+//-----------------------------------------------------------------------------
+
+
+Route::get('/bot','HomeController@bot')->name('bot');
 
 //Route::get('/{slug}','SellersController@show');
 Route::resource('seller', 'SellersController');

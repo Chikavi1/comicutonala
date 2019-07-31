@@ -9,7 +9,7 @@
 </div>
 @endif
 
-<h1 class="center-align">{{ $user->name }}</h1>
+<h3 class="center-align">{{ $user->name }}</h3>
 <h4 class="center">
 	 {{ $user->email }}
 </h4>
