@@ -52,6 +52,6 @@ Route::get('siiau','ScrapingController@prueba');
 Route::get('busqueda','HomeController@busqueda')->name('busqueda');
 
 Route::middleware(['auth'])->group(function () {	
-	Route::resource('items','itemsController');
+	Route::resource('items','ItemsController');
    
 });
