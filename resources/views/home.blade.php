@@ -12,9 +12,14 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                jaja esta en construccion raza,sigan por el camino
+                <h4 class="center-align"> jaja esta en construccion raza,sigan por el camino
+                    </h4>
+                    <center>
                     
-                <a href="{{ route('welcome') }}" style="text-align: center;">inicio de la plataforma</a>
+                     <a  href="{{ route('welcome') }}" style="text-align: center;">inicio de la plataforma</a>
+                    <br>
+                      <img alt="" src="{{ asset('img/almacenar.png')}}" class="responsive-img "  alt="no encontrado">
+                    </center>
                 
             </div>
         </div>
