@@ -9,8 +9,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('/sellers','ApiController@getsellers');
 Route::get('/seller','ApiController@getseller');
-Route::get('/sellers/{category}','ApiController@getbyCategory');
-Route::get('/search/{name}','ApiController@getbyName');
+Route::get('/search_category/{category}','ApiController@getbyCategory');
+Route::get('/search_name/{name}','ApiController@getbyName');
 Route::get('/numberSellers','ApiController@allSellers');
 
 Route::get('/getdata/','ApiController@getData');

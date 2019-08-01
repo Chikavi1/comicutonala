@@ -33,11 +33,23 @@ class Apicontroller extends Controller
 	    }
 
     public function getbyCategory($category){
-    	return Sellers::where("category",'=',$category)->limit(8)->get();
+    	$categories = Sellers::where("category",'=',$category)->limit(8)->get();
+    	foreach ($categories as $category) {
+			$category->description = strip_tags($category->description);
+			$category->image = collect(explode('/', $category->image))->last();
+			$category->image = 'storage/'.$category->image;
+		}
+		return $categories;
     }
 
      public function getbyname($title){
-    	return Sellers::where('title','LIKE',"%$title%")->limit(3)->get();
+     	$vendedores = Sellers::where('title','LIKE',"%$title%")->limit(3)->get();
+     	foreach ($vendedores as $vendedor) {
+			$vendedor->description = strip_tags($vendedor->description);
+			$vendedor->image = collect(explode('/', $vendedor->image))->last();
+			$vendedor->image = 'storage/'.$vendedor->image;
+		}
+		return $vendedores;
     }
 
     public function allSellers(){
