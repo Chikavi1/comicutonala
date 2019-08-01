@@ -46,7 +46,7 @@ Route::get('/centro/{centro}','HomeController@centro')->name('centro');
 Route::get('seller/{slug}', ['as' => 'seller', 'uses' => 'SellersController@show']);
 
 Route::resource('categorias','CategoriesController');
-Route::get('creando/{id}','itemsController@creandoConId')->name('items.creando');
+Route::get('creando/{id}','ItemsController@creandoConId')->name('items.creando');
 Route::get('scraping','ScrapingController@example')->name('scraping');
 Route::get('siiau','ScrapingController@prueba');
 Route::get('busqueda','HomeController@busqueda')->name('busqueda');
