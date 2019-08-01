@@ -82,7 +82,9 @@ class ScrapingController extends Controller
 			$codigo = $crawler->filter("table[width='100%'] td[bgcolor='white'] font ")->text();
 			$carrera = $crawler->filter("table[width='100%'] td[colspan='7'] font ")->text();
 			$sede = $crawler->filter("table[width='100%'] td[colspan='7'] font ")->eq(1)->text();
-
+			\Session::put('codigo',$codigo);
+     	    \Session::put('carrera',$carrera);
+	   	    \Session::put('centro',$sede);
 			return response()->json(['message' => 'satisfactorio','data' => 'con prepa','nombre' => $nombre,
  	 			'codigo' => $codigo,
  	 			'carrera' => $carrera,
@@ -105,7 +107,9 @@ class ScrapingController extends Controller
 			$codigo = $crawler->filter("table[width='100%'] td[bgcolor='white'] font ")->text();
 			$carrera = $crawler->filter("table[width='100%'] td[colspan='7'] font ")->text();
 			$sede = $crawler->filter("table[width='100%'] td[colspan='7'] font ")->eq(1)->text();
-
+			\Session::put('codigo',$codigo);
+     	    \Session::put('carrera',$carrera);
+	   	    \Session::put('centro',$sede);
 			return response()->json(['message' => 'satisfactorio','data' => 'sin prepa','nombre' => $nombre,
  	 			'codigo' => $codigo,
  	 			'carrera' => $carrera,
