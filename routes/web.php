@@ -36,7 +36,7 @@ Route::get('/admin/estadisticas','AdminController@estadisticas')->name('admin.es
 Route::get('/bot','HomeController@bot')->name('bot');
 
 //Route::get('/{slug}','SellersController@show');
-Route::resource('seller', 'SellersController');
+Route::resource('seller', 'SellersController')->middleware('auth');
 
 Route::get('/edit/{id}','SellersController@filter')->name('filter');
 Route::get('/create/','SellersController@filter2')->name('filter2');
