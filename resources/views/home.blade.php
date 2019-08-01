@@ -14,7 +14,7 @@
                     @endif
                 <p class="padding">
                     
-                Te amo mucho amor,gracias por ponerme atención no sabes lo bonito que es para mi poderte compartir mis proyectos,te amo! mi pichonsita ❤️
+                Te amo mucho amor,gracias por ponerme atención no sabes lo bonito que es para mi poderte compartir mis proyectos contigo,te amo! mi pichonsita ❤️
                 </p>
                 </div>
             </div>
