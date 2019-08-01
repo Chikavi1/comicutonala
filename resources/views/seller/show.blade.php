@@ -90,12 +90,12 @@ document.oncontextmenu = function(){return false}
   <h5 class="center white-text" style="margin-top: 0 !important;padding: 1em;"><strong>{{ $message }}</strong></h5>
 </div>
 @endif
-			<img class="responsive-img materialboxed hide-on-med-and-up " src="{{Storage::url($seller->image)}}"  alt="" >
+			<img class="responsive-img materialboxed hide-on-med-and-up " src="{{Storage::url($seller->image)}}" width="550" alt="" >
 
 	<div class="row" style="padding: 2em;" >
 		<div class="col m6 s12">
 
-			<img class="responsive-img materialboxed hide-on-small-only" src="{{Storage::url($seller->image)}}"  alt="" >
+			<img class="responsive-img materialboxed hide-on-small-only" src="{{Storage::url($seller->image)}}" width="550" alt="" >
 
 		</div>
 		<div class="col m5 s12 card ">
