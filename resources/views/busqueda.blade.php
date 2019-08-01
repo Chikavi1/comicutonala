@@ -34,7 +34,7 @@ input#busqueda:focus{
 
 <div class="margin-bottom-footer">
 	<h3 class="center-align">Busqueda Avanzada</h3>
-
+		<h5 class="center-align">en desarrollo jeje lo demas si jala</h5>
 	<div class="row">
 		<div class="col s11 offset-s1 m6 offset-m3 ">
 			<div class="valign-wrapper">
