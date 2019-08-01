@@ -5,7 +5,6 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Bienvenido</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -13,8 +12,10 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
+                <p class="padding">
+                    
                 Te amo mucho amor,gracias por ponerme atención no sabes lo bonito que es para mi poderte compartir mis proyectos,te amo! mi pichonsita ❤️
+                </p>
                 </div>
             </div>
         </div>
