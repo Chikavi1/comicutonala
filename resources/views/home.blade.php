@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Dashboard</div>
+                <div class="card-header">Bienvenido</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                Te amo mucho amor,gracias por ponerme atención no sabes lo bonito que es para mi poderte compartir mis proyectos,te amo! mi pichonsita ❤️
                 </div>
             </div>
         </div>
