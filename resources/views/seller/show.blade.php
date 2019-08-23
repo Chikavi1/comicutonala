@@ -66,36 +66,22 @@ font-family: 'Montserrat', sans-serifl
 		}
 
 	</style>
-	<style>
-.search-redondo{
-  border-radius: 15px !important;
-  background: white !important;
-  height: 2.5em;
-  border-color: #17202F;
-  padding-left: 1em;
-}
-.dentro{
-	position: relative;
-	right: 2em;
-}
-.search-cut{
-	color: #17202F;
-}
-</style>
+
+
 	<!--<script language="Javascript">
 document.oncontextmenu = function(){return false}
 </script>-->
 @if ($message = Session::get('success'))
 <div class="color-cut">
-  <h5 class="center white-text" style="margin-top: 0 !important;padding: 1em;"><strong>{{ $message }}</strong></h5>
-</div>
+  <h5 class="center white-text" style="margin-top: 0 !important;padding: 1em; "><strong>{{ $message }}</strong></h5>
+</div> 
 @endif
-			<img class="responsive-img materialboxed hide-on-med-and-up " src="{{Storage::url($seller->image)}}" width="550" alt="" >
+			<img class="responsive-img materialboxed hide-on-med-and-up " src="{{Storage::url($seller->image)}}" width="550" style="height: 450px;" alt="{{$seller->title}}" >
 
 	<div class="row" style="padding: 2em;" >
 		<div class="col m6 s12">
 
-			<img class="responsive-img materialboxed hide-on-small-only" src="{{Storage::url($seller->image)}}" width="550" alt="" >
+			<img class="responsive-img materialboxed hide-on-small-only" style="height: 450px;" src="{{Storage::url($seller->image)}}" width="550"  alt="{{$seller->title}}" >
 
 		</div>
 		<div class="col m5 s12 card ">
@@ -132,8 +118,8 @@ document.oncontextmenu = function(){return false}
 			</center>
 			<center>	
 			<br>
-			<a href="https://api.whatsapp.com/send?phone=5213327276923&text=hola,{{$seller->title}} aun%20tienes%20comida%20disponible?" class="btn color-cut">Mandar Mensaje</a>
-				<a href="tel:+5213327276923" class="btn " style="background: #1A8FE3">llamar</a>
+			<a href="https://api.whatsapp.com/send?phone=	521{{$seller->cellphone}}&text=hola,{{$seller->title}} aun%20estas%20disponible?" class="btn color-cut">Mandar Mensaje</a>
+				<a href="tel:+521{{$seller->cellphone}}" class="btn " style="background: #1A8FE3">llamar</a>
 			</center>
 			<br>
 				<div class="center-align">
@@ -155,8 +141,12 @@ document.oncontextmenu = function(){return false}
 							@endif	
 						</p>
 					@endif
-
-					
+				@if($seller->verification)
+				<p>
+					<i class="fas fa-check-circle fa-2x color-green"></i>
+				</p>
+					<strong class="color-green">Verificado</strong>
+				@endif
 				</div>
 			<br>
 		</div>

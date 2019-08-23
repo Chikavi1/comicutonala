@@ -8,9 +8,8 @@
     });
   });
 </script>
-<div id="inicio" >
-      <h2 class="center-align">RandomEat</h2>
-      <p class="center-align">¿No sabes que comer?</p>
+<div class="col s12 ">
+      <h2 class="center-align">¿No sabes que comer?</h2>
       <p class="center-align">Nosotros te ayudamos</p>
     </div>
      <!-- <p class="center-align">Nuestra aplicacion te ayuda de forma aleatoria mostrandote una opcion para comer.</p>-->

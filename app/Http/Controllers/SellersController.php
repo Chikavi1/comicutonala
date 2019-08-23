@@ -10,7 +10,7 @@ use App\Schedules;
 use Image;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str as Str;
- 
+use Mail;
 use App\items;
 use App\User;
 
@@ -26,20 +26,28 @@ class SellersController extends Controller
 
     public function create()
     {
+         Mail::send('email.nuevovendedor',compact(null),function($msj){
+                    $msj->from("tucorreo@ventasuni.com","Luis rojas");
+                    $msj->subject('Bienvenido a tu perfil de vendedor',);
+                    $msj->to('chikavi@hotmail.com');
+                });
+         
         $categories = Categories::all();
         return view('seller.create')->with(compact('categories'));
     }
     public function store(Request $request)
     {
         
-        $user = User::where('id',Auth::user()->id)->get();
+         $user = User::where('id',Auth::user()->id)->get();
         $escuela = $user[0]->school;
 
 
         $request->validate([
-            'title' => 'required',
+            'title' => 'unique:sellers',
             'user_id' => 'unique:sellers,user_id',
-            'image'=>'required|image'
+            'image'=>'required|image',
+            'cellphone' => 'numeric',
+            'finaliza' => 'required|after:inicia'
         ]);
        
         if($request->hasFile('image')){
@@ -56,8 +64,13 @@ class SellersController extends Controller
         
         $inicia = $request->get('inicia');
         $finaliza = $request->get('finaliza');
-        $schedule = $inicia." - ".$finaliza;
+            $schedule = $inicia." - ".$finaliza;
 
+          Mail::send('email.nuevovendedor',compact(null),function($msj){
+                    $msj->from("tucorreo@ventasuni.com","Luis rojas");
+                    $msj->subject('Bienvenido a tu perfil de vendedor',);
+                    $msj->to('chikavi@hotmail.com');
+                });
 
         $seller = new Sellers([
             'user_id' => Auth::user()->id,
@@ -70,13 +83,20 @@ class SellersController extends Controller
             'salon' => $request->get('salon'),
             'available' => "1",
             'school' => $escuela,
-            'schedule' => $schedule
+            'schedule' => $schedule,
+            'status' => Sellers::PENDIENTE,
         ]);
         $seller->save();
+
+      
+
         return redirect()->route('profile')->with('success','Se envio tu solicitud.');
     }
       public function show($slug){
         $seller = Sellers::where('slug','=',$slug)->firstOrFail();
+        if($seller->status == 4){
+            return view('seller.bloqueado');
+        }
         $items = Items::where("sellers_id",$seller->id)->paginate(6);
         if (\Request::ajax()) {
             return \Response::json(View('items.items', array('items' => $items,'seller' => $seller))->render());
@@ -143,6 +163,30 @@ class SellersController extends Controller
     {
         //
     }
+
+
+    public function upSeller($id){
+        $seller = Sellers::findorFail($id);
+        $seller->status = 1;
+        $seller->save();
+        return redirect()->route('admin.vendedores');
+    }
+
+    public function banSeller($id){
+        $seller = Sellers::findorFail($id);
+        $seller->status = 4;
+        $seller->save();
+        return redirect()->route('admin.vendedores');
+    }
+
+     public function rejectedSeller($id){
+        $seller = Sellers::findorFail($id);
+        $seller->status = 3;
+        $seller->save();
+        return redirect()->route('admin.vendedores');
+    }
+
+
 
     public function filter($id){
         $seller = Sellers::findorFail($id);

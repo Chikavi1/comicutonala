@@ -25,6 +25,9 @@
         width: 12em;
         background: #2660A4;
     }
+    input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px #fff inset;
+}
 </style>
 
 <div class="container">
@@ -43,7 +46,7 @@
                             <label for="email" class="col-sm-4 col-form-label text-md-right">Correo</label>
 
                             <div class="col s12">
-                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
+                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus autocomplete="off">
 
                                 @if ($errors->has('email'))
                                     <span class="invalid-feedback white-text" role="alert">
@@ -95,7 +98,7 @@
                                 <br>        
                                 <div class="row">
                                   
-                                <a href="{{ route('register') }}" class="btn-link" > Registrarme</a>
+                                <a href="{{ route('register') }}" class="btn-link white-text" > Registrarme</a>
                                 </div>
                         </div>
                     </form>

@@ -12,7 +12,7 @@
               <th>telefono</th>
               <th>lugar</th>
               <th>horario</th>
-              <th>status</th>
+              <th>accion</th>
           </tr>
         </thead>
 
@@ -25,7 +25,7 @@
             <td>{{ $seller->cellphone }}</td>
             <td>{{ $seller->salon }}</td>
             <td>{{ $seller->schedule }}</td>   
-            <td>{{ $seller->available }}</td>  
+            <td><a href="{{ route('admin.banseller',$seller->id) }}" class="btn red">Bloquear</a></td>  
           </tr>
           @endforeach
         </tbody>

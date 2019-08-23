@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\DB;
+use App\Schools;
 class RegisterController extends Controller
 {
     /*
@@ -65,12 +66,13 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
 
+        $school = \Session::get('centro');
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'code' => \Session::get('codigo'),
-            'school' => \Session::get('centro'),
+            'school' => $school,
             'career'=> \Session::get('carrera')
         ]);
     }

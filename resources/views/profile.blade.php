@@ -5,13 +5,13 @@
 
 @if ($message = Session::get('success'))
 <div class="color-cut">
-  <h5 class="center white-text" style="margin-top: 0 !important;padding: 1em;"><strong>{{ $message }}</strong></h5>
+  <p class="center white-text" style="margin-top: 0 !important;padding: 1em;"><strong>{{ $message }}</strong></p>
 </div>
 @endif
 
-<h3 class="center-align">{{ $user->name }}</h3>
+
 <h4 class="center">
-	 {{ $user->email }}
+	 {{ $user->name }}
 </h4>
 
 
@@ -30,7 +30,11 @@
 			        </tr>
 			    </thead>
 
-			    <tbody >  
+			    <tbody >
+			    	<tr >
+			          <td>correo</td>
+			          <td class="right-align">{{$user->email}}</td>
+			        </tr>
 			        <tr >
 			          <td>codigo</td>
 			          <td class="right-align">{{$user->code}}</td>
@@ -45,6 +49,7 @@
 			        </tr>
 			    </tbody>
 			</table>
+		<a href="{{ route('profile.password') }}" class="btn btn-block color-cut">cambiar contraseña</a>
   </div>
 </div>
 <div class="row">
@@ -61,8 +66,16 @@
 					@foreach($sellers as $seller)
 				    <li class="collection-item avatar">
 				      <img src="{{ Storage::url($seller->image) }}" alt="" class="circle">
-				      <a href="{{ route('seller.show',$seller->slug) }}">{{$seller->title}}</a>
+				      <a href="{{ route('seller.show',$seller->slug) }}" class="bold">{{$seller->title}}</a>
+
 				      <p>{{$seller->category}} <br></p>
+						@if($seller->status == 2)
+							<p class="blue-text">PENDIENTE</p>
+						@elseif($seller->status == 1)
+							<p class="green-text">PUBLICADO</p>
+						@elseif($seller->status == 3)
+							<p class="red-text">RECHAZADO</p>
+						@endif
 				      <a href="{{ route('seller.edit',$seller->id) }}" class="secondary-content"><i class="material-icons">edit</i></a> 
 				    </li>
 					@endforeach

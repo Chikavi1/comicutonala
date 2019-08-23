@@ -8,12 +8,7 @@
   hr { 
     border-top: 1px solid #e0e0e0;
   }
-  .letras-chicas{
-    font-size: .75em;
-  }
-  .black-color{
-    color: black !important;
-  }
+ 
   .img-sizes{
     max-height: 12.75em;
     min-height: 12.75em;
@@ -33,7 +28,7 @@
     
         @if( $sellers->count() == 0)
           <div class="center-align">
-            <img alt="" src="{{ asset('img/almacenar.png')}}" class="img-responsive " width="250" height="250" alt="no encontrado">
+            <img alt="" src="{{ asset('img/img-em1/loto_a.png')}}" class="img-responsive " width="250" height="250" alt="no encontrado">
             <h4 class="font-bold">No encontramos nada con ese nombre</h4>
           </div>
         @endif
@@ -49,9 +44,9 @@
           <a href="{{ route('seller.show', [$seller->slug]) }}">
                 <img src="{{Storage::url($seller->image)}}" alt="{{$seller->title}}" class="circle">
                 <p class="title truncate"><strong>{{$seller->title}}</strong></p>
-                <p class="black-color">{{ $seller->category }}</p>
-                <p class="black-color">{{ $seller->schedule }}</p>
-                <span class="letras-chicas black-color">{{ $seller->school }}</span>
+                <p class="black-text">{{ $seller->category }}</p>
+                <p class="black-text">{{ $seller->schedule }}</p>
+                <span class="letras-chicas black-text">{{ $seller->school }}</span>
           </a>
             </li>
       @endforeach

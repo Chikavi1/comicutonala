@@ -11,7 +11,15 @@
   	});
           
 </script>
-
+<div class="color-cut">
+  <p class="center white-text error-parrafo" >
+    <strong>Tenermos errores</strong>
+     @foreach($errors->all() as $error)
+     <p class="center-align white-text">{{ $error }}</p>
+      @endforeach
+  </p>
+  <br>
+</div>
 	<div class="row ">
 		<div class="col m5 offset-m4 ">
 			<div class="card p5 ">
@@ -23,13 +31,30 @@
 	                    <label for="title">Producto</label>
 	                    <input type="text" class="form-control" name="title" value="{{$item->title}}"/>
 					</div>
+					<div class="input-field ">
+	                 <select name="available" id="">
+
+	                     <option value="no disponible">No Disponible</option>
+	                     <option value="disponible">Disponible</option>
+	                 </select>
+	                  <label >Disponibilidad</label>
+	                </div>
+	                 <div class="switch center">
+                      <label>
+                        No Disponible
+                        <input type="checkbox" id="sw"  >
+                        <span class="lever"></span>
+                        Disponible
+                      </label>
+                    </div>
+
 					<div class="form-group center">
 						<img  class="" src="{{ Storage::url($item->image) }}" alt="{{ $item->title }}" width="250">
 						<br>
 						<span>Imagen actual</span>
 					</div>
 					<div class="file-field input-field">
-                 		<div class="btn">
+                 		<div class="btn color">
 	                    	<span>Foto</span>
 	                    	<input type="file" name="image">
 	                    </div>
@@ -44,9 +69,9 @@
                		 </div>
 
 					<div class="input-field ">
-	                 <select name="category" id="">
+	                 <select name="category" value="{{old('category')}}">
 
-	                    <option value="" disabled selected>{{ $item->category }}</option>
+	                    <option value="{{ $item->category }}"  disabled selected>{{ $item->category }}</option>
 	                    @foreach($categories as $category)
 	                     <option value="{{$category->name}}">{{$category->name}}</option>
 	                     @endforeach

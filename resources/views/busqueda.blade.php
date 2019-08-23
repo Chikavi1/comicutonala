@@ -1,16 +1,49 @@
 @extends('layouts.app')
 
 @section('content')
+
 <script>
 	$(document).ready(function(){
+	$('.items').removeClass(["animated","zoomIn"]);
+	$('#comida').chatin = true;
     $('select').formSelect();
-    $(".dentro").click(function(){
-    	$buscar = $("#busqueda").val();
-    	$centro = $(".centro").val();
-    	$categoria = $(".categoria").val();
-    	console.log("buscando... "+$buscar+" centro: "+ $centro+" categoria: "+$categoria);
+    //$("#enviar").attr("disabled",true);
+   
+    $(".enviar").click(function(e){
+    	e.preventDefault();
+    	buscar();
     });
   });
+	function buscar(){
+				$.ajax({
+					  headers: { 'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') },
+					    dataType: 'json',
+					    url: '',
+					    data: {
+					        'titulo': $('#titulo').val(),
+					        'centro' : $("#centro").val(),
+					        'categoria': $("#categoria").val()
+					    },
+					    success: function(response) {
+					    }
+					}).done(function (data) {
+						$("#comida").css("display","none");
+						$("#comida").css("display","block");
+						$('.items').css("display","block");
+
+						$("#comida").addClass("verga");
+						$('.items').addClass("z-index-2");
+
+						$('.items').addClass(["animated","zoomIn"]);
+			            $('.items').html(data);
+			                $('select').formSelect();
+
+			        }).fail(function () {
+			            alert('Hubo un error, lo sentimos.');
+			        });;
+
+	}
+
 </script>
 <style>
 .search-redondo{
@@ -25,44 +58,85 @@
 	right: 2em;
 }
 .search-cut{
-	color: #17202F;
+ color: #0E8016;  /* fallback for old browsers */
 }
-input#busqueda:focus{
+.search-cut:hover{
+	cursor: pointer;
+}
+input#titulo:focus{
 	outline:0px;
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #17202f;
+  opacity: 0.7; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #17202f;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: #17202f;
+}
+.items{
+	display: none;
+	}
+
+.w-border{
+	 margin: 0!important;;
+  border: 0!important;
+  box-shadow: none!important;
 }
 </style>
 
-<div class="margin-bottom-footer">
-	<h3 class="center-align">Busqueda Avanzada</h3>
-		<h5 class="center-align">en desarrollo jeje lo demas si jala</h5>
+<div class="margin-bottom-footer animated slideInLeft padding card w-border" style="z-index: 3 !important;">
+	<div class="row ">
+		<div class="col s12 offset-m2 m8 ">
+			<h2 class="center-align">Busqueda</h2>
+		</div>
+	</div>
 	<div class="row">
-		<div class="col s11 offset-s1 m6 offset-m3 ">
+	<p class="center-align">Recuerda llenar todos los campos para buscar.</p>
+		<form  id="formulario" >
+		<div class="col s10 offset-s1 m4 offset-m4 ">
 			<div class="valign-wrapper">
-			<input type="text" class="browser-default btn-block search-redondo " name="busqueda" id="busqueda">
-			<i class=" material-icons fab fa-searchengin prefix right dentro search-cut"></i>
+			<input type="text" class="browser-default btn-block search-redondo " placeholder="nombre del vendedor" name="titulo" id="titulo">
+			<div class="enviar">
+			<i class=" material-icons fab fa-searchengin prefix right dentro search-cut buscarboton animated flash delay-2s"></i>
+			</div>
 			</div>
   		</div>
 
   		<div class="col s10 offset-s1 m4 offset-m4 margin-top-1">
 			<div class="input-field col s12">
-		    <select class="centro">
+		    <select  name="centro" id="centro" required>
 		      <option value="" disabled selected>Selecciona centro universitario</option>
-		      <option value="Cutonala">Cutonala</option>
-		      <option value="Cucei">Cucei</option>
-		      <option value="Cucea">Cucea</option>
+		      @foreach($centros as $centro)
+		      <option value="{{$centro->title}}">{{$centro->slug}}</option>
+		      @endforeach
+		    </select>
+		  </div>
+		</div>
+		<div class="col s10 offset-s1 m4 offset-m4 margin-top-1 z-index-2" >
+			<div class="input-field col s12">
+		    <select  name="categoria" id="categoria" required>
+		      <option value="" disabled selected>Selecciona una categoria</option>
+		      @foreach($categorias as $categoria)
+			      <option value="{{$categoria->name}}">{{$categoria->name}}</option>
+		      @endforeach
 		    </select>
 		  </div>
 		</div>
 		<div class="col s10 offset-s1 m4 offset-m4 margin-top-1">
-			<div class="input-field col s12">
-		    <select class="categoria">
-		      <option value="" disabled selected>Selecciona una categoria</option>
-		      <option value="Comida">Comida</option>
-		      <option value="Bebidas">Bebidas</option>
-		      <option value="Postres">Postres</option>
-		    </select>
-		  </div>
+		  <p class="letras-chicas bold">* Si hay varias coincidencias,se muestran máximo 4 resultados.</p>
+		   <button class="btn btn-block color-cut enviar" >Buscar</button>
 		</div>
+	</form>
+
 	</div>
+</div>
+
+<div class="items" >
+	@include('resultado')
 </div>
 @endsection

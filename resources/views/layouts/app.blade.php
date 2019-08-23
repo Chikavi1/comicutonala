@@ -35,7 +35,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <!-- Styles -->
     <link href="{{ asset('css/materialize.min.css') }}" rel="stylesheet"></link>
-    <link href="{{ asset('css/app.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
     
     <meta name="theme-color" content="#17202f" >
@@ -110,15 +110,15 @@
 
     <nav>
         <div class="nav-wrapper color-cut">
-          <a href="/" class="brand-logo center">ComiCut</a>
+          <a href="{{ route('home') }}" class="brand-logo center">ComiCut</a>
           <div class=" hide-on-large-only">
           <a  class="search @yield('withsearch')  brand-logo right searchbtn" ><i class="white-text material-icons ">search</i></a>
             
           </div>
           <a href="#" data-target="mobile-nav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
           <ul class="left hide-on-med-and-down">
-            <li><a href="{{route('categorias.index')}}"><i class="material-icons left">view_module</i>Categorias</a></li>
-            
+            <!--<li><a href="{{route('categorias.index')}}"><i class="material-icons left">view_module</i>Categorias</a></li>-->
+            <li><a href="{{route('welcome') }}"><i class="material-icons left">view_module</i>Catalogo</a></li>
               <li>    
                    
                       
@@ -131,7 +131,7 @@
 
           </ul>
           <ul class="right hide-on-med-and-down">
-
+            
              @guest
                             <li><a href="{{ route('login') }}">Ingresar</a></li>
                                 @if (Route::has('register'))
@@ -139,8 +139,8 @@
                                 @endif
                         @else
                         
-
-                         <li><a class='dropdown-trigger right-align' href='#' data-target='dropdown1'style="width: 150px !important; "> {{ Auth::user()->name }}</a>
+                        
+                         <li style="width:auto !important;min-width: 150px;"><a class='dropdown-trigger right-align' href='#' data-target='dropdown1'> {{ Auth::user()->name }}</a>
                               </li>
 
                              <ul id='dropdown1' class='dropdown-content' >
@@ -260,6 +260,7 @@
                   <li><a class="grey-text text-lighten-3" href="#!">Preguntas y Respuestas</a></li>
                   <li><a class="grey-text text-lighten-3" href="#!">Acerca de Comicut</a></li>
                   <li><a class="grey-text text-lighten-3" href="#!">Contactar al creador</a></li>
+                  <li><a class="grey-text text-lighten-3" href="{{route('terminos')}}">Terminos y condiciones</a></li>
                 </ul>
               </div>
              

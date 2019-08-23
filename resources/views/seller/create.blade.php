@@ -19,7 +19,12 @@
     font-size:1.5em;
   }
 </style>
-  
+  @if ($message = Session::get('success'))
+<div class="color-cut">
+  <h5 class="center white-text" style="margin-top: 0 !important;padding: 1em;"><strong>{{ $message }}</strong></h5>
+</div>
+@endif
+
 <div class="color-cut">
   <p class="center white-text error-parrafo" >
     <strong>Tenermos errores</strong>
@@ -37,6 +42,7 @@
         <h5>Crea tu perfil de vendedor</h5>
        <form method="post" action="{{ route('seller.store') }}" enctype="multipart/form-data">
                     @csrf
+
                 <div class="input-field">
 
                     <input type="text" class="form-control" name="title"/>
@@ -45,7 +51,7 @@
                 </div>
 
                 <div class="file-field input-field">
-                  <div class="btn">
+                  <div class="btn color-cut">
                     <span>Foto</span>
                     <input type="file" name="image">
                   </div>
@@ -75,7 +81,7 @@
               </div>
                 <div class="input-field">
                   <i class="material-icons prefix">phone</i>
-                  <input id="cellphone" name="cellphone" type="tel" class="validate" pattern="[0-9]+">
+                  <input id="cellphone"  min="0" max="10" name="cellphone" type="tel" pattern="[0-9]+">
                   <label for="cellphone">Numero de celular</label>
 
                   
@@ -121,17 +127,7 @@
   <div id="modal1" class="modal bottom-sheet">
     <div class="modal-content">
       <h4>Terminos y Condiciones</h4>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni dignissimos vero fugit laboriosam in rem explicabo molestiae et, perspiciatis modi repellat temporibus reprehenderit consequatur sunt omnis impedit, aspernatur. Doloremque ex ipsam quae quas accusantium beatae cum? Tenetur maiores harum quos ullam exercitationem tempore perferendis delectus officiis temporibus voluptatibus. Quidem animi, vel minima blanditiis sit minus numquam aut pariatur! Commodi pariatur voluptates, consectetur ipsa, perspiciatis in et iusto natus. Iste, laudantium sunt corporis. Necessitatibus hic omnis consequatur quibusdam molestias labore, assumenda atque debitis veritatis velit sed ratione fugit animi quo! Accusantium nobis modi maiores asperiores esse cum numquam, officiis alias non, autem tempore, quidem atque blanditiis culpa repellendus quos vel expedita eligendi officia architecto! Libero dignissimos optio asperiores. Ullam voluptas autem, necessitatibus repudiandae perspiciatis dolorem, labore facilis numquam culpa sed consequuntur vero fuga molestiae facere eos iste hic suscipit alias, nesciunt incidunt placeat ab maiores natus, provident modi. Labore, maiores, at.</p>
-            <h4>Terminos y Condiciones</h4>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni dignissimos vero fugit laboriosam in rem explicabo molestiae et, perspiciatis modi repellat temporibus reprehenderit consequatur sunt omnis impedit, aspernatur. Doloremque ex ipsam quae quas accusantium beatae cum? Tenetur maiores harum quos ullam exercitationem tempore perferendis delectus officiis temporibus voluptatibus. Quidem animi, vel minima blanditiis sit minus numquam aut pariatur! Commodi pariatur voluptates, consectetur ipsa, perspiciatis in et iusto natus. Iste, laudantium sunt corporis. Necessitatibus hic omnis consequatur quibusdam molestias labore, assumenda atque debitis veritatis velit sed ratione fugit animi quo! Accusantium nobis modi maiores asperiores esse cum numquam, officiis alias non, autem tempore, quidem atque blanditiis culpa repellendus quos vel expedita eligendi officia architecto! Libero dignissimos optio asperiores. Ullam voluptas autem, necessitatibus repudiandae perspiciatis dolorem, labore facilis numquam culpa sed consequuntur vero fuga molestiae facere eos iste hic suscipit alias, nesciunt incidunt placeat ab maiores natus, provident modi. Labore, maiores, at.</p>
-            <h4>Terminos y Condiciones</h4>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni dignissimos vero fugit laboriosam in rem explicabo molestiae et, perspiciatis modi repellat temporibus reprehenderit consequatur sunt omnis impedit, aspernatur. Doloremque ex ipsam quae quas accusantium beatae cum? Tenetur maiores harum quos ullam exercitationem tempore perferendis delectus officiis temporibus voluptatibus. Quidem animi, vel minima blanditiis sit minus numquam aut pariatur! Commodi pariatur voluptates, consectetur ipsa, perspiciatis in et iusto natus. Iste, laudantium sunt corporis. Necessitatibus hic omnis consequatur quibusdam molestias labore, assumenda atque debitis veritatis velit sed ratione fugit animi quo! Accusantium nobis modi maiores asperiores esse cum numquam, officiis alias non, autem tempore, quidem atque blanditiis culpa repellendus quos vel expedita eligendi officia architecto! Libero dignissimos optio asperiores. Ullam voluptas autem, necessitatibus repudiandae perspiciatis dolorem, labore facilis numquam culpa sed consequuntur vero fuga molestiae facere eos iste hic suscipit alias, nesciunt incidunt placeat ab maiores natus, provident modi. Labore, maiores, at.</p>
-            <h4>Terminos y Condiciones</h4>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni dignissimos vero fugit laboriosam in rem explicabo molestiae et, perspiciatis modi repellat temporibus reprehenderit consequatur sunt omnis impedit, aspernatur. Doloremque ex ipsam quae quas accusantium beatae cum? Tenetur maiores harum quos ullam exercitationem tempore perferendis delectus officiis temporibus voluptatibus. Quidem animi, vel minima blanditiis sit minus numquam aut pariatur! Commodi pariatur voluptates, consectetur ipsa, perspiciatis in et iusto natus. Iste, laudantium sunt corporis. Necessitatibus hic omnis consequatur quibusdam molestias labore, assumenda atque debitis veritatis velit sed ratione fugit animi quo! Accusantium nobis modi maiores asperiores esse cum numquam, officiis alias non, autem tempore, quidem atque blanditiis culpa repellendus quos vel expedita eligendi officia architecto! Libero dignissimos optio asperiores. Ullam voluptas autem, necessitatibus repudiandae perspiciatis dolorem, labore facilis numquam culpa sed consequuntur vero fuga molestiae facere eos iste hic suscipit alias, nesciunt incidunt placeat ab maiores natus, provident modi. Labore, maiores, at.</p>
-            <h4>Terminos y Condiciones</h4>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni dignissimos vero fugit laboriosam in rem explicabo molestiae et, perspiciatis modi repellat temporibus reprehenderit consequatur sunt omnis impedit, aspernatur. Doloremque ex ipsam quae quas accusantium beatae cum? Tenetur maiores harum quos ullam exercitationem tempore perferendis delectus officiis temporibus voluptatibus. Quidem animi, vel minima blanditiis sit minus numquam aut pariatur! Commodi pariatur voluptates, consectetur ipsa, perspiciatis in et iusto natus. Iste, laudantium sunt corporis. Necessitatibus hic omnis consequatur quibusdam molestias labore, assumenda atque debitis veritatis velit sed ratione fugit animi quo! Accusantium nobis modi maiores asperiores esse cum numquam, officiis alias non, autem tempore, quidem atque blanditiis culpa repellendus quos vel expedita eligendi officia architecto! Libero dignissimos optio asperiores. Ullam voluptas autem, necessitatibus repudiandae perspiciatis dolorem, labore facilis numquam culpa sed consequuntur vero fuga molestiae facere eos iste hic suscipit alias, nesciunt incidunt placeat ab maiores natus, provident modi. Labore, maiores, at.</p>
-            <h4>Terminos y Condiciones</h4>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni dignissimos vero fugit laboriosam in rem explicabo molestiae et, perspiciatis modi repellat temporibus reprehenderit consequatur sunt omnis impedit, aspernatur. Doloremque ex ipsam quae quas accusantium beatae cum? Tenetur maiores harum quos ullam exercitationem tempore perferendis delectus officiis temporibus voluptatibus. Quidem animi, vel minima blanditiis sit minus numquam aut pariatur! Commodi pariatur voluptates, consectetur ipsa, perspiciatis in et iusto natus. Iste, laudantium sunt corporis. Necessitatibus hic omnis consequatur quibusdam molestias labore, assumenda atque debitis veritatis velit sed ratione fugit animi quo! Accusantium nobis modi maiores asperiores esse cum numquam, officiis alias non, autem tempore, quidem atque blanditiis culpa repellendus quos vel expedita eligendi officia architecto! Libero dignissimos optio asperiores. Ullam voluptas autem, necessitatibus repudiandae perspiciatis dolorem, labore facilis numquam culpa sed consequuntur vero fuga molestiae facere eos iste hic suscipit alias, nesciunt incidunt placeat ab maiores natus, provident modi. Labore, maiores, at.</p>
+      Para más informacion de los <a href="{{ route('terminos') }}">Terminos y condiciones</a> de ventasuni.com.
 
     </div>
     <div class="modal-footer">

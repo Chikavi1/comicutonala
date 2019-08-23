@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Sellers;
 use App\Categories;
 use App\User;
-
+use App\Schools;
 class AdminController extends Controller
 {
     /**
@@ -28,8 +28,19 @@ class AdminController extends Controller
     }
     public function vendedores()
     {
-        $sellers = Sellers::paginate(15);
+        $sellers = Sellers::where('status',1)->paginate(15);
         return view('admin.vendedores')->with(compact('sellers'));
+    }
+    public function solicitudVendedores(){
+        $sellers = Sellers::where('status',2)->paginate(15);
+        return view('admin.solicitud')->with(compact('sellers'));
+    }
+    public function bloqueados(){
+        $sellers = Sellers::where('status',4)->paginate(15);
+        return view('admin.bloqueados')->with(compact('sellers'));
+    }
+    public function verificar(){
+        return view('admin.verificar');
     }
     public function categorias(){
         $categories = Categories::all();
@@ -40,7 +51,13 @@ class AdminController extends Controller
         return view('admin.usuarios')->with(compact('users'));
     }
     public function estadisticas(){
-        return view('admin.estadisticas');
+       return view('admin.estadisticas');
+    }
+
+    public function centros(){
+        $centrosUser = Sellers::all()->unique('school');
+        $centros = Schools::all()->sortBy('title');
+        return view('admin.centros')->with(compact('centros','centrosUser'));
     }
     /**
      * Show the form for creating a new resource.

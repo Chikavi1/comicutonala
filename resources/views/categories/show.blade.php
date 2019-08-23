@@ -12,8 +12,8 @@
 
 </style>
 <div class="row ">
-	<div id="inicio" class="">
-      <h2 class="center-align margin-bottom-inicio">{{$category->name}}</h2>
+	<div id="inicio" class="color-cut">
+      <h2 class="center-align margin-bottom-inicio">{{ ucfirst($category->name) }}</h2>
       
     </div>
 <div class="padding">

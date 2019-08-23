@@ -24,13 +24,15 @@ $(document).ready(function(){
 		
 
 		<div class="col s12 m4">
-		    <div class="card small hoverable">
+		    <div class="card small hoverable 
+		    {{ $item->available == 'disponible' ? 'line-bottom-3' : 'line-bottom-2' }} " 
+		    >
 		    	<a href="#modal{{$item->id}}" class=" modal-trigger">
 		    		
-			    <div class="card-image waves-effect waves-block waves-light">
+			    <div class="card-image waves-effect waves-block waves-light" >
 			      <img class="activator" src="{{ Storage::url($item->image) }}">
 			    </div>
-			    <div class="card-content">
+			    <div class="card-content" >
 			      <span class="card-title activator grey-text text-darken-4">{{$item->title}}</span>
 			    	@if(Auth::id() ==  $seller->user_id)
 						<div class="row">
@@ -50,17 +52,19 @@ $(document).ready(function(){
 
 
 		    	<div class="row">	
-		    		<div class="col m6 s12" style="border-right: 1px solid #e0e0e0">
+		    		<div class="col m6 s12 border-right" >
 		      			<img class="responsive-img hide-on-small-only" width="600" src="{{Storage::url($item->image)}}">
 		    		</div>
 		    		<div class="col m6 s12">
 		    			<h4 class="center-align bold">{{ ucfirst($item->title) }}</h4>
 		    			<hr>
-		    			<div class="padding">
-		    				<p>Categoria:</p>
-							<h5 class="bold">{{$item->category}} </h5>
-							<p>Descripción:</p>
+		    			<div class="padding center-align">
+		    				<p class="bold">Categoria:</p>
+							<p >{{$item->category}} </p>
+							<p class="bold">Descripción:</p>
 							<p>{!! $item->description !!}</p>
+							<p class="bold">Disponibilidad:</p>
+							<p>{{ $item->available }}</p>
 							<p class="color-green center-align bold pricing-size">$ {{$item->pricing}} MXN</p>
 		    			</div >
 					    </div>

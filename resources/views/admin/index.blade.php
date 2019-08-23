@@ -14,18 +14,28 @@
 	.blc{
 		display: none;
 	}
+	a{
+		color:black;
+	}
 </style>
 
 
 	<div class="row">
 		<div class="col m2 s12">
-			 <ul class="collapsible">
+			 <ul class="collapsible ">
 			    <li>
 			      <div class="collapsible-header"><i class="fas fa-tag red-text "></i>Vendedores</div>
 
 			      <div class="collapsible-body">
-			       <a href="{{ route('admin.vendedores') }}">Lista vendedores</a>
-			       <a href="">Solicitudes de vendedores</a>
+			       <a href="{{ route('admin.vendedores') }}">vendedores</a><hr>
+			       <a href="{{ route('admin.solicitudes') }}">Solicitudes de vendedores</a><hr>
+			       <a href="{{ route('admin.bloqueados') }}">Vendedores Bloqueados</a><hr>
+			      </div>
+			    </li>
+			    <li>
+			      <div class="collapsible-header"><i class="fas fa-check-circle green-text"></i>Verificar</div>
+			      <div class="collapsible-body">
+					<a href="{{route('admin.verificar')}}">Verificar vendedores</a>
 			      </div>
 			    </li>
 			    <li>
@@ -47,6 +57,13 @@
 					<a href="{{route('admin.estadisticas')}}">Graficas</a>
 			      </div>
 			    </li>
+			    <li>
+			      <div class="collapsible-header"><i class="fas fa-graduation-cap"></i>Centros</div>
+			      <div class="collapsible-body">
+					<a href="{{route('admin.centros')}}">Ver Centros</a>
+			      </div>
+			    </li>
+			    
 			  </ul>
 		</div>
 		

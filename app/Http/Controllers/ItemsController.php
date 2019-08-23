@@ -85,8 +85,39 @@ class ItemsController extends Controller
 
     public function update(Request $request, $id)
     {
-        $item = Items::findOrFail($id)->update($request->all());
-        return redirect()->route('seller', ['id' =>  Auth::user()->seller->slug]); 
+
+        $item = Items::findOrFail($id);
+       $category = $item->category;
+         if($request->hasFile('image')){
+            $antiguaFoto = $item->image;
+            $antiguaFoto = collect(explode('/', $antiguaFoto))->last();
+            $mi_imagen = 'storage/'.$antiguaFoto;
+            if (@getimagesize($mi_imagen)) {
+            unlink($mi_imagen);
+            }     
+
+            $path = $request->file('image')->store('public');
+            $fileName = collect(explode('/', $path))->last();
+            $image = Image::make(\Storage::get($path));
+            $image->resize(1280,null, function ($constraint) {
+//              $constraint->aspectRatio();
+              $constraint->upsize();
+            });
+            Storage::put($path, (string) $image->encode('jpg', 60));
+            $item->image = $path;
+        }
+
+        $item->title = $request->get('title');
+        $item->pricing = $request->get('pricing');
+        $item->available = $request->get('available');
+        $item->description = $request->get('description');
+        $item->category = $request->category;
+        if( is_null($item->category)){
+           $item->category = $category;
+        }
+        $item->save();
+        return redirect()->route('profile'); 
+        //return redirect()->route('seller', ['id' =>  Auth::user()->seller->slug]); 
     }
 
     public function destroy($id)

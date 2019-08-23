@@ -1,6 +1,5 @@
 @foreach($items as $item)
 		
-caca
 		<div class="col s12 m4">
 		    <div class="card small hoverable">
 		    	<a href="#modal{{$item->id}}" class=" modal-trigger">
@@ -39,6 +38,7 @@ caca
 							<h5 class="bold">{{$item->category}} </h5>
 							<p>Descripción:</p>
 							<p>{!! $item->description !!}</p>
+							<p>{{ $item->available }}</p>
 							<p class="color-green center-align bold pricing-size">$ {{$item->pricing}} MXN</p>
 		    			</div >
 					    </div>

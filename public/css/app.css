@@ -30,11 +30,6 @@ html,body{
 display: inline-block;
 	width: 100%;
 	height: 35%;
-	background: -moz-linear-gradient(-45deg, #1b577b 0%, #341a4a 100%);
-  /* FF3.6-15 */
-  background: -webkit-linear-gradient(-45deg, #1b577b 0%, #341a4a 100%);
-  /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(135deg, #1b577b 0%, #341a4a 100%);
   color:white;
 }
 .menuhorizontal{
@@ -150,3 +145,19 @@ div.menuhorizontal li{
 .margin-bottom-inicio{
   margin-bottom: 1em;
 }
+ .letras-chicas{
+    font-size: .75em;
+  }
+
+.margin-top{
+  margin-top: 1em ;
+}
+.border-right{
+  border-right: 1px solid #e0e0e0 !important;
+}
+.cut-text{
+  color: #17202f !important;
+}
+.border-color{
+        border: 5px solid #17202f !important;
+    }

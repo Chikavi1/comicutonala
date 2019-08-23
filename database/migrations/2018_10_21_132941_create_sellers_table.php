@@ -30,6 +30,10 @@ class CreateSellersTable extends Migration
             $table->string('school')->nullable();
             $table->string('schedule')->default('No disponible')->nullable();
             $table->boolean('available')->default('1');
+            $table->enum('status',[
+                \App\Sellers::PUBLICADO, \App\Sellers::PENDIENTE,
+                \App\Sellers::RECHEZADO, \App\Sellers::BLOQUEADO
+            ]);
             $table->timestamps();
         });
     }

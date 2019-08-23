@@ -192,7 +192,7 @@ class ScrapingController extends Controller
  		$crawler = $client->request('GET', 'http://siiauescolar.siiau.udg.mx/wus/gupprincipal.forma_inicio');
  		//dd($crawler);
  		$form = $crawler->selectButton('Ingresar')->form();
-		$crawler = $client->submit($form, array('p_codigo_c' => '217726986', 'p_clave_c' => 'Emanuel891'));
+		$crawler = $client->submit($form, array('p_codigo_c' => '217727036', 'p_clave_c' => '16021999'));
 		//dd($crawler);
 		
 

@@ -7,6 +7,11 @@ use App\User;
 use Auth;
 use App\Sellers;
 use App\Categories;
+use Illuminate\Support\Facades\DB;
+use App\Schools;
+
+use Hash;
+use validator;
 
 class HomeController extends Controller
 {
@@ -30,28 +35,24 @@ class HomeController extends Controller
     {
         return view('bot');
     }
+    public function terminos()
+    {
+        return view('terminos');
+    }
     public function index()
     {
-        return view('home');
+        $user = Auth::user();
+        return view('home')->with(compact('user'));
     }
 
-    public function centro($centro,Request $request){
-
-        switch ($centro) {
-            case 'cutonala':
-                $centro = 'CENTRO UNIVERSITARIO DE TONALA';
-                break;
-             case 'cucei':
-                $centro = 'CENTRO UNIVERSITARIO DE CIENCIAS EXACTAS E INGENIERIAS';
-                break;
-             case 'cucea':
-                $centro = 'CENTRO UNIVERSITARIO DE CIENCIAS ECONOMICO-ADMINISTRATIVAS';
-                break;
-             case 'cucsh':
-                $centro = 'CENTRO UNIVERSITARIO DE CIENCIAS SOCIALES Y HUMANIDADES';
-                break;
-                
+    public function centro($slug,Request $request){
+        $centro = Schools::where('slug',$slug)->get();
+        if($centro == "[]"){
+            return "Aun no tenemos el servicio en ". strtoupper($slug) ." pero muy pronto lo tendremos.";
+        }else{
+          $centro = $centro[0]->title;
         }
+
         if($request->busqueda){$busqueda = true;}else{$busqueda = false;}
 
 
@@ -66,7 +67,13 @@ class HomeController extends Controller
         return view('welcome')->with(compact('sellers','salados','dulces','bebidas','categories','busqueda','centro'));
     }
 
+    public function centros(){
+        $centros = Schools::all();
+        return view('centros.index')->with(compact('centros'));
+    }
+
     public function welcome(Request $request){
+
         if($request->busqueda){$busqueda = true;}else{$busqueda = false;}
 
         
@@ -78,8 +85,15 @@ class HomeController extends Controller
         return view('welcome')->with(compact('sellers','salados','dulces','bebidas','categories','busqueda'));
 
     }
-    public function busqueda(){
-        return view('busqueda');
+    public function busqueda(Request $request){
+        $sellers = [];
+        $centros = Schools::all();
+        $categorias = Categories::all();
+        if(\Request::ajax()){
+        $sellers = Sellers::SearchAdvanced($request->titulo,$request->centro,$request->categoria);
+          return \Response::json(view('resultado', array('sellers' => $sellers))->render());
+            }
+        return view('busqueda')->with(compact('sellers','centros','categorias'));
     }
     public function vender(){
         return view('vender');
@@ -94,6 +108,41 @@ class HomeController extends Controller
         $user = User::find(Auth::user()->id);
         $sellers = Sellers::where("user_id",Auth::user()->id)->get();
         return view('profile')->with(compact('user','sellers'));
+    }
+
+
+    public function password(){
+        return view('user.password');
+    }
+    public function updatePassword(Request $request){
+        $rules = [
+            'mypassword' => 'required',
+            'password' => 'required|min:6|max:18|confirmed',
+        ];
+
+         $messages = [
+            'mypassword.required' => 'El campo es requerido',
+            'password.required' => 'El campo es requerido',
+            'password.confirmed' => 'Los passwords no coinciden',
+            'password.min' => 'El mínimo permitido son 6 caracteres',
+            'password.max' => 'El máximo permitido son 18 caracteres',
+        ];
+
+        $validator = \Validator::make($request->all(),$rules,$messages);
+        if($validator->fails()){
+            return redirect()->route('profile.password')->with('success','Checa tus datos y vuelve a intentarlo,recuerda minimo 6 caracteres maximo 18 caracteres');
+        }else{
+            if(Hash::check($request->mypassword,Auth::user()->password)){
+                $user = new User;
+                $user->where('id','=',Auth::user()->id)
+                    ->update(['password' => bcrypt($request->password)]);
+                return redirect('profile')->with('success','Se actualizo la contraseña.');
+            }else{
+                dd("valio madre raza");
+                return redirect()->route('profile.password')->with('message','datos incorrectos');
+            }
+        }
+
     }
 
 

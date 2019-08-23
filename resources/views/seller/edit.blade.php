@@ -124,7 +124,7 @@ $("#sw").click(function(){
                     </div>
                   </div>
 
-                <button type="submit" class="btn btn-block">Editar</button>
+                <button type="submit" class="btn btn-block color-cut">Editar</button>
        </form>
     </div>
   </div>

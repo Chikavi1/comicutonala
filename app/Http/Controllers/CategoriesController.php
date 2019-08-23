@@ -57,8 +57,9 @@ class CategoriesController extends Controller
         //     "products"));
 
         $category = Categories::find($id);
-        $products = Sellers::where("category","LIKE",$category->name)->paginate(8);
+        $products = Sellers::where("category","LIKE",$category->name)->where('status',2)->paginate(8);
         $products->where("title","LIKE",$request->busqueda);
+
         return view('categories.show')->with(compact("category",
           "products"));
     }
