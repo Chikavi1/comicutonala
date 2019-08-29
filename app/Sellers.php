@@ -15,7 +15,7 @@ class Sellers extends Model
     protected $table = 'sellers';
 
 	  protected $fillable = [
-       'user_id', 'title','image', 'slug','description','category','cellphone','salon','available','schedule','school','status'
+       'user_id', 'title','image', 'slug','description','category','cellphone','salon','available','schedule','status'
     ];
     protected $hidden = [
         'user_id',
@@ -36,10 +36,9 @@ class Sellers extends Model
           ->orWhere('category','LIKE',"%$title%")->limit(4)->get();
        
     }
-    public function scopeSearchAdvanced($query,$titulo,$centro,$categoria){
+    public function scopeSearchAdvanced($query,$titulo,$categoria){
         
           return $query->where('title','LIKe',"%$titulo%")
-          ->where('school',$centro)
           ->where('category',$categoria)->limit(5)->get();
        
     }

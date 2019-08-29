@@ -8,7 +8,6 @@ use Auth;
 use App\Sellers;
 use App\Categories;
 use Illuminate\Support\Facades\DB;
-use App\Schools;
 
 use Hash;
 use validator;
@@ -22,7 +21,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth',['except' => 'centro']);
+        $this->middleware('auth');
     }
 
     /**
@@ -45,55 +44,34 @@ class HomeController extends Controller
         return view('home')->with(compact('user'));
     }
 
-    public function centro($slug,Request $request){
-        $centro = Schools::where('slug',$slug)->get();
-        if($centro == "[]"){
-            return "Aun no tenemos el servicio en ". strtoupper($slug) ." pero muy pronto lo tendremos.";
-        }else{
-          $centro = $centro[0]->title;
-        }
-
-        if($request->busqueda){$busqueda = true;}else{$busqueda = false;}
-
-
-
-        $sellers = Sellers::where('school','=',$centro)->get();
-        $categories = Categories::paginate(6);
-        $salados = Sellers::where('school','=',$centro)->where("category",'=','comida')->get();
-        $salados = Sellers::where('school','=',$centro)->where("category",'=','comida')->get();
-        $dulces = Sellers::where('school','=',$centro)->where('category','=','postres')->get();
-        $bebidas = Sellers::where('school','=',$centro)->where('category','=','bebidas')->get();
-
-        return view('welcome')->with(compact('sellers','salados','dulces','bebidas','categories','busqueda','centro'));
-    }
-
-    public function centros(){
-        $centros = Schools::all();
-        return view('centros.index')->with(compact('centros'));
-    }
 
     public function welcome(Request $request){
 
-        if($request->busqueda){$busqueda = true;}else{$busqueda = false;}
 
+        $sellers = Sellers::where('status',1)->inRandomOrder()->limit(4)->get();
+        if($request->busqueda){$busqueda = true;$sellers = Sellers::Search($request->get("busqueda"));}else{$busqueda = false;}
         
-        $sellers = Sellers::Search($request->get("busqueda"));
         $categories = Categories::paginate(6);
-        $salados = Sellers::where("category",'=','comida')->inRandomOrder()->limit(4)->get();
-        $dulces = Sellers::where('category','=','postres')->get();
-        $bebidas = Sellers::where('category','=','bebidas')->get();
+
+        $salados = Sellers::where("category",'=','comida')
+        ->where('status',1)->inRandomOrder()->limit(4)->get();
+
+        $dulces = Sellers::where('category','=','postres')
+        ->where('status',1)->inRandomOrder()->limit(4)->get();
+        $bebidas = Sellers::where('category','=','bebidas')
+        ->where('status',1)->inRandomOrder()->limit(4)->get();
+
         return view('welcome')->with(compact('sellers','salados','dulces','bebidas','categories','busqueda'));
 
     }
     public function busqueda(Request $request){
         $sellers = [];
-        $centros = Schools::all();
         $categorias = Categories::all();
         if(\Request::ajax()){
-        $sellers = Sellers::SearchAdvanced($request->titulo,$request->centro,$request->categoria);
+        $sellers = Sellers::SearchAdvanced($request->titulo,$request->categoria);
           return \Response::json(view('resultado', array('sellers' => $sellers))->render());
             }
-        return view('busqueda')->with(compact('sellers','centros','categorias'));
+        return view('busqueda')->with(compact('sellers','categorias'));
     }
     public function vender(){
         return view('vender');
@@ -163,4 +141,14 @@ class HomeController extends Controller
          $query->where('category', 'LIKE', '%' . $category . '%');
     })->get();
     }
+
+
+
+    //-elminar
+
+    public function emailshow(){
+        return view('email.nuevovendedor');
+    }
+
+    //eliminar-
 }

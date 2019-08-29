@@ -60,7 +60,6 @@
 			    <li>
 			      <div class="collapsible-header"><i class="fas fa-graduation-cap"></i>Centros</div>
 			      <div class="collapsible-body">
-					<a href="{{route('admin.centros')}}">Ver Centros</a>
 			      </div>
 			    </li>
 			    

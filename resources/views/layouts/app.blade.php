@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>ComiCut @yield('title')</title>
+    <title>VentasUni @yield('title')</title>
     <meta NAME="DC.Language" SCHEME="RFC1766" CONTENT="Spanish">
     <meta NAME="AUTHOR" CONTENT="Luis Rojas">
     <meta NAME="REPLY-TO" CONTENT="chikavi@hotmail.com">
@@ -101,6 +101,9 @@
    .menu-navbar-color{
     color: #f8f8f8 !important;
    }
+   .brand-logo:hover{
+    color:#baafaf;
+   }
 
    </style>
   
@@ -110,7 +113,8 @@
 
     <nav>
         <div class="nav-wrapper color-cut">
-          <a href="{{ route('home') }}" class="brand-logo center">ComiCut</a>
+            
+          <a href="{{ route('home') }}" class="brand-logo center">VentasUni</a>
           <div class=" hide-on-large-only">
           <a  class="search @yield('withsearch')  brand-logo right searchbtn" ><i class="white-text material-icons ">search</i></a>
             
@@ -118,7 +122,7 @@
           <a href="#" data-target="mobile-nav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
           <ul class="left hide-on-med-and-down">
             <!--<li><a href="{{route('categorias.index')}}"><i class="material-icons left">view_module</i>Categorias</a></li>-->
-            <li><a href="{{route('welcome') }}"><i class="material-icons left">view_module</i>Catalogo</a></li>
+            <li><a href="{{route('welcome') }}"><i class="material-icons left">view_module</i>Categorias</a></li>
               <li>    
                    
                       
@@ -153,7 +157,13 @@
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         <i class="fas fa-sign-out-alt"></i>Salir
-                                    </a></li>
+                                    </a>
+                                  <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+    @csrf
+    </form>      
+                              </li>
+
+
                             </ul>
 
                         @endguest
@@ -233,7 +243,7 @@
 
   <li>
     <a class="btn  " style="background: #D72638 !important;" href="{{ route('logout') }}"  onclick="event.preventDefault();  document.getElementById('logout-form').submit();">
-      salir
+      salirs
     </a>
     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
     @csrf
@@ -251,14 +261,14 @@
           <div class="container">
             <div class="row">
               <div class="col m6 s12">
-                <h5 class="footer-text-color">ComiCUT</h5>
+                <h5 class="footer-text-color">VentasUni</h5>
                 <p class="  udg-text">Esta pagina fue creada para los estudiantes que dia a dia se ganan su propio dinero vendiendo comida u otras cosas.</p>
               </div>
               <div class="col m6 s12 ">
                 <h5 class="footer-text-color ">Contenido</h5>
                 <ul>
                   <li><a class="grey-text text-lighten-3" href="#!">Preguntas y Respuestas</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Acerca de Comicut</a></li>
+                  <li><a class="grey-text text-lighten-3" href="#!">Acerca de VentasUni</a></li>
                   <li><a class="grey-text text-lighten-3" href="#!">Contactar al creador</a></li>
                   <li><a class="grey-text text-lighten-3" href="{{route('terminos')}}">Terminos y condiciones</a></li>
                 </ul>

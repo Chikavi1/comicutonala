@@ -26,20 +26,14 @@ class SellersController extends Controller
 
     public function create()
     {
-         Mail::send('email.nuevovendedor',compact(null),function($msj){
-                    $msj->from("tucorreo@ventasuni.com","Luis rojas");
-                    $msj->subject('Bienvenido a tu perfil de vendedor',);
-                    $msj->to('chikavi@hotmail.com');
-                });
-         
         $categories = Categories::all();
         return view('seller.create')->with(compact('categories'));
     }
     public function store(Request $request)
     {
         
-         $user = User::where('id',Auth::user()->id)->get();
-        $escuela = $user[0]->school;
+         $user = User::where('id',Auth::user()->id)->first();
+
 
 
         $request->validate([
@@ -66,12 +60,7 @@ class SellersController extends Controller
         $finaliza = $request->get('finaliza');
             $schedule = $inicia." - ".$finaliza;
 
-          Mail::send('email.nuevovendedor',compact(null),function($msj){
-                    $msj->from("tucorreo@ventasuni.com","Luis rojas");
-                    $msj->subject('Bienvenido a tu perfil de vendedor',);
-                    $msj->to('chikavi@hotmail.com');
-                });
-
+         
         $seller = new Sellers([
             'user_id' => Auth::user()->id,
             'title' => $request->get('title'),
@@ -82,10 +71,16 @@ class SellersController extends Controller
             'cellphone' => $request->get('cellphone'),
             'salon' => $request->get('salon'),
             'available' => "1",
-            'school' => $escuela,
             'schedule' => $schedule,
             'status' => Sellers::PENDIENTE,
         ]);
+        $nombre = $user->name;
+        $email = $user->email;
+         Mail::send('email.nuevovendedor',compact('nombre'),function($msj)use($email){
+                    $msj->from("tucorreo@ventasuni.com","Luis rojas");
+                    $msj->subject('Bienvenido a tu perfil de vendedor',);
+                    $msj->to($email);
+                });
         $seller->save();
 
       
@@ -167,11 +162,17 @@ class SellersController extends Controller
 
     public function upSeller($id){
         $seller = Sellers::findorFail($id);
+        $estado = 'aprobado';
+        $user = User::findorFail($seller->user_id)->first();
         $seller->status = 1;
         $seller->save();
+
+        $this->enviar_email_estado($user->name,$estado,$seller->title,$user->email);
+        
+
         return redirect()->route('admin.vendedores');
     }
-
+    
     public function banSeller($id){
         $seller = Sellers::findorFail($id);
         $seller->status = 4;
@@ -181,11 +182,24 @@ class SellersController extends Controller
 
      public function rejectedSeller($id){
         $seller = Sellers::findorFail($id);
+        $estado = 'rechazado';
+        $user = User::findorFail($seller->user_id)->first();
         $seller->status = 3;
         $seller->save();
+
+        $this->enviar_email_estado($user->name,$estado,$seller->title,$user->email);
+
+
         return redirect()->route('admin.vendedores');
     }
 
+    public function enviar_email_estado($nombre,$estado,$vendedor,$email){
+        Mail::send('email.status',compact('nombre','estado','vendedor'),function($msj)use($email){
+                    $msj->from("tucorreo@ventasuni.com","Equipo de VentasUni");
+                    $msj->subject('Estado de tu solicitud de vendedor');
+                    $msj->to($email);
+                });
+    }
 
 
     public function filter($id){

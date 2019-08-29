@@ -10,7 +10,6 @@
               <th>codigo</th>
               <th>correo</th>
               <th>carrera</th>
-              <th>centro</th>
           </tr>
         </thead>
 
@@ -21,7 +20,6 @@
             <td>{{ $user->code }}</td>
             <td>{{ $user->email }}</td>   
             <td>{{ $user->career }}</td>
-            <td>{{ $user->school }}</td>
           </tr>
           @endforeach
         </tbody>

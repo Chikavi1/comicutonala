@@ -43,10 +43,6 @@
 			          <td>Carrera</td>
 			          <td class="right-align">{{$user->career}}</td>
 			        </tr>
-			        <tr >
-			          <td>Centro</td>
-			          <td class="right-align">{{$user->school}}</td>
-			        </tr>
 			    </tbody>
 			</table>
 		<a href="{{ route('profile.password') }}" class="btn btn-block color-cut">cambiar contraseña</a>

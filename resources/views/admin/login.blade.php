@@ -16,7 +16,7 @@
 <div class="col s12 m3 offset-m4 card">
 	<h3 class="center-align">Ingresar</h3>
 
-	<form action="{{ route('admin.login') }}" method="POST" >
+	<form action="{{ route('admin.login') }}" method="get" >
 		{{ @csrf_field() }}
 		<input type="text" placeholder="codigo" name="codigo">
 		<input type="password" placeholder="nip" name="nip">

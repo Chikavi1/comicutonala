@@ -27,7 +27,6 @@ class CreateSellersTable extends Migration
             $table->string('cellphone')->nullable();
             $table->integer('rating')->nullable();
             $table->string('salon')->nullable();
-            $table->string('school')->nullable();
             $table->string('schedule')->default('No disponible')->nullable();
             $table->boolean('available')->default('1');
             $table->enum('status',[

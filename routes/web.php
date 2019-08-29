@@ -20,10 +20,13 @@ Route::get('/vender','HomeController@vender')->name('vender');
 Route::get('/random','HomeController@random')->name('random');
 Route::get('/profile','HomeController@profile')->name('profile');
 
-//--------------------------Admin sources--------------------------------------
+//--------------------------Admin sources- -------------------------------------
 Route::get('/control','AdminController@index')->name('control');
+
+
 Route::get('/admin','AdminController@admin')->name('admin');
-Route::post('/admin/login','AdminController@login')->name('admin.login');
+
+Route::get('/admin/login','AdminController@login')->name('admin.login');
 
 Route::get('/admin/vendedores','AdminController@vendedores')->name('admin.vendedores');
 Route::get('/admin/solicitudes','AdminController@solicitudVendedores')->name('admin.solicitudes');
@@ -34,13 +37,17 @@ Route::get('/admin/categorias','AdminController@categorias')->name('categorias')
 
 Route::get('/admin/usuarios','AdminController@usuarios')->name('admin.usuarios');
 Route::get('/admin/estadisticas','AdminController@estadisticas')->name('admin.estadisticas');
-Route::get('/admin/centros','AdminController@centros')->name('admin.centros');
 
 Route::get('/admin/sellerup/{id}','SellersController@upSeller')->name('admin.upseller');
 Route::get('/admin/sellerrejected/{id}','SellersController@rejectedSeller')->name('admin.rejectedseller');
 Route::get('/admin/sellerban/{id}','SellersController@banSeller')->name('admin.banseller');
 
 //-----------------------------------------------------------------------------
+
+//se debe eliminar solo prueba--------
+Route::get('email','HomeController@emailshow');
+
+//se debe eliminar----------------
 
 Route::get('/terminos','HomeController@terminos')->name('terminos');
 Route::get('/bot','HomeController@bot')->name('bot');
@@ -60,11 +67,16 @@ Route::get('/create/','SellersController@filter2')->name('filter2');
 
 Route::get('seller/{slug}', ['as' => 'seller', 'uses' => 'SellersController@show']);
 
+Route::post('creando/','ItemsController@creandoConId')->name('items.creando');
+Route::get('creando/',function(){
+	return view('errors.404');
+});
+
 Route::resource('categorias','CategoriesController');
-Route::get('creando/{id}','ItemsController@creandoConId')->name('items.creando');
 Route::get('scraping','ScrapingController@example')->name('scraping');
 Route::get('siiau','ScrapingController@prueba');
 Route::get('busqueda','HomeController@busqueda')->name('busqueda');
+
 Route::middleware(['auth'])->group(function () {	
 	Route::resource('items','ItemsController');
    

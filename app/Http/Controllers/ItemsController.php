@@ -13,6 +13,10 @@ use App\Categories;
 use App\Sellers;
 class ItemsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     public function index()
     {
@@ -20,8 +24,11 @@ class ItemsController extends Controller
         return view('items.index')->with(compact('items'));
     }
 
-    public function creandoConId($id)
+    public function creandoConId(Request $request)
     {  
+        $id = $request->uid;
+
+
         $categories = Categories::all();
         return view('items.create')->with(compact('id','categories'));
     }

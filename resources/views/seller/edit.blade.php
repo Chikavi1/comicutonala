@@ -52,7 +52,7 @@ $("#sw").click(function(){
                 </div>
 
                 <div class="file-field input-field">
-                  <div class="btn">
+                  <div class="btn color-cut">
                     <span>Foto</span>
                     <input type="file" name="image">
                   </div>
@@ -80,7 +80,7 @@ $("#sw").click(function(){
                   <label >categoria</label>
               </div>
                 <div class="input-field">
-                  <i class="material-icons prefix">phone</i>
+                  <i class="material-icons prefix green-text">phone</i>
                   <input id="cellphone" name="cellphone" type="tel" class="validate" value="{{$seller->cellphone}}">
                   <label for="cellphone">Numero de celular</label>
 
@@ -89,7 +89,7 @@ $("#sw").click(function(){
                     
                 </div>
                  <div class="input-field">
-                  <i class="material-icons prefix">place</i>  
+                  <i class="material-icons prefix red-text">place</i>  
                   <label for="salon">salon o lugar de venta</label>
                     <input type="text" class="form-control" name="salon" value="{{$seller->salon}}"/>
                 </div>

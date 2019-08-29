@@ -85,6 +85,12 @@ class ScrapingController extends Controller
 			\Session::put('codigo',$codigo);
      	    \Session::put('carrera',$carrera);
 	   	    \Session::put('centro',$sede);
+
+	   	    if($sede != "CENTRO UNIVERSITARIO DE TONALA"){
+        	return response()->json(['message'=> 'error','descripcion'=>'No eres alumno de este centro']);
+        	}
+
+
 			return response()->json(['message' => 'satisfactorio','data' => 'con prepa','nombre' => $nombre,
  	 			'codigo' => $codigo,
  	 			'carrera' => $carrera,

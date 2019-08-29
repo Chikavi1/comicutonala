@@ -107,16 +107,7 @@ input#titulo:focus{
 			</div>
   		</div>
 
-  		<div class="col s10 offset-s1 m4 offset-m4 margin-top-1">
-			<div class="input-field col s12">
-		    <select  name="centro" id="centro" required>
-		      <option value="" disabled selected>Selecciona centro universitario</option>
-		      @foreach($centros as $centro)
-		      <option value="{{$centro->title}}">{{$centro->slug}}</option>
-		      @endforeach
-		    </select>
-		  </div>
-		</div>
+  	
 		<div class="col s10 offset-s1 m4 offset-m4 margin-top-1 z-index-2" >
 			<div class="input-field col s12">
 		    <select  name="categoria" id="categoria" required>

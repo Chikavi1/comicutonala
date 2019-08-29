@@ -86,12 +86,17 @@ document.oncontextmenu = function(){return false}
 		</div>
 		<div class="col m5 s12 card ">
 			@if(Auth::id() ==  $seller->user_id)
-			<div class="row">
-				<div class="col s6">
-					<a href="{{ route('seller.edit',$seller->id) }}" class="btn center-align btn-block color-cut">Editar</a>
+			<div class="row margin-top">
+				<div class="col s6 ">
+					<a href="{{ route('seller.edit',$seller->id) }}" class="btn center-align btn-block color-cut ">Editar Perfil</a>
 				</div>
 				<div class="col s6">
-					<a href="{{ route('items.creando',$seller->id) }}" class="btn center-align btn-block color-cut">Agregar Productos</a>
+					<form action="{{ route('items.creando') }}" method="post">
+					@csrf
+					<input type="hidden" value="{{$seller->id}}" name="uid">
+						<input type="submit" value="Agregar Productos" class="btn center-align btn-block color-cut">
+					</form>
+					<!-- <a href="{{ route('items.creando',$seller->id) }}" class="btn center-align btn-block color-cut">Agregar Productos</a> -->
 				</div>
 			</div>
 			@endif

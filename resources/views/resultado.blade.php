@@ -13,7 +13,6 @@
 			                <p class="title truncate"><strong>{{$seller->title}}</strong></p>
 			                <p class="black-text">{{ $seller->category }}</p>
 			                <p class="black-text">{{ $seller->schedule }}</p>
-			                <span class="letras-chicas black-text">{{ $seller->school }}</span>
 			          </a>
 			            </li>
 				@empty

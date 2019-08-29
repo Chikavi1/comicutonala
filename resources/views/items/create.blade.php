@@ -37,7 +37,7 @@
                     	<input type="text" class="form-control" name="title" minlength="3" maxlength="30"/>
 					</div>
 					 <div class="file-field input-field">
-                 		<div class="btn">
+                 		<div class="btn color-cut">
 	                    	<span>Foto</span>
 	                    	<input type="file" name="image">
 	                    </div>

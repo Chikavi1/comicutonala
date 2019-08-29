@@ -7,7 +7,7 @@
      background-size: cover;
      background-repeat: no-repeat;
     background-position: left;
-     background-image: url({{ asset('img/cut.jpeg')   }});
+     background-image: url('http://www.cutonala.udg.mx/sites/default/files/noticias/images/autocut1.jpg');
     }
     #email{
         color:white;
