@@ -78,7 +78,7 @@ class SellersController extends Controller
         $email = $user->email;
          Mail::send('email.nuevovendedor',compact('nombre'),function($msj)use($email){
                     $msj->from("tucorreo@ventasuni.com","Luis rojas");
-                    $msj->subject('Bienvenido a tu perfil de vendedor',);
+                    $msj->subject('Bienvenido a tu perfil de vendedor');
                     $msj->to($email);
                 });
         $seller->save();
