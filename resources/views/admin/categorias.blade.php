@@ -2,8 +2,8 @@
 
  @section('admin')
 <div class="row">
-	<div class="col m8 offset-m2">
-		<a href="{{route('categorias.create')}}" class="green-text btn-flat ">Agregar mas categorias</a>
+  <div class="col m8 offset-m2">
+    <a href="{{route('categorias.create')}}" class="green-text btn-flat ">Agregar más categorias</a>
  <table>
         <thead>
           <tr>
@@ -17,12 +17,14 @@
         @foreach($categories as $category)
           <tr>
             <td>{{ $category->name  }}</td>
-            <td><a href=" {{ route('categorias.destroy',$category->id) }}" class="red-text"> Eliminar</a> / <a href="">Editar</a></td>
+            <td>
+              <a href=" {{ route('categorias.destroy',$category->id) }}" class="red-text"> Eliminar</a> / 
+              <a href="{{ route('categorias.edit',$category->id) }}" class="blue-text">Editar</a></td>
           </tr>
          @endforeach
           
         </tbody>
-      </table>	
-	</div>
+      </table>  
+  </div>
 </div>
 @endsection
