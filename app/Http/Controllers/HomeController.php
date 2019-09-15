@@ -60,7 +60,6 @@ class HomeController extends Controller
         ->where('status',1)->inRandomOrder()->limit(4)->get();
         $bebidas = Sellers::where('category','=','bebidas')
         ->where('status',1)->inRandomOrder()->limit(4)->get();
-
         return view('welcome')->with(compact('sellers','salados','dulces','bebidas','categories','busqueda'));
 
     }

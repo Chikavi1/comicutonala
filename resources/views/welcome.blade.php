@@ -107,6 +107,7 @@
       </div> 
 
       <div class="row " >
+
         @foreach($sellers as $seller)
         <div class="col s12 m3">
           <div class="card  hoverable line-bottom">
@@ -156,6 +157,9 @@
         </div>      
       </div> 
       <div class="row " >
+         @if($salados == "[]")
+          <h5 class="center-align">No hay vendedores disponibles </h5>
+        @endif
         @foreach($salados as $salado)
          <div class="col s12 m3">
           <div class="card  hoverable line-bottom-2">
@@ -205,6 +209,9 @@
         </div>      
       </div> 
       <div class="row " >
+         @if($dulces == "[]")
+          <h5 class="center-align">No hay vendedores disponibles </h5>
+        @endif
         @foreach($dulces as $dulce)
          <div class="col s12 m3">
           <div class="card  hoverable line-bottom-3">
@@ -254,7 +261,12 @@
         </div>      
       </div> 
       <div class="row " >
+      @if($bebidas == "[]")
+          <h5 class="center-align">No hay vendedores disponibles </h5>
+        @endif
         @foreach($bebidas as $bebida)
+         
+
          <div class="col s12 m3">
           <div class="card  hoverable line-bottom-4">
             <div class="card-image waves-effect waves-block waves-light">
