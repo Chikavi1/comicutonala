@@ -85,7 +85,8 @@ class CategoriesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $category = Categories::findOrFail($id)->update($request->all());
+        return redirect()->route('categorias');
     }
 
     /**
