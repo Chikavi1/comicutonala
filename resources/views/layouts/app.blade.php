@@ -122,7 +122,7 @@
           <a href="#" data-target="mobile-nav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
           <ul class="left hide-on-med-and-down">
             <!--<li><a href="{{route('categorias.index')}}"><i class="material-icons left">view_module</i>Categorias</a></li>-->
-            <li><a href="{{route('welcome') }}"><i class="material-icons left">view_module</i>Categorias</a></li>
+            <li><a href="{{route('categorias.index') }}"><i class="material-icons left">view_module</i>Categorias</a></li>
               <li>    
                    
                       
@@ -262,7 +262,7 @@
             <div class="row">
               <div class="col m6 s12">
                 <h5 class="footer-text-color">VentasUni</h5>
-                <p class="  udg-text">Esta pagina fue creada para los estudiantes que dia a dia se ganan su propio dinero vendiendo comida u otras cosas.</p>
+                <p class="  udg-text">Esta pagina fue creada para los estudiantes que día a día se ganan su propio dinero vendiendo comida u otras cosas.</p>
               </div>
               <div class="col m6 s12 ">
                 <h5 class="footer-text-color ">Contenido</h5>
