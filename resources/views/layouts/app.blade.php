@@ -243,7 +243,7 @@
 
   <li>
     <a class="btn  " style="background: #D72638 !important;" href="{{ route('logout') }}"  onclick="event.preventDefault();  document.getElementById('logout-form').submit();">
-      salirs
+      salir
     </a>
     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
     @csrf

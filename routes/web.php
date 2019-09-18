@@ -49,9 +49,10 @@ Route::get('email','HomeController@emailshow');
 
 //se debe eliminar----------------
 
+Route::get('/gratis','HomeController@gratis')->name('gratis');
 Route::get('/terminos','HomeController@terminos')->name('terminos');
 Route::get('/bot','HomeController@bot')->name('bot');
-
+Route::get('/preguntas','HomeController@preguntas');
 //Route::get('/{slug}','SellersController@show');
 
 // NECESARIO CAMBIAR Route::resource('seller', 'SellersController')->middleware('auth');

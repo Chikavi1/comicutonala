@@ -142,6 +142,15 @@ class HomeController extends Controller
     }
 
 
+    public function gratis(){
+        $users = User::inRandomOrder()->limit(3)->get();
+        return view('gratis')->with(compact('users'));
+    }
+
+    public function preguntas(){
+        return view('preguntas');
+    }
+
 
     //-elminar
 
