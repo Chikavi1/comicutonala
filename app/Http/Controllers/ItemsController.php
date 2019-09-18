@@ -94,6 +94,7 @@ class ItemsController extends Controller
     {
 
         $item = Items::findOrFail($id);
+        $seller = Sellers::where("id",$item->sellers_id)->first();
        $category = $item->category;
          if($request->hasFile('image')){
             $antiguaFoto = $item->image;
@@ -123,7 +124,12 @@ class ItemsController extends Controller
            $item->category = $category;
         }
         $item->save();
-        return redirect()->route('profile'); 
+
+      if((Auth::user()->seller->slug)){
+         return redirect()->route('seller.show',$seller->slug)->with('success','Se modifico el ítem.');; 
+        }else{
+            dd("error");
+        }
         //return redirect()->route('seller', ['id' =>  Auth::user()->seller->slug]); 
     }
 
