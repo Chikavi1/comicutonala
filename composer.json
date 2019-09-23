@@ -13,7 +13,8 @@
         "laravel/framework": "5.7.*",
         "laravel/tinker": "^1.0",
         "styde/blade-pagination": "5.1.*@dev",
-        "unisharp/laravel-ckeditor": "^4.7"
+        "unisharp/laravel-ckeditor": "^4.7",
+        "watson/rememberable": "^3.1"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.2",

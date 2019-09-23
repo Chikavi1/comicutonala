@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+use Watson\Rememberable\Rememberable;
 class Sellers extends Model
 {
+   use Rememberable;
+   public $rememberCacheTag = 'sellers_queries';
+
     const PUBLICADO = 1;
     const PENDIENTE = 2;
     const RECHEZADO = 3;

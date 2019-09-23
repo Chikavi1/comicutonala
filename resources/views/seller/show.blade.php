@@ -94,7 +94,7 @@ document.oncontextmenu = function(){return false}
 					<form action="{{ route('items.creando') }}" method="post">
 					@csrf
 					<input type="hidden" value="{{$seller->id}}" name="uid">
-						<input type="submit" value="Agregar Productos" class="btn center-align btn-block color-cut">
+						<input type="submit" value="crear Producto" class="btn center-align btn-block color-cut">
 					</form>
 					<!-- <a href="{{ route('items.creando',$seller->id) }}" class="btn center-align btn-block color-cut">Agregar Productos</a> -->
 				</div>
