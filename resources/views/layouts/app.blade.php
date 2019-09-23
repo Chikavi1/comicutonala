@@ -267,7 +267,7 @@
               <div class="col m6 s12 ">
                 <h5 class="footer-text-color ">Contenido</h5>
                 <ul>
-                  <li><a class="grey-text text-lighten-3" href="#!">Preguntas y Respuestas</a></li>
+                  <li><a class="grey-text text-lighten-3" href="{{ route('preguntas') }}">Preguntas y Respuestas</a></li>
                   <li><a class="grey-text text-lighten-3" href="#!">Acerca de VentasUni</a></li>
                   <li><a class="grey-text text-lighten-3" href="#!">Contactar al creador</a></li>
                   <li><a class="grey-text text-lighten-3" href="{{route('terminos')}}">Terminos y condiciones</a></li>
