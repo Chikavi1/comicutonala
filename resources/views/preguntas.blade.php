@@ -80,7 +80,7 @@
 				      		<img src="{{ asset('img/preguntas8.png')}}" alt="" width="200">
 				      	</div>
 				      	<strong>Describe el perfil:</strong><p> Aquí puedes poner la historia de tu negocio, redes sociales o algún anuncio o condiciones que quieras poner, se recomienda que el texto sea menor de 240 caracteres, puedes agregar listas, links, poner texto en negrita o en itálica.</p>
-				      	<strong>Categoría:</strong><p> Es importante poder clasificar tu perfil para que los usuarios puedan conocerte, si vendes diferentes productos con diferente categorías, céntrate en el producto en el que vendas más por ejemplo el maya su principal negocio es la comida, pero también vende aguas o postres.</p>
+				      	<strong>Categoría:</strong><p> Es importante poder clasificar tu perfil para que los usuarios puedan conocerte, si vendes diferentes productos con diferentes categorías, céntrate en el producto en el que vendas más por ejemplo el maya su principal negocio es la <strong>comida</strong>, pero también vende aguas o postres.</p>
 				      	<p><strong>Recuerda es importante clasificarlo bien, si vendes comida no vayas a poner que vendes accesorios u otras cosas, esto se penaliza.</strong></p>
 				      	<strong>Numero de celular:</strong><p> Ingresa tu número de celular, trata de que ese número este asociado a Whatsapp ya que de ese número puedes recibir mensajes y llamadas.</p>
 				      	<strong>Salón o lugar de venta:</strong><p> Ingresa el lugar donde vendes, trata de resumirlo lo más posible 
@@ -111,7 +111,7 @@
 				    </li>-->
 				    <li>
 				      <div class="collapsible-header"><h5><strong>¿Qué puedo vender?</strong></h5></div>
-				      <div class="collapsible-body"><p>En la plataforma está enfocada de mostrar productos de comida que estén disponibles, se pueden vender accesorios y otros tipos de productos, queda prohibido la venta de alcohol o productos que puedan hacer daño, una de las condiciones es que es producto se puede obtener en el centro universitario o esté cerca del centro universitario. Negocios ajenos a esto no podrán vender.</p></div>
+				      <div class="collapsible-body"><p>La plataforma está enfocada de mostrar productos de comida que estén disponibles, se pueden vender accesorios y otros tipos de productos, queda prohibido la venta de alcohol o productos que puedan hacer daño, una de las condiciones es que el producto se puede obtener en el centro universitario o esté cerca del centro universitario. Negocios ajenos a esto no podrán vender.</p></div>
 				    </li>
 				    <li>
 				      <div class="collapsible-header"><h5><strong>¿Tiene límite?</strong></h5></div>
