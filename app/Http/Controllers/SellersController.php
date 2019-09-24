@@ -89,6 +89,11 @@ class SellersController extends Controller
     }
       public function show($slug){
         $seller = Sellers::where('slug','=',$slug)->firstOrFail();
+        if(Auth::check() && !(Auth::user()->id == $seller->user_id)){
+            $seller->count_visits++;
+            $seller->save();
+        }
+
         if($seller->status == 4){
             return view('seller.bloqueado');
         }

@@ -70,7 +70,7 @@
 				     <li>
 				      <div class="collapsible-header" id="buen_perfil"><h5><strong>¿Cómo hacer un buen perfil de vendedor?</strong></h5></div>
 				      <div class="collapsible-body">
-				      	<p>A continuación se muestras algunas recomendaciones para poder hacer un buen perfil.</p>
+				      	<p>A continuación se muestran algunas recomendaciones para poder hacer un buen perfil.</p>
 				      	<div class="center">
 				      		<img src="{{ asset('img/preguntas5.png') }}" alt="pregunta 5" width="200">
 				      	</div>

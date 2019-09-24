@@ -114,7 +114,7 @@
     <nav>
         <div class="nav-wrapper color-cut">
             
-          <a href="{{ route('home') }}" class="brand-logo center">VentasUni</a>
+          <a href="{{ route('welcome') }}" class="brand-logo center">VentasUni</a>
           <div class=" hide-on-large-only">
           <a  class="search @yield('withsearch')  brand-logo right searchbtn" ><i class="white-text material-icons ">search</i></a>
             
@@ -122,7 +122,7 @@
           <a href="#" data-target="mobile-nav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
           <ul class="left hide-on-med-and-down">
             <!--<li><a href="{{route('categorias.index')}}"><i class="material-icons left">view_module</i>Categorias</a></li>-->
-            <li><a href="{{route('categorias.index') }}"><i class="material-icons left">view_module</i>Categorias</a></li>
+            <li><a href="{{route('home') }}"><i class="material-icons left">view_module</i>Menu</a></li>
               <li>    
                    
                       

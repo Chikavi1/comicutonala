@@ -99,6 +99,7 @@ document.oncontextmenu = function(){return false}
 					<!-- <a href="{{ route('items.creando',$seller->id) }}" class="btn center-align btn-block color-cut">Agregar Productos</a> -->
 				</div>
 			</div>
+			<p class="center-align">Total visitas: {{ $seller->count_visits }}</p>
 			@endif
 
 

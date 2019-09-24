@@ -23,7 +23,7 @@ El objeto de los presentes TÉRMINOS Y CONDICIONES es regular el acceso y la uti
 ventasuni.com
 <p>
 	
-El TITULAR se reserva la facultad de modificar en cualquier momento y sin previo aviso, la presentación, los contenidos, la funcionalidad, los productos, los servicios, y la configuración que pudiera estar contenida en el SITIO WEB; en este sentido, el USUARIO reconoce y acepta que <strong>Luis Francisco Rojas Diaz</strong> en cualquier momento podrá interrumpir, desactivar o cancelar cualquiera de los elementos que conforman el SITIO WEB o el acceso a los mismos.
+El TITULAR se reserva la facultad de modificar en cualquier momento y sin previo aviso, la presentación, los contenidos, la funcionalidad, los productos, los servicios, y la configuración que pudiera estar contenida en el SITIO WEB; en este sentido, el USUARIO reconoce y acepta que <strong>EL TITULAR</strong> en cualquier momento podrá interrumpir, desactivar o cancelar cualquiera de los elementos que conforman el SITIO WEB o el acceso a los mismos.
 </p>
 <p>
 	
@@ -34,11 +34,11 @@ El acceso a parte de los contenidos y servicios del SITIO WEB podrá realizarse 
 </p>
 <p>
 	
-El SITIO WEB se encuentra dirigido exclusivamente a personas que cuenten con la mayoría de edad (mayores de 18 años); en este sentido,<strong>Luis Francisco Rojas Diaz</strong> declina cualquier responsabilidad por el incumplimiento de este requisito.
+El SITIO WEB se encuentra dirigido exclusivamente a personas que cuenten con la mayoría de edad (mayores de 18 años); en este sentido,<strong>EL TITULAR</strong> declina cualquier responsabilidad por el incumplimiento de este requisito.
 </p>
 <p>
 	
-El SITIO WEB está dirigido principalmente a USUARIOS residentes en la República Mexicana, por lo cual, <strong>Luis Francisco Rojas Diaz</strong> no asegura que el SITIO WEB cumpla total o parcialmente con la legislación de otros países, de forma que, si el USUARIO reside o tiene su domicilio establecido en otro país y decide acceder o utilizar el SITIO WEB lo hará bajo su propia responsabilidad y deberá asegurarse de que tal acceso y navegación cumple con la legislación local que le es aplicable, no asumiendo a <strong>Luis Francisco Rojas Diaz</strong> ninguna responsabilidad que se pueda derivar de dicho acto.
+El SITIO WEB está dirigido principalmente a USUARIOS residentes en la República Mexicana, por lo cual, <strong>EL TITULAR</strong> no asegura que el SITIO WEB cumpla total o parcialmente con la legislación de otros países, de forma que, si el USUARIO reside o tiene su domicilio establecido en otro país y decide acceder o utilizar el SITIO WEB lo hará bajo su propia responsabilidad y deberá asegurarse de que tal acceso y navegación cumple con la legislación local que le es aplicable, no asumiendo a <strong>EL TITULAR</strong> ninguna responsabilidad que se pueda derivar de dicho acto.
 </p>
 <p>
 Se hace del conocimiento del USUARIO que el TITULAR podrá administrar o gestionar el SITIO WEB de manera directa o a través de un tercero, lo cual no modifica en ningún sentido lo establecido en los presentes TÉRMINOS Y CONDICIONES.
@@ -58,10 +58,10 @@ Así mismo, el usuario se compromete a proporcionar información lícita y veraz
 </p>
 <p>
 	
-<strong>Luis Francisco Rojas Diaz</strong> se reserva el derecho de retirar todos aquellos comentarios y aportaciones que vulneren la ley, el respeto a la dignidad de la persona, que sean discriminatorios, atenten contra los derechos de tercero o el orden público, o bien, que a su juicio no resulten adecuados para su publicación.
+<strong>EL TITULAR</strong> se reserva el derecho de retirar todos aquellos comentarios y aportaciones que vulneren la ley, el respeto a la dignidad de la persona, que sean discriminatorios, atenten contra los derechos de tercero o el orden público, o bien, que a su juicio no resulten adecuados para su publicación.
 </p>
 <p>
-En cualquier caso, <strong>Luis Francisco Rojas Diaz</strong>  no será responsable de las opiniones vertidas por los USUARIOS a través de comentarios o publicaciones que estos realicen.
+En cualquier caso, <strong>EL TITULAR</strong>  no será responsable de las opiniones vertidas por los USUARIOS a través de comentarios o publicaciones que estos realicen.
 </p>
 <p>
 	
@@ -74,15 +74,15 @@ Al tratarse de un SITIO WEB dirigido exclusivamente a personas que cuenten con l
 <h5>III. DEL ACCESO Y NAVEGACIÓN EN EL SITIO WEB.</h5>
 <p>
 	
-El TITULAR no garantiza de ningún modo la continuidad y disponibilidad de los contenidos, productos o servicios ofrecidos a través del SITIO WEB, no obstante, el TITULAR llevará a cabo las acciones que de acuerdo a sus posibilidades le permitan mantener el buen funcionamiento del SITO WEB, sin que esto suponga alguna responsabilidad de parte de <strong>Luis Francisco Rojas Diaz</strong>
+El TITULAR no garantiza de ningún modo la continuidad y disponibilidad de los contenidos, productos o servicios ofrecidos a través del SITIO WEB, no obstante, el TITULAR llevará a cabo las acciones que de acuerdo a sus posibilidades le permitan mantener el buen funcionamiento del SITO WEB, sin que esto suponga alguna responsabilidad de parte de <strong>EL TITULAR</strong>
 </p>
 <p>
 	
-De igual forma <strong>Luis Francisco Rojas Diaz</strong>  no será responsable ni garantiza que el contenido o software al que pueda accederse a través del SITIO WEB, se encuentre libre de errores, software malicioso, o que pueda causar algún daño a nivel de software o hardware en el equipo a través del cual el USUARIO accede al SITIO WEB.
+De igual forma <strong>EL TITULAR</strong>  no será responsable ni garantiza que el contenido o software al que pueda accederse a través del SITIO WEB, se encuentre libre de errores, software malicioso, o que pueda causar algún daño a nivel de software o hardware en el equipo a través del cual el USUARIO accede al SITIO WEB.
 </p>
 <p>
 	
-El TITULAR tampoco se hace responsable de los daños que pudiesen ocasionarse por un uso inadecuado del SITIO WEB. En ningún caso <strong>Luis Francisco Rojas Diaz</strong>  será responsable por las pérdidas, daños o perjuicios de cualquier tipo que surjan por el sólo acceso o utilización del SITIO WEB.
+El TITULAR tampoco se hace responsable de los daños que pudiesen ocasionarse por un uso inadecuado del SITIO WEB. En ningún caso <strong>EL TITULAR</strong>  será responsable por las pérdidas, daños o perjuicios de cualquier tipo que surjan por el sólo acceso o utilización del SITIO WEB.
 </p>
 
 <h5>IV. POLÍTICA DE PRIVACIDAD Y PROTECCIÓN DE DATOS.</h5>
@@ -107,11 +107,11 @@ ventasuni.com/aviso_de_privacidad
 
 
 <p>
-El SITIO WEB podrá incluir hipervínculos o enlaces que permitan acceder a páginas web de terceros distintos de <strong>Luis Francisco Rojas Diaz</strong>. Los titulares de dichos sitios web dispondrán de sus propias políticas de privacidad y protección de datos, por lo cual <strong>Luis Francisco Rojas Diaz</strong> no asume ningún tipo de responsabilidad por los datos que sean facilitados por el USUARIO a través de cualquier sitio web distinto a ventasuni.com.
+El SITIO WEB podrá incluir hipervínculos o enlaces que permitan acceder a páginas web de terceros distintos de <strong>EL TITULAR</strong>. Los titulares de dichos sitios web dispondrán de sus propias políticas de privacidad y protección de datos, por lo cual <strong>EL TITULAR</strong> no asume ningún tipo de responsabilidad por los datos que sean facilitados por el USUARIO a través de cualquier sitio web distinto a ventasuni.com.
 </p>
 <p>
 	
-<strong>Luis Francisco Rojas Diaz</strong> se reserva el derecho a modificar su Política de Privacidad, de acuerdo a sus necesidades o derivado de algún cambio en la legislación. El acceso o utilización del SITIO WEB después de dichos cambios, implicará la aceptación de estos cambios.
+<strong>EL TITULAR</strong> se reserva el derecho a modificar su Política de Privacidad, de acuerdo a sus necesidades o derivado de algún cambio en la legislación. El acceso o utilización del SITIO WEB después de dichos cambios, implicará la aceptación de estos cambios.
 </p>
 
 <p>
@@ -140,14 +140,14 @@ El SITIO WEB puede contener enlaces, contenidos, servicios o funciones, de otros
 </p>
 <p>
 	
-La utilización de estos enlaces, contenidos, servicios o funciones, tiene por objeto mejorar la experiencia del USUARIO al hacer uso del SITIO WEB, sin que pueda considerarse una sugerencia, recomendación o invitación para hacer uso de sitios <externos class="strong">Luis Francisco Rojas Diaz</externos> en ningún caso revisará o controlará el contenido de los sitios externos, de igual forma, no hace propios los productos, servicios, contenidos, y cualquier otro material existente en los referidos sitios enlazados; por lo cual, tampoco se garantizará la disponibilidad, exactitud, veracidad, validez o legalidad de los sitios externos a los que se pueda tener acceso a través del SITIO WEB. Así mismo, el TITULAR no asume ninguna responsabilidad por los daños y perjuicios que pudieran producirse por el acceso o uso, de los contenidos, productos o servicios disponibles en los sitios web no gestionados por <strong>Luis Francisco Rojas Diaz</strong> a los que se pueda acceder mediante el SITIO WEB.
+La utilización de estos enlaces, contenidos, servicios o funciones, tiene por objeto mejorar la experiencia del USUARIO al hacer uso del SITIO WEB, sin que pueda considerarse una sugerencia, recomendación o invitación para hacer uso de sitios <externos class="strong">EL TITULAR</externos> en ningún caso revisará o controlará el contenido de los sitios externos, de igual forma, no hace propios los productos, servicios, contenidos, y cualquier otro material existente en los referidos sitios enlazados; por lo cual, tampoco se garantizará la disponibilidad, exactitud, veracidad, validez o legalidad de los sitios externos a los que se pueda tener acceso a través del SITIO WEB. Así mismo, el TITULAR no asume ninguna responsabilidad por los daños y perjuicios que pudieran producirse por el acceso o uso, de los contenidos, productos o servicios disponibles en los sitios web no gestionados por <strong>EL TITULAR</strong> a los que se pueda acceder mediante el SITIO WEB.
 </p>
 <h5>
 VI. POLÍTICA EN MATERIA DE PROPIEDAD INTELECTUAL E INDUSTRIAL.
 </h5>
 <p>
 	
-<strong>Luis Francisco Rojas Diaz</strong> por sí o como parte cesionaria, es titular de todos los derechos de propiedad intelectual e industrial del SITIO WEB, entendiendo por este el código fuente que hace posible su funcionamiento así como las imágenes, archivos de audio o video, logotipos, marcas, combinaciones de colores, estructuras, diseños y demás elementos que lo distinguen. Serán, por consiguiente, protegidas por la legislación mexicana en materia de propiedad intelectual e industrial, así como por los tratados internacionales aplicables. Por consiguiente, queda expresamente prohibida la reproducción, distribución, o difusión de los contenidos del SITIO WEB, con fines comerciales, en cualquier soporte y por cualquier medio, sin la autorización de <strong>Luis Francisco Rojas Diaz</strong>.
+<strong>EL TITULAR</strong> por sí o como parte cesionaria, es titular de todos los derechos de propiedad intelectual e industrial del SITIO WEB, entendiendo por este el código fuente que hace posible su funcionamiento así como las imágenes, archivos de audio o video, logotipos, marcas, combinaciones de colores, estructuras, diseños y demás elementos que lo distinguen. Serán, por consiguiente, protegidas por la legislación mexicana en materia de propiedad intelectual e industrial, así como por los tratados internacionales aplicables. Por consiguiente, queda expresamente prohibida la reproducción, distribución, o difusión de los contenidos del SITIO WEB, con fines comerciales, en cualquier soporte y por cualquier medio, sin la autorización de <strong>EL TITULAR</strong>.
 </p>
 <p>
 	
@@ -159,7 +159,7 @@ Por otro lado, el USUARIO, se abstendrá de suprimir, alterar, o manipular cualq
 </p>
 <p>
 	
-En caso de que el USUARIO o algún tercero consideren que cualquiera de los contenidos del SITIO WEB suponga una violación de los derechos de protección de la propiedad industrial o intelectual, deberá comunicarlo inmediatamente a  <strong>Luis Francisco Rojas Diaz</strong>  a través de los datos de contacto disponibles en el propio SITIO WEB y/o a través de los siguientes medios:
+En caso de que el USUARIO o algún tercero consideren que cualquiera de los contenidos del SITIO WEB suponga una violación de los derechos de protección de la propiedad industrial o intelectual, deberá comunicarlo inmediatamente a  <strong>EL TITULAR</strong>  a través de los datos de contacto disponibles en el propio SITIO WEB y/o a través de los siguientes medios:
 </p>
 
 <div class="padding">	
@@ -169,9 +169,9 @@ En caso de que el USUARIO o algún tercero consideren que cualquiera de los cont
 
 <h5>VII. LEGISLACIÓN Y JURISDICCIÓN APLICABLE.</h5>
 
-<strong>Luis Francisco Rojas Diaz</strong> se reserva la facultad de presentar las acciones civiles o penales que considere necesarias por la utilización indebida del SITIO WEB, sus contenidos, productos o servicios, o por el incumplimiento de los presentes TÉRMINOS Y CONDICIONES.	
+<strong>EL TITULAR</strong> se reserva la facultad de presentar las acciones civiles o penales que considere necesarias por la utilización indebida del SITIO WEB, sus contenidos, productos o servicios, o por el incumplimiento de los presentes TÉRMINOS Y CONDICIONES.	
 
-La relación entre el USUARIO y <strong>Luis Francisco Rojas Diaz</strong> se regirá por la legislación vigente en México, específicamente en Jalisco. De surgir cualquier controversia en relación a la interpretación y/o a la aplicación de los presentes TÉRMINOS Y CONDICIONES, las partes se someterán a la jurisdicción ordinaria de los tribunales que correspondan conforme a derecho en el estado al que se hace referencia.
+La relación entre el USUARIO y <strong>EL TITULAR</strong> se regirá por la legislación vigente en México, específicamente en Jalisco. De surgir cualquier controversia en relación a la interpretación y/o a la aplicación de los presentes TÉRMINOS Y CONDICIONES, las partes se someterán a la jurisdicción ordinaria de los tribunales que correspondan conforme a derecho en el estado al que se hace referencia.
 		</div>
 	</div>
 @endsection
