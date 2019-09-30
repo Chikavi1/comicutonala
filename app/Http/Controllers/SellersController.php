@@ -149,7 +149,6 @@ class SellersController extends Controller
         
         $seller->title = $request->get('title');
         $seller->description = $request->get('description');
-        $seller->category = $request->get('category');
         $seller->cellphone = $request->get('cellphone');
         $seller->salon = $request->get('salon');
         $seller->available = $request->get('available');
