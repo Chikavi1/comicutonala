@@ -101,8 +101,7 @@ document.oncontextmenu = function(){return false}
 			</div>
 			<p class="center-align">Total visitas: {{ $seller->count_visits }}</p>
 			@endif
-
-
+		
 			<h2 class="center-align">{{ ucfirst($seller->title) }}</h2>
 			<center>
 				
@@ -130,22 +129,10 @@ document.oncontextmenu = function(){return false}
 			<br>
 				<div class="center-align">
 					@if($seller->available == 1)
-						<p class="color-green bold available-size">
-							@if(Auth::id() ==  $seller->user_id)
-								<a href="#modalDisponible" class="btn green modal-trigger">Disponible</a>
-							@else
-								Disponible
-							@endif	
-						</p>
+						<p class="color-green bold available-size">Disponible</p>
 
 					@elseif($seller->available == 0)
-						<p class="red-text bold available-size">
-							@if(Auth::id() ==  $seller->user_id)
-								<a href="#modalDisponible" class="btn red modal-trigger">No disponible</a>
-							@else
-								No Disponible
-							@endif	
-						</p>
+						<p class="red-text bold available-size">No disponible</p>
 					@endif
 				@if($seller->verification)
 				<p>

@@ -143,11 +143,12 @@ class SellersController extends Controller
 
      
         $schedule = $request->get('inicia')." - ".$request->get('finaliza');
-
+         if($request->category){
+            $seller->category = $category;
+        }
         
         $seller->title = $request->get('title');
         $seller->description = $request->get('description');
-        $seller->category = $request->get('category');
         $seller->cellphone = $request->get('cellphone');
         $seller->salon = $request->get('salon');
         $seller->available = $request->get('available');
