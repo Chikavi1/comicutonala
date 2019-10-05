@@ -1,6 +1,6 @@
 {
-  "name": "ComiCut",
-  "short_name": "ComiCut de la Universidad de Guadalajara",
+  "name": "VentasUni",
+  "short_name": "VentasUni",
   "start_url": "/",
   "background_color": "#17202f",
  "display": "standalone",
