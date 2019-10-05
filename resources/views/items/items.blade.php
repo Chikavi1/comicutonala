@@ -6,8 +6,9 @@ $(document).ready(function(){
   });
 </script>
 
-
-
+<style>
+	.modal { width: 95% !important ; height: 100% !important ; }
+</style>
 <div class="row">
 	<div class="col s8 offset-s2  offset-m5">
 
@@ -51,21 +52,29 @@ $(document).ready(function(){
 				<img class="responsive-img hide-on-med-and-up" src="{{ Storage::url($item->image) }}">
 
 
-		    	<div class="row">	
+		    	<div class="row" style="background: #f0f4f8;">	
 		    		<div class="col m6 s12 border-right" >
 		      			<img class="responsive-img hide-on-small-only" width="600" src="{{Storage::url($item->image)}}">
 		    		</div>
-		    		<div class="col m6 s12">
+		    		<div class="col m6 s12" >
 		    			<h4 class="center-align bold">{{ ucfirst($item->title) }}</h4>
 		    			<hr>
-		    			<div class="padding center-align">
-		    				<p class="bold">Categoria:</p>
-							<p >{{$item->category}} </p>
+		    			<div class="padding center-align" > 
+		    				<div class="row">
+		    					<div class="col s6">
+		    						<p class="bold">Categoria:</p>
+									<p >{{$item->category}} </p>
+		    					</div>
+		    					<div class="col s6">
+		    						<p class="bold">Disponibilidad:</p>
+									<p>{{ $item->available }}</p>
+		    					</div>
+		    				</div>
+							<p class="color-green center-align bold pricing-size">$ {{$item->pricing}} MXN</p>
+		    				
 							<p class="bold">Descripción:</p>
 							<p>{!! $item->description !!}</p>
-							<p class="bold">Disponibilidad:</p>
-							<p>{{ $item->available }}</p>
-							<p class="color-green center-align bold pricing-size">$ {{$item->pricing}} MXN</p>
+							
 		    			</div >
 					    </div>
 		    		</div>

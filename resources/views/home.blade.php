@@ -26,12 +26,14 @@
         <h4 class="center-align">Menu</h4>
        <ul class="collection   w-border ">
           <li class="collection-item color-cut  w-border"><a class="white-text" href="{{ route('profile') }}"> Perfil </a></li>
+           <li class="collection-item color-cut  w-border"><a class="white-text" href="{{ route('gratis') }}"> Comida Gratis </a></li>
           <li class="collection-item color-cut  w-border"><a class="white-text" href="{{ route('categorias.index') }}"> Categorias </a></li>
           <li class="collection-item color-cut  w-border"><a class="white-text" href="{{ route('busqueda') }}"> Buscador </a></li>
           <li class="collection-item color-cut  w-border"><a class="white-text" href="{{ route('random') }}"> Comida aleatoria</a> </li>
           <li class="collection-item color-cut  w-border"><a class="white-text" href="{{ route('home') }}"> Reportes </a></li>
-          <li class="collection-item color-cut  w-border"><a class="white-text" href="{{ route('bot') }}"> Recomendaciones </a></li>
-          <li class="collection-item color-cut  w-border"><a class="white-text" href="{{ route('home') }}"> Buscador </a></li>
+          <li class="collection-item color-cut  w-border"><a class="white-text" href="{{ route('bot') }}"> Bot </a></li>
+          <li class="collection-item color-cut  w-border"><a class="white-text" href="{{ route('preguntas') }}"> Recomendaciones </a></li>
+          <li class="collection-item color-cut  w-border"><a class="white-text" href="{{ route('terminos') }}"> Terminos </a></li>
 
         </ul>
     </div>
@@ -40,14 +42,6 @@
         <div class="container">
             
         <div class="row padding ">
-            <a class="white-text"  href="{{ route('seller.create') }}">
-            <div class="col m5 s12 card box-small center hoverable  " style="margin: .6em;background: #185C29;">
-                <div class="padding">
-                    <i class="fas fa-money-check-alt fa-2x"></i>
-                    <p class="bold">Vender</p>
-                </div>
-            </div>
-            </a>
             <a class="white-text" href="{{ route('welcome') }}">
             <div class="col m5 s12 card box-small center  hoverable" style="margin: .6em;background: #2660A4;">
             <div class="padding">
@@ -56,19 +50,28 @@
                 </div>
             </div>
             </a>
-            <a class="white-text"  href="">
+             <a class="white-text"  href="{{ route('gratis')}}">
             <div class="col m5 s12 card box-small center  hoverable" style="margin: .6em;background: #2D3A3A;">
                 <div class="padding">
                     <i class="fas fa-university fa-2x"></i>
-                    <p class="bold">Mostrar los centros</p>
+                    <p class="bold">Comida Gratis</p>
                 </div>
             </div>
             </a>
-            <a  class="white-text" href="">
+            <a class="white-text"  href="{{ route('seller.create') }}">
+            <div class="col m5 s12 card box-small center hoverable  " style="margin: .6em;background: #185C29;">
+                <div class="padding">
+                    <i class="fas fa-money-check-alt fa-2x"></i>
+                    <p class="bold">Vender</p>
+                </div>
+            </div>
+            </a>
+           
+            <a  class="white-text" href="{{ route('gratis')}}">
              <div class="col m5 s12 card box-small center  hoverable" style="margin: .6em;background: #6B0504;">
                  <div class="padding">
                     <i class="fas fa-money-check-alt fa-2x"></i>
-                    <p class="bold">salir</p>
+                    <p class="bold">Comida Gratis</p>
                 </div>
             </div>
             </a>

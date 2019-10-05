@@ -147,48 +147,6 @@ document.oncontextmenu = function(){return false}
 
 <div>
 
-<div id="modalDisponible" class="modal modal-fixed-footer">
-	<div class="modal-content" style="margin:0;">
-				<h4>Vendedor</h4>
-				<div class="row">
-					<div class="col s6 m9">
-						Disponible
-					</div>
-					<div class="col s6 m3">
-						<div class="switch">
-					    <label>
-					      No
-					      <input type="checkbox">
-					      <span class="lever"></span>
-					      Si
-					    </label>
-					  </div>
-					</div>
-				</div>
-				<h4>Productos</h4>
-				@foreach($items as $item)
-				<div class="row">
-					<div class="col s6 m9">
-						{{$item->title}}
-					</div>
-					<div class="col s6 m3">
-						<div class="switch">
-					    <label>
-					      No
-					      <input type="checkbox">
-					      <span class="lever"></span>
-					      Si
-					    </label>
-					  </div>
-					</div>
-				</div>
-				@endforeach
-	</div>
-
-	<div class="modal-footer"  >
-	    <a href="#!" class="modal-close waves-effect waves-green btn-flat">Cerrar</a>
-	</div>
-</div>
 
 	
 
