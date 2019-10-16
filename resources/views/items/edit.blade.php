@@ -100,7 +100,7 @@ option#nodis{
                  <button type="submit" class="btn btn-block color-cut">Editar</button>
 				<div class="center-align">
 				 <p>ó</p>
-                 <a href="#modal1" class="red-text waves-effect waves-red btn-flat modal-trigger ">Eliminar</a>
+	                 <a href="#modal1" class="red-text waves-effect waves-red btn-flat modal-trigger ">Eliminar</a>
 				</div>
 				</form>
 			

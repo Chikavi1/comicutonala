@@ -115,7 +115,6 @@ class HomeController extends Controller
                     ->update(['password' => bcrypt($request->password)]);
                 return redirect('profile')->with('success','Se actualizo la contraseña.');
             }else{
-                dd("valio madre raza");
                 return redirect()->route('profile.password')->with('message','datos incorrectos');
             }
         }

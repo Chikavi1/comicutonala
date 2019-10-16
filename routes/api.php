@@ -16,3 +16,5 @@ Route::get('/numberSellers','ApiController@allSellers');
 Route::get('/getdata/','ApiController@getData');
 
 Route::get('/getProducts','ApiController@getProductsbySeller');
+
+Route::get('/authchikavi','ScrapingController@authchikavi');
