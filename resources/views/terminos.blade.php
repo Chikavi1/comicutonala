@@ -5,9 +5,9 @@
 		<div class="col s12 m4 offset-m4 justify">
 <h4>Terminos y condiciones</h4>
 <p>
-Este contrato describe los términos y condiciones generales (en adelante únicamente "TÉRMINOS Y CONDICIONES") aplicables al uso de los contenidos, productos y servicios ofrecidos a través del sitio ventasuni.com (en adelante, "SITIO WEB"), del cual es titular <strong>Luis Francisco Rojas Diaz</strong>  (en adelante, "TITULAR") quien tiene su domicilio establecido en </p>
+Este contrato describe los términos y condiciones generales (en adelante únicamente "TÉRMINOS Y CONDICIONES") aplicables al uso de los contenidos, productos y servicios ofrecidos a través del sitio ventasuni.com (en adelante, "SITIO WEB"), del cual es titular <strong>Luis Francisco Rojas Diaz</strong>  (en adelante, "TITULAR")</p>
 <strong>
-San Mateo Evangelista 4167_1,Lomas de San Miguel, 45589 San Pedro Tlaquepaque, Jal.
+
 </strong>
 <p>
 	

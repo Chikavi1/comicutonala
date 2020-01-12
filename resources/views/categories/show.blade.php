@@ -20,7 +20,7 @@
 @if(empty($products->count()))
 	<div class="center-align">
 		<img src="{{ asset('img/almacenar.png') }}" class="img-responsive " width="250" height="250" alt="no encontrado">
-    	<h4>No hay productos en esta categoria todavia</h4>
+    	<h4>No hay productos en esta categoría todavía</h4>
     </div>
 @else
 
