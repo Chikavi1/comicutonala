@@ -23,17 +23,16 @@
     }
     .btn-login{
         width: 12em;
+        height: 3em;
         background: #2660A4;
     }
-    input:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0px 1000px #fff inset;
-}
+
 </style>
 
 <div class="container">
     <div class="row ">
         <div class="col offset-m3 m7 s12">
-            <div class="card " style="background-color: rgba(0, 0, 0, 0.7);border: 7px solid white;" >
+            <div class="card " style="background-color: rgba(0, 0, 0, 0.9);border: 7px solid white;" >
             <div class="center">
                 
                <h2 class="center" style="color:white;">Entrar</h2>
@@ -78,7 +77,7 @@
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
                                     <label class="form-check-label" for="remember">
-                                        Recordarme
+                                        <!--Recordarme-->
                                     </label>
                                 </div>
                             </div>
@@ -98,7 +97,7 @@
                                 <br>        
                                 <div class="row">
                                   
-                                <a href="{{ route('register') }}" class="btn-link white-text" > Registrarme</a>
+                                <a href="{{ route('register') }}" class="btn-link white-text " style="font-size: 1.3em;" > Registrarme</a>
                                 </div>
                         </div>
                     </form>
