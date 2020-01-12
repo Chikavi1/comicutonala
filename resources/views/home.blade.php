@@ -46,14 +46,14 @@
             <div class="col m5 s12 card box-small center  hoverable" style="margin: .6em;background: #2660A4;">
             <div class="padding">
                     <i class="fas fa-chalkboard-teacher fa-2x"></i>
-                    <p class="bold">Ir a catalogo</p>
+                    <p class="bold">Catalogo</p>
                 </div>
             </div>
             </a>
              <a class="white-text"  href="{{ route('gratis')}}">
             <div class="col m5 s12 card box-small center  hoverable" style="margin: .6em;background: #2D3A3A;">
                 <div class="padding">
-                    <i class="fas fa-university fa-2x"></i>
+                    <i class="fas fa-coffee fa-2x" aria-hidden="true"></i>
                     <p class="bold">Comida Gratis</p>
                 </div>
             </div>
@@ -67,11 +67,11 @@
             </div>
             </a>
            
-            <a  class="white-text" href="{{ route('gratis')}}">
+            <a  class="white-text" href="{{ route('preguntas')}}">
              <div class="col m5 s12 card box-small center  hoverable" style="margin: .6em;background: #6B0504;">
                  <div class="padding">
-                    <i class="fas fa-money-check-alt fa-2x"></i>
-                    <p class="bold">Comida Gratis</p>
+                    <i class="fas fa-question fa-2x"></i>
+                    <p class="bold">Preguntas frecuentes</p>
                 </div>
             </div>
             </a>
