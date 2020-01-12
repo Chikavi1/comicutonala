@@ -18,3 +18,6 @@ Route::get('/getdata/','ApiController@getData');
 Route::get('/getProducts','ApiController@getProductsbySeller');
 
 Route::get('/authchikavi','ScrapingController@authchikavi');
+
+Route::get('getbyId/{id}','ApiController@getSellerById');
+Route::get('saluda','ApiController@saluda');

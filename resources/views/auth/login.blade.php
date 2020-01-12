@@ -40,7 +40,7 @@
 
                 
                     <form method="POST" action="{{ route('login') }}">
-                        @csrf
+                        {{ @csrf_field() }}
 
                         <div class="form-group row padding-1">
                             <label for="email" class="col-sm-4 col-form-label text-md-right">Correo</label>

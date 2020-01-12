@@ -20,6 +20,15 @@ class Apicontroller extends Controller
 			return $vendedores;
     }
 
+    public function getSellerById($id){
+		$data = \DB::select("call C1($id)", array($id));
+		return $data;		
+    }
+
+    public function saluda(){
+    	$data = \DB::select("SELECT saluda('luis','rojas')");
+    	return $data;
+    }
     public function getseller()
     {
     	$vendedores = Sellers::inRandomOrder()->limit(1)->get();
