@@ -27,7 +27,7 @@
         </div>
       </li>
       <li>
-        <img src="https://lorempixel.com/580/250/nature/4"> <!-- random image -->
+        <img src="https://ibb.co/3Bvn5Dz"> <!-- random image -->
         <div class="caption center-align">
           <h3>¡Gracias!</h3>
           <h5 class="light grey-text text-lighten-3"></h5>
