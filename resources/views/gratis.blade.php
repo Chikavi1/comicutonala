@@ -27,7 +27,7 @@
         </div>
       </li>
       <li>
-        <img src="https://ibb.co/3Bvn5Dz"> <!-- random image -->
+        <img src="https://i.ibb.co/Lnr3DL5/cut.jpg"> <!-- random image -->
         <div class="caption center-align">
           <h3>¡Gracias!</h3>
           <h5 class="light grey-text text-lighten-3"></h5>
