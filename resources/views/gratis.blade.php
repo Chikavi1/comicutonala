@@ -8,8 +8,8 @@
       <li>
         <img src="{{ asset('img/hamburguesas.jpg') }}"> <!-- random image -->
         <div class="caption center-align">
-          <h3 class="bold">¡Nuestros Aliados!</h3>
-          <h5 class="green-text bold" >Agradecemos su acción.</h5>
+          <h3 class="bold"></h3>
+          <h5 class="white-text bold" >¡Nuestros Aliados!</h5>
         </div>
       </li>
       <li>
