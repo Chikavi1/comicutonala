@@ -8,28 +8,28 @@
       <li>
         <img src="{{ asset('img/hamburguesas.jpg') }}"> <!-- random image -->
         <div class="caption center-align">
-          <h3>¡Nuestros Aliados!</h3>
+          <h3 class="bold">¡Nuestros Aliados!</h3>
           <h5 class="light grey-text text-lighten-3">Agradecemos su acción.</h5>
         </div>
       </li>
       <li>
         <img src="{{ asset('img/bebidas.jpg') }}"> <!-- random image -->
         <div class="caption left-align">
-          <h3>Maya</h3>
+          <h3 class="bold">Maya</h3>
           <h5 class="light grey-text text-lighten-3"></h5>
         </div>
       </li>
       <li>
         <img src="{{ asset('img/hamburguesas.jpg') }}"> <!-- random image -->
         <div class="caption right-align">
-          <h3>Chico pay</h3>
+          <h3 class="bold">Chico pay</h3>
           <h5 class="light grey-text text-lighten-3"></h5>
         </div>
       </li>
       <li>
         <img src="https://i.ibb.co/Lnr3DL5/cut.jpg"> <!-- random image -->
         <div class="caption center-align">
-          <h3>¡Gracias!</h3>
+          <h3 style="color:#17202F;font-weight: bold;">¡Gracias!</h3>
           <h5 class="light grey-text text-lighten-3"></h5>
         </div>
       </li>
@@ -57,6 +57,9 @@
 	margin:2em 1.4em ;
 	padding: 1em;
 	color:white;
+}
+.bold{
+	font-weight: bold;
 }
 </style>
 
