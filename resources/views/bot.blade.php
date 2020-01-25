@@ -34,7 +34,8 @@
 <div class="row ">
   <div class="col s12 animated zoomIn delay-1s center-align ">
     <h4 class="bold">¿Cómo utilizar el Bot?</h4>
-    <p class="container justify"> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae dolore delectus iure, ex amet, tenetur ab harum possimus magnam, porro itaque ipsa aut reprehenderit fuga optio, tempore. Debitis unde quae voluptates, consequuntur expedita ab omnis error, quis, explicabo enim assumenda sit? Consectetur enim nemo atque ipsa architecto id, quasi earum quod necessitatibus. Incidunt saepe dolores voluptates. Nobis dolore beatae repellat, error! .</p>
+    <p class="container justify" style="text-align: justify;"> Primero que nada, ¿que son los bot? los bots son un software que imitan el comportamiento humano, el usuario podra mandarle ciertos mensajes y el bot podra interpretarlo, este bot sirve en la plataforma Messenger de Facebook. <br> Esto es con la finalidad de que el usuario pueda encontrar la información de los vendedores de una forma más amigable y fácil<br>
+   El bot aún no se encuentra disponible, pero en cuanto esté disponible podrán mandarle un mensaje, los mensajes que podrán mandarle se encuentra en la parte de abajo.</p>
     <img src="{{ asset('img/em1.png') }}" alt="" class="responsive-img">
   </div>
 </div>
