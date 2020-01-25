@@ -15,8 +15,9 @@
 	<div class="col m3 animated p2 bounceIn">
 		
       <div class="card-panel teal">
-        <span class="white-text " style="text-align: justify !important;">¡Ahora tambien puedes encontrar mas categorias,no solo hay comida! <br> Explora y encuentra mas categorias como Ropa,accesorios para celular,renta de cuartos y más.
+        <span class="white-text " style="font-weight:bold;text-align: justify !important;">¡Ahora tambien puedes encontrar mas categorias,no solo hay comida! <br> 
         </span> 
+        	<span style="color:white;">Explora y encuentra mas categorias como servicios.</span>
   </div>
 	</div>	
 

@@ -4,7 +4,7 @@
           <div class="container">
             <div class="row">
               <div class="col m4 s12">
-                <h5 class="footer-text-color">ComiCUT</h5>
+                <h5 class="footer-text-color">VentasUni</h5>
                 <p class="  udg-text">Esta pagina fue creada para los estudiantes que dia a dia se ganan su propio dinero vendiendo comida en el centro universitario de Tonala.</p>
               </div>
               <div class="col m4 s6 ">

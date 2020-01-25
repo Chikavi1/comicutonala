@@ -66,6 +66,13 @@
       </div>
 -->
   <div class="padding">
+    <div class="card padding">
+      
+    <a href="{{ route('gratis')}}" style="font-size: 1.5em;"><img src="https://image.flaticon.com/icons/svg/2502/2502945.svg" width="40" alt=""> ¡Comida a un universitario!</a>
+    </div>
+  </div>
+
+  <div class="padding">
   
       <div class="row valign-wrapper">
         <div class="col s9 m11">

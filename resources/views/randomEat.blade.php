@@ -27,11 +27,11 @@
 
 
   <div class="row">
-		<div class="col s12 m6 offset-m3 ">
+		<div class="col s10 offset-s1 m6 offset-m3 ">
 			<h5 class="bold" style="margin: 1em ;font-size: 2em;"> Te sugerimos </h5>
 <div class="card card-select ">
         <div class="card-image  card-image-select waves-effect waves-block waves-light">
-          <img class="activator img-responsive img-sizes"   src="{{ Storage::url($seller->image) }}" height="450">
+          <img class="activator img-responsive img-sizes"   src="{{ Storage::url($seller->image) }}" height="400">
         </div>
         <div class="card-content card-content-select color-cut ">
           <span class="card-title activator white-text center-align truncate">{{
@@ -60,8 +60,8 @@
   
     <hr>
   
-      <h5 class="bold" style="margin: 1em;">¿Te ha pasasado que no sabes que comer?</h5>
-      <p style="text-align: justify;margin:0 1em;font-size: 1.3em;">Nosotros te ayudamos, nuestro sistema escoge de manera al azar un perfil de vendedor que este disponible, esperemos algunos de los que aparezcan sean de tu agrado.</p>
+      <h5 class="bold" style="margin: 1em;">¿Te ha pasado que no sabes que comer?</h5>
+      <p style="text-align: justify;margin:0 1em;font-size: 1.3em;">Nosotros te ayudamos, nuestro sistema escoge de manera al azar un perfil de vendedor que esté disponible, esperemos algunos de los que aparezcan sean de tu agrado.</p>
 </div>
      <!-- <p class="center-align">Nuestra aplicacion te ayuda de forma aleatoria mostrandote una opcion para comer.</p>-->
 <div class="row">

@@ -29,11 +29,9 @@
            <li class="collection-item color-cut  w-border"><a class="white-text" href="{{ route('gratis') }}"> Comida Gratis </a></li>
           <li class="collection-item color-cut  w-border"><a class="white-text" href="{{ route('categorias.index') }}"> Categorias </a></li>
           <li class="collection-item color-cut  w-border"><a class="white-text" href="{{ route('busqueda') }}"> Buscador </a></li>
-          <li class="collection-item color-cut  w-border"><a class="white-text" href="{{ route('random') }}"> Comida aleatoria</a> </li>
-          <li class="collection-item color-cut  w-border"><a class="white-text" href="{{ route('home') }}"> Reportes </a></li>
+          <li class="collection-item color-cut  w-border"><a class="white-text" href="{{ route('random') }}"> Comida aleatoria</a> </li>    
           <li class="collection-item color-cut  w-border"><a class="white-text" href="{{ route('bot') }}"> Bot </a></li>
-          <li class="collection-item color-cut  w-border"><a class="white-text" href="{{ route('preguntas') }}"> Recomendaciones </a></li>
-          <li class="collection-item color-cut  w-border"><a class="white-text" href="{{ route('terminos') }}"> Terminos </a></li>
+
 
         </ul>
     </div>
