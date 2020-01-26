@@ -27,7 +27,7 @@
 
 
   <div class="row">
-		<div class="col s10 offset-s1 m6 offset-m3 ">
+		<div class="col s12 m6 offset-m3 ">
 			<h5 class="bold" style="margin: 1em ;font-size: 2em;"> Te sugerimos </h5>
 <div class="card card-select ">
         <div class="card-image  card-image-select waves-effect waves-block waves-light">
