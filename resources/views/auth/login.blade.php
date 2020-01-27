@@ -4,7 +4,7 @@
 
 <style>
     body{
-     z-index: 1;
+     z-index: 4;
      background-size: cover;
      background-image: url('http://www.cutonala.udg.mx/sites/default/files/noticias/images/autocut1.jpg');
     }
@@ -31,7 +31,7 @@
 <div class="container">
     <div class="row ">
         <div class="col offset-m3 m7 s12">
-            <div class="card " style="background-color: rgba(0, 0, 0, 0.9);border: 7px solid white;" >
+            <div class="card " style="background-color: rgba(0, 0, 0, 0.9);border: 7px solid white;z-index: 3;" >
             <div class="center">
                 
                <h2 class="center" style="color:white;">Entrar</h2>
