@@ -4,10 +4,8 @@
 
 <style>
     body{
-    z-index: 1;
+     z-index: 1;
      background-size: cover;
-     background-repeat: no-repeat;
-    background-position: left;
      background-image: url('http://www.cutonala.udg.mx/sites/default/files/noticias/images/autocut1.jpg');
     }
     #email{
