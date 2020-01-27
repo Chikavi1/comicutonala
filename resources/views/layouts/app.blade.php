@@ -262,7 +262,7 @@
             <div class="row">
               <div class="col m6 s12">
                 <h5 class="footer-text-color">VentasUni</h5>
-                <p class="  udg-text">Esta pagina fue creada para los estudiantes que día a día se ganan su propio dinero vendiendo comida u otras cosas.</p>
+                <p class="  udg-text">Esta página fue creada para los estudiantes que se ganan su propio dinero vendiendo comida en el centro universitario de Tonala.</p>
               </div>
               <div class="col m6 s12 ">
                 <h5 class="footer-text-color ">Contenido</h5>
@@ -270,7 +270,7 @@
                   <li><a class="grey-text text-lighten-3" href="{{ route('preguntas') }}">Preguntas y Respuestas</a></li>
                   <li><a class="grey-text text-lighten-3" href="#!">Acerca de VentasUni</a></li>
                   <li><a class="grey-text text-lighten-3" href="#!">Contactar al creador</a></li>
-                  <li><a class="grey-text text-lighten-3" href="{{route('terminos')}}">Terminos y condiciones</a></li>
+                  <li><a class="grey-text text-lighten-3" href="{{route('terminos')}}">Términos y condiciones</a></li>
                 </ul>
               </div>
              

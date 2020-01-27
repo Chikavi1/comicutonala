@@ -28,7 +28,7 @@ class ScrapingController extends Controller
         ->get()->count();
 
         if($codigoexiste){
-        	return response()->json(['message'=> 'error','descripcion'=>'Codigo ya Utilizado']);
+        	return response()->json(['message'=> 'error','descripcion'=>'Código ya Utilizado']);
         }
 
 
@@ -165,7 +165,7 @@ class ScrapingController extends Controller
 					
 
  	}catch(\InvalidArgumentException $e) { 
- 		return response()->json(['message'=> 'error','descripcion' => 'codigo o nip incorrectos']);  
+ 		return response()->json(['message'=> 'error','descripcion' => 'código o nip incorrectos']);  
 		return ;
 	 }
 

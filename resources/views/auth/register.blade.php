@@ -2,7 +2,7 @@
     @section('content')
     <style>
        .siiaubox{
-        border: 3px solid red;
+        border: 3px solid blue;
         color: blue;
         min-height: 15em;
         height: 20em;
@@ -88,7 +88,7 @@
 
                 <div class="col offset-m4 m4 s12 card siiaubox">
 
-                        <p class="center"><strong>Registrate con tu codigo </strong></p>
+                        <p class="center"><strong>Regístrate con tu código</strong></p>
 
                         <form method="POST">
                             {{ @csrf_field() }}
