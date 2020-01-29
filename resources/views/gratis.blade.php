@@ -68,7 +68,7 @@
 </div>
 
 
-<div class="ganadores" >
+<div class="ganadores hide" >
   	
 <h5 class="title-ganadores">Alumnos <span style="color: #09b6df;font-weight: bold;">
 	Ganadores</span></h5>
