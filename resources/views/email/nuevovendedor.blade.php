@@ -164,7 +164,7 @@
 <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 0px; padding-bottom: 10px; font-family: Arial, sans-serif"><![endif]-->
 <div style="color:#FFFFFF;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;line-height:120%;padding-top:0px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
 <div style="font-size: 12px; line-height: 14px; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; color: #FFFFFF;">
-<p style="font-size: 14px; line-height: 16px; margin: 0;"><strong><span style="font-size: 18px; line-height: 21px;">Bienvenido a ventasUni</span></strong></p>
+<p style="font-size: 14px; line-height: 16px; margin: 0;"><strong><span style="font-size: 18px; line-height: 21px;">¡Bienvenido a ventasUni!</span></strong></p>
 </div>
 </div>
 <!--[if mso]></td></tr></table><![endif]-->
@@ -208,21 +208,24 @@
 <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 5px; padding-bottom: 0px; font-family: Arial, sans-serif"><![endif]-->
 <div style="color:#2BBBB2;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;line-height:120%;padding-top:5px;padding-right:10px;padding-bottom:0px;padding-left:10px;">
 <div style="font-size: 12px; line-height: 14px; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; color: #2BBBB2;">
-<p style="font-size: 14px; line-height: 45px; margin: 0;"><span style="font-size: 38px;">Hola,{{$nombre}}!</span></p>
+<p style="font-size: 14px; line-height: 45px; margin: 0;text-align: center;"><span style="font-size: 38px;">Hola,{{$nombre}}!</span></p>
 </div>
 </div>
 <!--[if mso]></td></tr></table><![endif]-->
 <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 0px; padding-bottom: 0px; font-family: Arial, sans-serif"><![endif]-->
 <div style="color:#F4F4F4;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;line-height:150%;padding-top:0px;padding-right:10px;padding-bottom:0px;padding-left:10px;">
 <div style="font-size: 12px; line-height: 18px; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; color: #F4F4F4;">
-<p style="font-size: 14px; line-height: 33px; text-align: left; margin: 0;"><span style="font-size: 22px;">Nos complace tenerte dentro de nuestra comunidad.</span></p>
+<p style="font-size: 14px; line-height: 33px; text-align: center; margin: 0;"><span style="font-size: 22px;text-align: center;">Nos complace tenerte dentro de nuestra comunidad.</span></p>
 </div>
 </div>
 <!--[if mso]></td></tr></table><![endif]-->
 <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 5px; padding-bottom: 15px; font-family: Arial, sans-serif"><![endif]-->
 <div style="color:#F4F4F4;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;line-height:180%;padding-top:5px;padding-right:10px;padding-bottom:15px;padding-left:10px;">
 <div style="font-size: 12px; line-height: 21px; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; color: #F4F4F4;">
-<p style="font-size: 14px; line-height: 28px; text-align: left; margin: 0;"><span style="font-size: 16px;">aca debe de estar la introduccion escrita </span></p>
+<p style="font-size: 14px; line-height: 28px; text-align: justify; margin: 0;"><span style="font-size: 16px;">Quiero agradecerte personalmente por unirte a esta comunidad, espero puedas disfrutar de la plataforma, sé que cada uno de los vendedores tiene su historia, pero también sé que tienen algo en común, las ganas de salir adelante, algunos necesitan vender para pagar sus estudios, otros es su única forma de ganar algo de dinero. Valoro mucho ese esfuerzo, ese esfuerzo fue lo que me motivo a crear una plataforma de comida y poder ayudar a los vendedores y a la comunidad del Cutonala.</span></p>
+<p>	Cualquier duda que tengas no dudes en contactarme.</p>
+<br />
+<p><b>Luis Rojas, Creador de la plataforma.</b></p>
 </div>
 </div>
 <!--[if mso]></td></tr></table><![endif]-->
@@ -341,7 +344,9 @@
 <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; font-family: Arial, sans-serif"><![endif]-->
 <div style="color:#555555;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;line-height:150%;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
 <div style="font-size: 12px; line-height: 18px; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; color: #555555;">
-<p style="font-size: 14px; line-height: 21px; margin: 0;">La plataforma es muy facil de utilzar,el diseño ha sido pensado para que los vendedores puedan vender sin complicaciones.</p>
+<p style="font-size: 14px; line-height: 21px; margin: 0;">
+La plataforma es muy fácil de utilizar, el diseño ha sido pensado para que los vendedores puedan vender sin complicaciones.
+</p>
 </div>
 </div>
 <!--[if mso]></td></tr></table><![endif]-->
@@ -367,7 +372,7 @@
 <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; font-family: Arial, sans-serif"><![endif]-->
 <div style="color:#555555;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;line-height:150%;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
 <div style="font-size: 12px; line-height: 18px; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; color: #555555;">
-<p style="font-size: 14px; line-height: 21px; margin: 0;">Dentro de la plataforma los vendedores podrán anunciar sus productos.los usuarios podran saber que productos ofreces.</p>
+<p style="font-size: 14px; line-height: 21px; margin: 0;">Dentro de la plataforma los vendedores podrán anunciar sus productos. Los usuarios podrán saber que productos ofreces.</p>
 </div>
 </div>
 <!--[if mso]></td></tr></table><![endif]-->
@@ -401,7 +406,7 @@
 <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; font-family: Arial, sans-serif"><![endif]-->
 <div style="color:#555555;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;line-height:150%;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
 <div style="font-size: 12px; line-height: 18px; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; color: #555555;">
-<p style="font-size: 14px; line-height: 21px; margin: 0;">los usuarios podrán ver tus productos de forma rápida,sin tener que preguntar en el grupo.</p>
+<p style="font-size: 14px; line-height: 21px; margin: 0;">Los usuarios podrán ver tus productos de forma rápida, sin tener que preguntar en el grupo.</p>
 </div>
 </div>
 <!--[if mso]></td></tr></table><![endif]-->
@@ -420,14 +425,14 @@
 <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 0px; padding-bottom: 5px; font-family: Arial, sans-serif"><![endif]-->
 <div style="color:#2bbbb2;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;line-height:120%;padding-top:0px;padding-right:10px;padding-bottom:5px;padding-left:10px;">
 <div style="line-height: 14px; font-size: 12px; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; color: #2bbbb2;">
-<p style="line-height: 21px; font-size: 12px; margin: 0;"><span style="font-size: 18px;"><strong>Guru side center</strong></span></p>
+<p style="line-height: 21px; font-size: 12px; margin: 0;"><span style="font-size: 18px;"><strong>4.- Seguro</strong></span></p>
 </div>
 </div>
 <!--[if mso]></td></tr></table><![endif]-->
 <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; font-family: Arial, sans-serif"><![endif]-->
 <div style="color:#555555;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;line-height:150%;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
 <div style="font-size: 12px; line-height: 18px; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; color: #555555;">
-<p style="font-size: 14px; line-height: 21px; margin: 0;">Praesent mi sapien, accumsan eget mi quis, aliquet ullamcorper odio. Aliquam eu enim tempus sem tristique imperdi.</p>
+<p style="font-size: 14px; line-height: 21px; margin: 0;">La plataforma solo tendrá usuarios que son alumnos del Centro universitario de Tonalá</p>
 </div>
 </div>
 <!--[if mso]></td></tr></table><![endif]-->
@@ -454,14 +459,14 @@
 <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 0px; padding-bottom: 5px; font-family: Arial, sans-serif"><![endif]-->
 <div style="color:#2bbbb2;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;line-height:120%;padding-top:0px;padding-right:10px;padding-bottom:5px;padding-left:10px;">
 <div style="line-height: 14px; font-size: 12px; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; color: #2bbbb2;">
-<p style="line-height: 21px; font-size: 12px; margin: 0;"><span style="font-size: 18px;"><strong>Yoga-Go</strong></span></p>
+<p style="line-height: 21px; font-size: 12px; margin: 0;"><span style="font-size: 18px;"><strong>5.- Gratis</strong></span></p>
 </div>
 </div>
 <!--[if mso]></td></tr></table><![endif]-->
 <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; font-family: Arial, sans-serif"><![endif]-->
 <div style="color:#555555;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;line-height:150%;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
 <div style="font-size: 12px; line-height: 18px; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; color: #555555;">
-<p style="font-size: 14px; line-height: 21px; margin: 0;">Praesent mi sapien, accumsan eget mi quis, aliquet ullamcorper odio. Aliquam eu enim tempus sem tristique imperdi.</p>
+<p style="font-size: 14px; line-height: 21px; margin: 0;">No se les cobrara dinero, solo te pediremos que dones un alimento para que algún alumno que lo necesite.</p>
 </div>
 </div>
 <!--[if mso]></td></tr></table><![endif]-->
@@ -480,14 +485,15 @@
 <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 0px; padding-bottom: 5px; font-family: Arial, sans-serif"><![endif]-->
 <div style="color:#2bbbb2;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;line-height:120%;padding-top:0px;padding-right:10px;padding-bottom:5px;padding-left:10px;">
 <div style="line-height: 14px; font-size: 12px; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; color: #2bbbb2;">
-<p style="line-height: 21px; font-size: 12px; margin: 0;"><span style="font-size: 18px;"><strong>Meditation noob School</strong></span></p>
+<p style="line-height: 21px; font-size: 12px; margin: 0;"><span style="font-size: 18px;"><strong>6.- Siempre ahí.</strong></span></p>
 </div>
 </div>
 <!--[if mso]></td></tr></table><![endif]-->
 <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0" border="0"><tr><td style="padding-right: 10px; padding-left: 10px; padding-top: 10px; padding-bottom: 10px; font-family: Arial, sans-serif"><![endif]-->
 <div style="color:#555555;font-family:Arial, 'Helvetica Neue', Helvetica, sans-serif;line-height:150%;padding-top:10px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
 <div style="font-size: 12px; line-height: 18px; font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; color: #555555;">
-<p style="font-size: 14px; line-height: 21px; margin: 0;">Praesent mi sapien, accumsan eget mi quis, aliquet ullamcorper odio. Aliquam eu enim tempus sem tristique imperdi.</p>
+<p style="font-size: 14px; line-height: 21px; margin: 0;">Puedes conectarte desde tu celular o computadora en cualquier parte, para que siempre estes conectado.
+</p>
 </div>
 </div>
 <!--[if mso]></td></tr></table><![endif]-->

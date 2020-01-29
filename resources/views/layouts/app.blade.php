@@ -268,8 +268,8 @@
                 <h5 class="footer-text-color ">Contenido</h5>
                 <ul>
                   <li><a class="grey-text text-lighten-3" href="{{ route('preguntas') }}">Preguntas y Respuestas</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Acerca de VentasUni</a></li>
-                  <li><a class="grey-text text-lighten-3" href="#!">Contactar al creador</a></li>
+                  <li><a class="grey-text text-lighten-3" href="{{route('bot')}}">Bot</a></li>
+                  <li><a class="grey-text text-lighten-3" href="https://api.whatsapp.com/send?phone=5213327276923&text=Hola Luis, te contacto por univentas.com">Contactar al creador</a></li>
                   <li><a class="grey-text text-lighten-3" href="{{route('terminos')}}">Términos y condiciones</a></li>
                 </ul>
               </div>

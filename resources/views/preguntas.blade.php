@@ -46,6 +46,20 @@
 							</div>
 						</div>		
 				    </li>
+
+				    <li>
+				      <div class="collapsible-header"><h5><strong>¿Es gratis?</strong></h5></div>
+					    <div class="collapsible-body">
+					     El uso de la plataforma es gratis, a los vendedores no se les cobrara dinero, sin embargo se le pedirá que done uno de sus alimentos para el programa  “comida a un universitario”. Para el mantenimiento del servidor se pedirán donaciones.
+						</div>		
+				    </li>
+					 <li>
+				      <div class="collapsible-header"><h5><strong>¿Qué es el programa "comida a un universitario"?</strong></h5></div>
+				      <div class="collapsible-body"><span>El programa pretende que de forma aleatoria algunos alumnos del cutonala puedan recibir un día a la semana comida gratis, la idea es que los vendedores donen uno de sus alimentos a esta noble causa ¹
+
+¹.La plataforma no cobra dinero a los vendedores, el único requisito que le pedimos a nuestros vendedores es que done un alimento para los alumnos del Cutonala, de igual manera cualquier persona está invitada a participar en este programa</span></div>
+				    </li>
+		
 				    <li>
 				      <div class="collapsible-header"><h5><strong>¿Cómo vender?</strong></h5></div>
 				      <div class="collapsible-body">
@@ -97,10 +111,7 @@
 				      <div class="collapsible-body"><span>La plataforma funciona como un intermediario entre los vendedores y los estudiantes,la plataforma muestra los datos y su objetivo principal es poder mostrarte los perfiles de los vendedores que estan disponibles.</span></div>
 
 				    </li>
-				    <li>
-				      <div class="collapsible-header"><h5><strong>¿Cobran?</strong></h5></div>
-				      <div class="collapsible-body"><span>La plataforma no cobra dinero pero si usted quiere puede donar dinero para poder mejorar este proyecto.</span></div>
-				    </li>
+				   
 				    <li>
 				      <div class="collapsible-header"><h5><strong>¿Qué datos se guardan?</strong></h5></div>
 				      <div class="collapsible-body"><span>En la plataforma se recopilan varios datos,se guarda el <strong>código</strong> para checar que no se repitan dos usuarios con el mismo código,se guarda el <strong>centro universitario</strong> para no tener gente ajena del centro,se guarda la <strong>carrera</strong> para tener un censo,datos como el <strong class="red-text">nip</strong> u otros datos <strong class="green-text">no se guardan</strong>.ningun administrador puede entrar a su cuenta,la contraseña que usted ingrese se <strong class="green-text">encripta</strong>.</span></div>
